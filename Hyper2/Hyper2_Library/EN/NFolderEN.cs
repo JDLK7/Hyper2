@@ -13,6 +13,7 @@ namespace Hyper.EN
     {
         public static string defaultPath = @"c:\HyperDataFiles\";
         private string defaultFolder = "default";
+        private string defaultOwner = "default";
 
         private string path;
         private string owner;
@@ -33,9 +34,12 @@ namespace Hyper.EN
         public NFolderEN()
         {
             this.path = defaultFolder;
+            this.Owner = defaultOwner;
+
             if (!Directory.Exists(defaultPath + path))
             {
                 Directory.CreateDirectory(defaultPath + path);
+                cad = new NFolderCAD();
             }
         }
 
@@ -80,9 +84,12 @@ namespace Hyper.EN
 
             foreach (DirectoryInfo dir in di.GetDirectories())
             {
-                dir.Delete();
+                //dir.Delete();
+                NFolderEN aux = new NFolderEN(this.path + "/" + dir.Name, owner);
+                aux.Delete();
             }
 
+     
             Directory.Delete(defaultPath + path);
             cad.Delete();
         }
@@ -118,7 +125,7 @@ namespace Hyper.EN
 
             foreach (DirectoryInfo dir in di.GetDirectories())
             {
-                content.Add(new NFolderEN(dir.Name, owner));
+                content.Add(new NFolderEN(this.path + "/" + dir.Name, owner));
             }
 
             return content;
@@ -129,7 +136,7 @@ namespace Hyper.EN
          */ 
         public NFolderEN open(string name)
         {
-            NFolderEN aux = new NFolderEN(path + "/" + name);
+            NFolderEN aux = new NFolderEN(path + "/" + name, owner);
 
             return aux;
         }

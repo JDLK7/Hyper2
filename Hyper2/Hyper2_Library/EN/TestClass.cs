@@ -12,28 +12,23 @@ namespace Hyper2_Library.EN
     {
         static void Main(string[] args)
         {
-            UserEN paco = new UserEN("Piki", "firstName", "lastName", "email", "password");
+            UserEN jose = new UserEN("Jose", "firstName", "lastName", "email", "password");
 
-            ArrayList content = paco.Folder.getContent();
+            ArrayList al = jose.Folder.getFolders();
 
-            foreach (string name in content)
+            foreach (NFolderEN aux in al)
+            {
+                System.Console.WriteLine(aux.getName());
+            }
+
+            NFolderEN carpetica = (NFolderEN) al[0];
+
+            System.Console.WriteLine(carpetica.getName());
+
+            foreach (string name in carpetica.getContent())
             {
                 System.Console.WriteLine(name);
             }
-
-            NFolderEN carpetica = paco.Folder.open("carpetica");
-
-            content = carpetica.getContent();
-
-            foreach (string name in content)
-            {
-                System.Console.WriteLine(name);
-            }
-
-            // NFolderEN prueba = new NFolderEN("prueba");
-
-
-            //System.Console.Write(prueba.getName());
 
             System.Console.ReadLine();
         }

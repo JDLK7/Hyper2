@@ -24,11 +24,17 @@ namespace Hyper.CAD
         {
             this.path = en.Path;
             this.owner = en.Owner;
+            
+            /*
+             * insert into table...
+             */ 
         }
 
         public void Delete()
         {
-
+            /*
+             * delete from table where path = this.path
+             */ 
         }
     }
 }
