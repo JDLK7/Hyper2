@@ -24,13 +24,15 @@ namespace Hyper.EN
         private bool enabled;       //Cuenta activa o inactiva.
         private MessageBuilderEN msgBuilder;
 
+        private NFolderEN folder;
+
         public UserEN()
         {
             username = "";
             firstName = "";
             lastName = "";
             email = "";
-            //folder
+            folder = new NFolderEN();
             password = "";
             suscripcion = new SuscripcionEN(); 
             directory = "";
@@ -46,8 +48,10 @@ namespace Hyper.EN
             this.password = password;
             enabled = true;
             //plan = ... basico
-            //Crear directorio para el usuario.
+
             msgBuilder = new MessageBuilderEN(username);
+
+            this.folder = new NFolderEN(username, username);
         }
 
         /*
@@ -104,7 +108,6 @@ namespace Hyper.EN
             lastName = user.LastName;
             email = user.Email;
             password = user.Password;
-            //folder = user.Folder;
             suscripcion = user.suscripcion;
             enabled = user.Enabled;
         }
@@ -164,10 +167,14 @@ namespace Hyper.EN
 
         public SuscripcionEN Suscripcion
         {
-
             get {return suscripcion; }
             set { suscripcion = value; }
+        }
 
+        public NFolderEN Folder
+        {
+            get { return folder; }
+            set { folder = value; }
         }
     }
 }

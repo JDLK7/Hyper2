@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,6 +47,7 @@
     <Compile Include="CAD\FileCAD.cs" />
     <Compile Include="CAD\FolderCAD.cs" />
     <Compile Include="CAD\MessageCAD.cs" />
+    <Compile Include="CAD\NFolderCAD.cs" />
     <Compile Include="CAD\SuscripcionCAD.cs" />
     <Compile Include="CAD\TarifaCAD.cs" />
     <Compile Include="CAD\UserCAD.cs" />
@@ -52,6 +56,7 @@
     <Compile Include="EN\FolderEN.cs" />
     <Compile Include="EN\MessageBuilderEN.cs" />
     <Compile Include="EN\MessageEN.cs" />
+    <Compile Include="EN\NFolderEN.cs" />
     <Compile Include="EN\SuscripcionEN.cs" />
     <Compile Include="EN\TarifaEN.cs" />
     <Compile Include="EN\UserEN.cs" />
