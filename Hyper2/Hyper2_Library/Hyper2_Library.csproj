@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4E8AFE33-AC62-4CB3-8DB7-A18C8BA1560E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hyper2_Library</RootNamespace>
     <AssemblyName>Hyper2_Library</AssemblyName>
@@ -59,7 +59,6 @@
     <Compile Include="EN\NFolderEN.cs" />
     <Compile Include="EN\SuscripcionEN.cs" />
     <Compile Include="EN\TarifaEN.cs" />
-    <Compile Include="EN\TestClass.cs" />
     <Compile Include="EN\UserEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
