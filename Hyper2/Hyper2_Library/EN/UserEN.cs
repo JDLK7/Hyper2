@@ -51,7 +51,7 @@ namespace Hyper.EN
 
             msgBuilder = new MessageBuilderEN(username);
 
-            this.folder = new NFolderEN(username);
+            this.folder = new NFolderEN(username, username);
         }
 
         /*
@@ -108,7 +108,6 @@ namespace Hyper.EN
             lastName = user.LastName;
             email = user.Email;
             password = user.Password;
-            //folder = user.Folder;
             suscripcion = user.suscripcion;
             enabled = user.Enabled;
         }

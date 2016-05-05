@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
+using Hyper.CAD;
 
 namespace Hyper.EN
 {
@@ -14,7 +15,20 @@ namespace Hyper.EN
         private string defaultFolder = "default";
 
         private string path;
-        
+        private string owner;
+        private NFolderCAD cad;
+
+        public string Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
+
+        public string Owner
+        {
+            get { return owner; }
+            set { owner = value; }
+        }
 
         public NFolderEN()
         {
@@ -25,9 +39,11 @@ namespace Hyper.EN
             }
         }
 
-        public NFolderEN(string path)
+        public NFolderEN(string path, string owner)
         {
             this.path = path;
+            this.owner = owner;
+
             if (!Directory.Exists(defaultPath + path))
             {
                 Directory.CreateDirectory(defaultPath + path);
@@ -51,7 +67,7 @@ namespace Hyper.EN
             }
         }
 
-        public void delete()
+        public void Delete()
         {
             
 
@@ -68,6 +84,7 @@ namespace Hyper.EN
             }
 
             Directory.Delete(defaultPath + path);
+            cad.Delete();
         }
 
         public ArrayList getContent()
@@ -84,6 +101,24 @@ namespace Hyper.EN
             foreach (DirectoryInfo dir in di.GetDirectories())
             {
                 content.Add(dir.Name);
+            }
+
+            return content;
+        }
+
+        /*
+         * Devuelve un arraylist conteniendo los folders del interior
+         */ 
+        public ArrayList getFolders()
+        {
+
+            DirectoryInfo di = new DirectoryInfo(defaultPath + path);
+
+            ArrayList content = new ArrayList();
+
+            foreach (DirectoryInfo dir in di.GetDirectories())
+            {
+                content.Add(new NFolderEN(dir.Name, owner));
             }
 
             return content;
