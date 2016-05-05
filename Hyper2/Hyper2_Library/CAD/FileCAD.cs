@@ -11,7 +11,7 @@ namespace Hyper.CAD
     {
         public static ArrayList LoadID()
         {
-
+    
             ArrayList nulo = new ArrayList();
             return nulo;
         }
@@ -32,5 +32,16 @@ namespace Hyper.CAD
 
             return true;
         }
+
+        public static ArrayList Buscar(String buscador, String extension) {
+            String SQL = "select name,extension from file,data WHERE File.id = Data.name LIKE name = \'buscador%\' AND File.extension = \'extension\'";
+        }
+
+        public static ArrayList Buscar(String buscador)
+        {
+            String SQL = "select name,extension from file,data WHERE File.id = Data.name LIKE name = \'buscador%\'";
+        }
+
+
     }
 }
