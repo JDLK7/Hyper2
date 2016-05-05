@@ -9,6 +9,7 @@
     </asp:ContentPlaceHolder>
     <script src="scripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src='scripts/bootstrap.min.js'></script>
+    <script type="text/javascript" src='scripts/optionSelector.js'></script>
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.css"/>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css"/>
@@ -37,25 +38,22 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Enlace #1</a></li>
               <li><a href="#">Enlace #2</a></li>
-              <li class="dropdown">
-                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                  Menú #1 <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Acción #1</a></li>
-                  <li><a href="#">Acción #2</a></li>
-                  <li><a href="#">Acción #3</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Acción #4</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Acción #5</a></li>
-                </ul>
-              </li>
             </ul>
  
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Enlace #3</a></li>
               <li class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" id="todosMenu">
+                  Todos <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" class="optionsEtiqueta">Todos</a></li>
+                  <li><a href="#" class="optionsEtiqueta">Usuarios</a></li>
+                  <li><a href="#" class="optionsEtiqueta">Música</a></li>
+                  <li><a href="#" class="optionsEtiqueta">Vídeos</a></li>
+                  <li><a href="#" class="optionsEtiqueta">Archivos</a></li>
+                </ul>
+              </li>
+              <li class="dropdown" id="usuarioButton">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!--En "Menu #2" debe ir el nombre de usuario"-->
                   Usuario <b class="caret"></b>
