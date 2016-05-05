@@ -13,6 +13,8 @@ namespace Hyper.EN
         private int num_files;
         ArrayList files;
 
+        public static string defaultPath = @"c:\HyperDataFiles\";
+
         public FolderEN() : base()
         {
             num_files = 0;
@@ -51,6 +53,20 @@ namespace Hyper.EN
         {
             get { return num_files; }
             set { num_files = value; }
+        }
+
+
+        public static bool createFolder(string path)
+        {
+            bool created = false;
+
+            if (!System.IO.File.Exists(defaultPath + path))
+            {
+                System.IO.Directory.CreateDirectory(defaultPath + path);
+                created = true;
+            }
+
+            return created;
         }
     }
 }
