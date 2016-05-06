@@ -97,6 +97,7 @@
     <Content Include="abouthyper.aspx">
       <BrowseToURL>~/abouthyper.aspx</BrowseToURL>
     </Content>
+    <Content Include="App_Data\Hyper2DB.mdf" />
     <Content Include="App_Data\Hyper2DB_log.ldf">
       <DependentUpon>Hyper2DB.mdf</DependentUpon>
     </Content>
@@ -168,7 +169,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Hyper2DB.mdf" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="subir.aspx" />

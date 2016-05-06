@@ -55,7 +55,7 @@ namespace Hyper.EN
                 Directory.CreateDirectory(defaultPath + path);
             }
 
-
+            cad = new NFolderCAD(this);
         }
 
         public string getName()

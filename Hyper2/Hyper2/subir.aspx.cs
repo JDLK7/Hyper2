@@ -13,9 +13,9 @@ namespace Hyper2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserEN user = new UserEN("Jose", "Paco", "Garcia", "paco@gmail.com", "1234");
+            UserEN user = new UserEN("xd", "Paco", "Garcia", "paco@gmail.com", "1234");
 
-            user.Folder.CompressFolder();
+            //user.Folder.CompressFolder();
             
         }
 
