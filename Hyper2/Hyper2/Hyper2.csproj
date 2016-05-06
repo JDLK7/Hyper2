@@ -129,7 +129,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\index.css" />
-    <Content Include="Index.aspx" />
+    <Content Include="Content\master.css" />
+    <Content Include="Content\subir.css" />
+    <Content Include="index.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
     <Content Include="obj\Debug\Hyper2.pdb" />
@@ -168,15 +170,16 @@
     <Content Include="App_Data\Hyper2DB.mdf" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="subir.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -186,6 +189,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="subir.aspx.cs">
+      <DependentUpon>subir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subir.aspx.designer.cs">
+      <DependentUpon>subir.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hyper2_Library\Hyper2_Library.csproj">
