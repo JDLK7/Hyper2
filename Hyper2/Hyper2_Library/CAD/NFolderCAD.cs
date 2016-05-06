@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Hyper.CAD;
 using Hyper.EN;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Hyper.CAD
 {
@@ -24,10 +26,21 @@ namespace Hyper.CAD
         {
             this.path = en.Path;
             this.owner = en.Owner;
-            
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            try
+            {
+                db.Open();
+            }
+            catch (Exception)
+            {
+                UserEN error = new UserEN("error", "error", "error", "error", "error");
+            }
+           
             /*
              * insert into table...
              */ 
+
         }
 
         public void Delete()

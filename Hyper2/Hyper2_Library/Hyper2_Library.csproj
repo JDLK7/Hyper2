@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +58,7 @@
     <Compile Include="EN\FolderEN.cs" />
     <Compile Include="EN\MessageBuilderEN.cs" />
     <Compile Include="EN\MessageEN.cs" />
+    <Compile Include="EN\NFileEN.cs" />
     <Compile Include="EN\NFolderEN.cs" />
     <Compile Include="EN\SuscripcionEN.cs" />
     <Compile Include="EN\TarifaEN.cs" />
