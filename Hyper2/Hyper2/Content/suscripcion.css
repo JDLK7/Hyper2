@@ -2,7 +2,26 @@
     margin-top:1em;
 }
 
-.registro {
+.registro_1 {
+    float:left;
+    width:35em;
     margin-left:10em;
     margin-top:5em;
+}
+
+.registro_2 {
+    float:right;
+    width:35em;
+    margin-right:10em;
+    margin-top:5em;
+}
+
+.boton_registro {
+  color: #fff;
+  background-color: #D92E00;
+  border-color: #fff;
+}
+
+.borde_campos {
+    border-radius:5px;
 }
