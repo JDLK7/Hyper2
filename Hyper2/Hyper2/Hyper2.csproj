@@ -155,6 +155,7 @@
     <Content Include="obj\Debug\Hyper2.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Release\build.force" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="scripts\optionSelector.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
