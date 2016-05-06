@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.IO.Compression;
 using System.Collections;
 using Hyper.CAD;
 
@@ -12,6 +13,7 @@ namespace Hyper.EN
     public class NFolderEN
     {
         public static string defaultPath = @"c:\HyperDataFiles\";
+        private static string compressedPath = @"c:\HyperDataFiles\Compressed\";
         private string defaultFolder = "default";
         private string defaultOwner = "default";
 
@@ -139,6 +141,21 @@ namespace Hyper.EN
             NFolderEN aux = new NFolderEN(path + "/" + name, owner);
 
             return aux;
+        }
+
+        public string CompressFolder()
+        {
+            string name;
+
+            int i = 1;
+
+
+            {
+                i++;
+            }
+
+
+            return name;
         }
     }
 }
