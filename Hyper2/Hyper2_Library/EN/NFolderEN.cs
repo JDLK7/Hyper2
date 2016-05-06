@@ -53,9 +53,10 @@ namespace Hyper.EN
             if (!Directory.Exists(defaultPath + path))
             {
                 Directory.CreateDirectory(defaultPath + path);
+                cad = new NFolderCAD(this);
             }
 
-            cad = new NFolderCAD(this);
+            
         }
 
         public string getName()
@@ -127,7 +128,7 @@ namespace Hyper.EN
 
             foreach (DirectoryInfo dir in di.GetDirectories())
             {
-                content.Add(new NFolderEN(this.path + "/" + dir.Name, owner));
+                content.Add(new NFolderEN(this.path + "\\" + dir.Name, owner));
             }
 
             return content;
@@ -160,6 +161,15 @@ namespace Hyper.EN
             ZipFile.CreateFromDirectory(defaultPath + this.Path, compressedPath + name);
 
             return name;
+        }
+
+        public void createFolder(string name)
+        {
+
+            NFolderEN folder = new NFolderEN(path + "/" + name, owner);
+            
+
+            
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Hyper.CAD
 
         private string path;
         private string owner;
+        private string name;
 
         public NFolderCAD()
         {
@@ -26,15 +27,26 @@ namespace Hyper.CAD
         {
             this.path = en.Path;
             this.owner = en.Owner;
-            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            this.name = en.getName();
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
 
             try
             {
                 db.Open();
+                string sql = "insert into Files values('" + path + "','" + name + "','" + owner +"','0'," + 
+                    "NULL, '" + DateTime.Now + "')";
+
+                SqlCommand command = new SqlCommand(sql, db);
+                command.ExecuteNonQuery();
+             
             }
             catch (Exception)
             {
                 UserEN error = new UserEN("error", "error", "error", "error", "error");
+            }
+            finally
+            {
+                db.Close();
             }
            
             /*
