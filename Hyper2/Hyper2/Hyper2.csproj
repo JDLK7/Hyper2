@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutHyper.aspx" />
     <Content Include="App_Data\Hyper2DB_log.ldf">
       <DependentUpon>Hyper2DB.mdf</DependentUpon>
     </Content>
@@ -131,6 +132,7 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\suscripcion.css" />
     <Content Include="Index.aspx" />
+    <Content Include="manageaccount.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
     <Content Include="obj\Debug\Hyper2.pdb" />
@@ -159,6 +161,17 @@
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Registro.aspx" />
     <Content Include="scripts\optionSelector.js" />
+    <Content Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,15 +183,35 @@
     <Content Include="App_Data\Hyper2DB.mdf" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="subir.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abouthyper.aspx.cs">
+      <DependentUpon>AboutHyper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="abouthyper.aspx.designer.cs">
+      <DependentUpon>AboutHyper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manageaccount.aspx.cs">
+      <DependentUpon>manageaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageaccount.aspx.designer.cs">
+      <DependentUpon>manageaccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -194,6 +227,13 @@
     </Compile>
     <Compile Include="registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subir.aspx.cs">
+      <DependentUpon>subir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subir.aspx.designer.cs">
+      <DependentUpon>subir.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
