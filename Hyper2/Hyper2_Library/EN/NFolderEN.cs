@@ -149,11 +149,15 @@ namespace Hyper.EN
 
             int i = 1;
 
+            name = i + " "+ this.getName() + ".zip";
 
+            while (File.Exists(compressedPath + name))
             {
                 i++;
+                name = i + " " + this.getName() + ".zip";
             }
 
+            ZipFile.CreateFromDirectory(defaultPath + this.Path, compressedPath + name);
 
             return name;
         }
