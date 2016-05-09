@@ -132,7 +132,7 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\subir.css" />
-    <Content Include="Content\suscripcion.css" />
+    <Content Include="Content\registro.css" />
     <Content Include="Index.aspx" />
     <Content Include="manageaccount.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />

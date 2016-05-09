@@ -2,11 +2,15 @@
     margin-top:1em;
 }
 
+.registro {
+    margin:0 auto;
+}
+
 .registro_1 {
     float:left;
     width:35em;
     margin-left:10em;
-    margin-top:5em;
+    margin-top:0em;
 }
 
 .registro_2 {
@@ -24,4 +28,8 @@
 
 .borde_campos {
     border-radius:5px;
+}
+
+.label_error {
+    color:red;
 }
