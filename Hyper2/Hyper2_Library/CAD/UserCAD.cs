@@ -49,7 +49,6 @@ namespace Hyper.CAD
         {
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
 
-<<<<<<< HEAD
             try
             {
                 db.Open();
@@ -68,10 +67,6 @@ namespace Hyper.CAD
             {
                 db.Close();
             }
-
-=======
-            return false;
->>>>>>> origin/master
         }
 
         public static bool SearchUsername(string username)
@@ -85,7 +80,6 @@ namespace Hyper.CAD
                 SqlCommand command = new SqlCommand(query, db);
                 SqlDataReader dr = command.ExecuteReader();
 
-<<<<<<< HEAD
                 dr.Read();
                 return dr.HasRows;
             }
@@ -97,9 +91,6 @@ namespace Hyper.CAD
             {
                 db.Close();
             }
-=======
-            return false;
->>>>>>> origin/master
         }
     }
 }
