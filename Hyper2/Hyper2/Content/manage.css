@@ -1,0 +1,28 @@
+﻿.blockquote { 
+  padding: 3px 10px; 
+  border: darkblue 5px double; 
+  border-top-left-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+}
+.manage{
+    margin-right:0cm;
+    margin-left:20cm;
+    margin-bottom:20cm;
+    margin-top:0cm;
+}
+
+.register_input {
+    margin-top:20em;
+}
+
+@media screen and (min-width: 44em) {
+    .col_groupp {
+        overflow:hidden;
+    }
+    .col_groupp > div {
+        padding-left:1em;
+        padding-right:10em;
+        float: left;
+        width: 50%;
+    }
+}
