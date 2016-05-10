@@ -84,12 +84,19 @@ namespace Hyper.CAD
             this.owner = en.Owner;
             this.name = en.getName();
             this.extension = en.getExtension();
+            int visibilityAux = 0;
+
+            if (visibility)
+            {
+                visibilityAux = 1;
+            }
+
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
 
             try
             {
                 db.Open();
-                string sql = "insert into Files values('" + path + "','" + name + "','" + owner + "','0'," +
+                string sql = "insert into Files values('" + path + "','" + name + "','" + owner + "','"+ visibilityAux + "'," +
                     extension + ", '" + DateTime.Now + "')";
 
                 SqlCommand command = new SqlCommand(sql, db);
