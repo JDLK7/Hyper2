@@ -9,8 +9,7 @@
 
 namespace Hyper2 {
     
-    
-    public partial class messages {
+    public partial class explorador {
         
         /// <summary>
         /// Control TreeView1.

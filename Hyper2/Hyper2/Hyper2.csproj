@@ -136,6 +136,7 @@
     <Content Include="Content\messages.css" />
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
+    <Content Include="explorador.aspx" />
     <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
     <Content Include="messages.aspx" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="explorador.aspx.cs">
+      <DependentUpon>explorador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="explorador.aspx.designer.cs">
+      <DependentUpon>explorador.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
