@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Hyper.EN;
+using Hyper.CAD;
 using System.Net.Mail;
 
 namespace Hyper2
@@ -69,7 +70,15 @@ namespace Hyper2
             }
             else
             {
-                //Buscar en BBDD.
+                if(UserCAD.SearchEmail(email))
+                {
+                    label_email.Text = "El email ya está en uso";
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
         
@@ -80,7 +89,15 @@ namespace Hyper2
          */ 
         private bool check_username()
         {
-            //Buscar en BBDD.
+            if(UserCAD.SearchUsername(textBox_username.Text))
+            {
+                label_username.Text = "El nombre de usuario ya está en uso";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         
         /*
@@ -135,6 +152,7 @@ namespace Hyper2
             catch(Exception ex)
             {
                 //Error al enviar el mensaje.
+                //¿Pop up de error?
             }
         }
 

@@ -42,5 +42,16 @@ namespace Hyper.CAD
                 "', password = '" + cust.Password + "', suscripcion = '" + cust.Suscripcion.ToString() +
                 "', directory = '" + cust.Directory + "', enable = " + cust.Enabled + ";";
         }
+
+        public static bool SearchEmail(string email)
+        {
+            string query = "select email from User where email = " + email;
+
+        }
+
+        public static bool SearchUsername(string username)
+        {
+            string query = "select username from User where username = " + username;
+        }
     }
 }

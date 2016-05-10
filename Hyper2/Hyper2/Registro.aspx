@@ -3,10 +3,10 @@
     <link rel="stylesheet" type="text/css" href="Content/registro.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="registro">
-        <div class="registro_1">
+    <div class="col_group">
+        <div>
             <h2 style="margin-bottom:1em;">Regístrate en Hyper gratis</h2>
-            <ul class="input-group" style="list-style-type:none; width:25em">
+            <ul class="input-group" style="list-style-type:none; width:25em;">
                 <!--El texto de los label se puede programar con C# para que cambie según el tipo de error-->
                 <li><asp:TextBox ID="textBox_firstName" runat="server" style="margin-bottom:1em; border-radius:4px;" type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1" /></li>
                 <li><asp:TextBox ID="textBox_lastName" runat="server" style="margin-bottom:1em; border-radius:4px;" type="text" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon1" /></li>
@@ -27,7 +27,7 @@
                 <li><asp:Button ID="button_signIn" OnClick="button_signIn_Click" runat="server" type="button" class="btn boton_registro" Text="Registrar"/></li>
             </ul>
         </div>
-        <div class="registro_2">
+        <div style="margin-top:2em;">
             <h3>La cuenta gratuita te ofrece hasta 10Gb</h3>
             <p>Con solo registrarte tendrás la posibilidad de subir hasta un total de 10Gb sin ningún tipo de gasto.
                 Además podrás crear carpetas y archivos compartidos con otros usuarios e incluso publicar archivos que
