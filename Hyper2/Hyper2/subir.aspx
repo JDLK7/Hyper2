@@ -8,12 +8,29 @@
 
     <!--<asp:Button id="Button1" Text="Click here for greeting..." OnClick="clickSubir" runat="server"/>-->
 
+        <div id="divCentral" align="center">
 
-    <asp:FileUpload id="FileUploadControl" runat="server" />
-    <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />
-    <br /><br />
-    <asp:Label runat="server" id="StatusLabel" text="Upload status: " />
+            <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=325 height=125 border=0/></div>
 
+            <h1 align="center"><b>Sube tus archivos a hyper</b></h1><br />
 
+            <asp:FileUpload id="FileUploadControl" runat="server" />
+            <br /> 
+
+            <b>Descripción:</b> <br /><br />
+             <textarea rows="4" cols="50"></textarea>
+            <br /><br />
+            
+            
+            <form action="">
+            ¿Archivo privado? <input type="checkbox" name="privado" value="Privado">
+            </form>
+
+            <br /><br />
+            <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />
+            <br /><br />
+            <asp:Label runat="server" id="StatusLabel" text="Upload status: " />
+
+        </div>
 
 </asp:Content>
