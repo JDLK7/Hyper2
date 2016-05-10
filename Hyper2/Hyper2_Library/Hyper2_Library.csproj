@@ -49,6 +49,7 @@
     <Compile Include="CAD\FileCAD.cs" />
     <Compile Include="CAD\FolderCAD.cs" />
     <Compile Include="CAD\MessageCAD.cs" />
+    <Compile Include="CAD\NFileCAD.cs" />
     <Compile Include="CAD\NFolderCAD.cs" />
     <Compile Include="CAD\SuscripcionCAD.cs" />
     <Compile Include="CAD\TarifaCAD.cs" />

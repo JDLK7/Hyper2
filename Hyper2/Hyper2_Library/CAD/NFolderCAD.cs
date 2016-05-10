@@ -23,6 +23,27 @@ namespace Hyper.CAD
             this.path = "";
         }
 
+        public string Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
+
+        public string Owner
+        {
+            get { return owner; }
+            set { owner = value; }
+        }
+
+
+        /*
+         * select where path = this.path
+         */
+        public NFolderCAD(string path)
+        {
+
+        }
+
         public NFolderCAD(NFolderEN en)
         {
             this.path = en.Path;
