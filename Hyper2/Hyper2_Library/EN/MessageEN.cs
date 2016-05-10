@@ -13,6 +13,7 @@ namespace Hyper.EN
         private String src; //Origen
         private String dst; //Destinatario
         private String text; //Texto
+        private DateTime date;
 
         private static int GetNextID() //Devuelve el proximo id disponible
         {
@@ -29,6 +30,7 @@ namespace Hyper.EN
             this.dst = dst;
             this.text = text;
             this.id = MessageEN.GetNextID();
+            this.date = DateTime.Now;
 
         }
 
@@ -50,6 +52,11 @@ namespace Hyper.EN
         public int getID
         {
             get { return id; }
+        }
+
+        public DateTime Date
+        {
+            get { return date; }
         }
     }
 }
