@@ -20,6 +20,38 @@ namespace Hyper.CAD
         {
             ArrayList messages = new ArrayList();
 
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "SELECT * FROM Message WHERE user1 = '" + user + "' or user2 = '" + user + "'"; //TODO
+                SqlCommand command = new SqlCommand(query, db);
+                SqlDataReader dr = command.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        int id = dr.GetInt32(0);
+                        string user1 = dr.GetString(1);
+                        string user2 = dr.GetString(2);
+                        DateTime date = dr.GetDateTime(3);
+                        string text = dr.GetString(4);
+                        MessageEN aux = new MessageEN(id, user1, user2, date, text);
+                        messages.Add(aux);
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                db.Close();
+            }
 
 
             ArrayList nulo = new ArrayList();
@@ -120,7 +152,7 @@ namespace Hyper.CAD
             try
             {
                 db.Open();
-                string query = "SELECT user2 FROM Chat WHERE user1 = " + user + ";";
+                string query = "SELECT user2 FROM Chat WHERE user1 = '" + user + "';";
                 SqlCommand command = new SqlCommand(query, db);
                 SqlDataReader dr = command.ExecuteReader();
 
