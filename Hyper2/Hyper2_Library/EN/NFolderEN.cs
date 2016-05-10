@@ -33,6 +33,10 @@ namespace Hyper.EN
             set { owner = value; }
         }
 
+
+        /*
+         * Constructor de carpetas vacias para pruebas
+         */ 
         public NFolderEN()
         {
             this.path = defaultFolder;
@@ -45,6 +49,10 @@ namespace Hyper.EN
             }
         }
 
+
+        /*
+         * Constructor de carpeta que crea una carpeta nueva
+         */ 
         public NFolderEN(string path, string owner)
         {
             this.path = path;
@@ -59,6 +67,20 @@ namespace Hyper.EN
             
         }
 
+        /*
+         * Constructor de una carpeta ya existente
+         */
+        public NFolderEN(string path)
+        {
+            this.cad = new NFolderCAD(path);
+            this.Owner = cad.Owner;
+            this.Path = path;
+        }
+
+
+        /*
+         * Devuelve el nombre de la carpeta
+         */ 
         public string getName()
         {
             int index = path.LastIndexOf('/');
@@ -74,6 +96,9 @@ namespace Hyper.EN
             }
         }
 
+        /*
+         * Borra la carpeta actual y todo su contenido
+         */ 
         public void Delete()
         {
             
@@ -97,6 +122,9 @@ namespace Hyper.EN
             cad.Delete();
         }
 
+        /*
+         * Devuelve un array de strings con el contenido de la carpeta
+         */ 
         public ArrayList getContent()
         {
             DirectoryInfo di = new DirectoryInfo(defaultPath + path);
@@ -128,7 +156,7 @@ namespace Hyper.EN
 
             foreach (DirectoryInfo dir in di.GetDirectories())
             {
-                content.Add(new NFolderEN(this.path + "\\" + dir.Name, owner));
+                content.Add(new NFolderEN(this.path + "/" + dir.Name));
             }
 
             return content;
@@ -139,11 +167,14 @@ namespace Hyper.EN
          */ 
         public NFolderEN open(string name)
         {
-            NFolderEN aux = new NFolderEN(path + "/" + name, owner);
+            NFolderEN aux = new NFolderEN(path + "/" + name);
 
             return aux;
         }
 
+        /*
+         * Crea una carpeta comprimida para posteriormente descargarla, devuelve su nombre auxiliar
+         */ 
         public string CompressFolder()
         {
             string name;
@@ -163,6 +194,9 @@ namespace Hyper.EN
             return name;
         }
 
+        /*
+         * Crea una carpeta dentro de la carpeta que ha llamadado al metodo
+         */ 
         public void createFolder(string name)
         {
 
