@@ -130,7 +130,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\explorer.css" />
+    <Content Include="Content\explorador.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\messages.css" />
@@ -171,6 +171,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\explorerEditor.js" />
+    <Content Include="scripts\messagesEditor.js" />
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="scripts\optionSelector.js" />
