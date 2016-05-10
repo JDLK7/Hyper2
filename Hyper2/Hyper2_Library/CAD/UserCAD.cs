@@ -4,6 +4,8 @@ using System.Collections;
 using System.Linq;
 using System.Web;
 using Hyper.EN;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Hyper.CAD
 {
@@ -45,13 +47,51 @@ namespace Hyper.CAD
 
         public static bool SearchEmail(string email)
         {
-            string query = "select email from User where email = " + email;
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "SELECT email FROM User WHERE email = " + email + ";";
+                SqlCommand command = new SqlCommand(query, db);
+                SqlDataReader dr = command.ExecuteReader();
+
+                dr.Read();
+                return dr.HasRows;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                db.Close();
+            }
 
         }
 
         public static bool SearchUsername(string username)
         {
-            string query = "select username from User where username = " + username;
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "SELECT username FROM User WHERE username = " + username + ";";
+                SqlCommand command = new SqlCommand(query, db);
+                SqlDataReader dr = command.ExecuteReader();
+
+                dr.Read();
+                return dr.HasRows;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                db.Close();
+            }
         }
     }
 }
