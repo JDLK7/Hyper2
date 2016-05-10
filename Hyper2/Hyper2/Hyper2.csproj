@@ -133,6 +133,7 @@
     <Content Include="Content\explorer.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\master.css" />
+    <Content Include="Content\messages.css" />
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
     <Content Include="index.aspx" />
@@ -168,6 +169,7 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="scripts\explorerEditor.js" />
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="scripts\optionSelector.js" />

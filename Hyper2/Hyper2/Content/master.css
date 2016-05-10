@@ -16,3 +16,12 @@
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+#logoMaster{
+
+    padding:0px;
+    padding-right:0.2em;
+    padding-left:0.5em;
+
+}
+

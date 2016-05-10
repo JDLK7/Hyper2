@@ -19,7 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div id="mainMaster">
         <nav class="navbar navbar-default" role="navigation">
           <!-- El logotipo y el icono que despliega el menú se agrupan
                para mostrarlos mejor en los dispositivos móviles -->
@@ -31,7 +31,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.aspx"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=80em height=30em border=0 /></a>
+            <a id="logoMaster" href="index.aspx"><img src="IMG/logoHyper_fondoblanco.png" alt ="LogoHyper" width=120em height=45em border=0 /></a>
           </div>
  
           <!-- Agrupar los enlaces de navegación, los formularios y cualquier
