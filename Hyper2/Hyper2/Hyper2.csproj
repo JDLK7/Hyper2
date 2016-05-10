@@ -94,7 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AboutHyper.aspx" />
+    <Content Include="about.aspx" />
     <Content Include="App_Data\Hyper2DB_log.ldf">
       <DependentUpon>Hyper2DB.mdf</DependentUpon>
     </Content>
@@ -133,7 +133,7 @@
     <Content Include="Content\master.css" />
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
-    <Content Include="Index.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
@@ -161,7 +161,7 @@
     <Content Include="obj\Debug\Hyper2.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Release\build.force" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="Registro.aspx" />
+    <Content Include="registro.aspx" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
@@ -184,19 +184,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="abouthyper.aspx.cs">
-      <DependentUpon>AboutHyper.aspx</DependentUpon>
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="abouthyper.aspx.designer.cs">
-      <DependentUpon>AboutHyper.aspx</DependentUpon>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="manageaccount.aspx.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
@@ -214,11 +214,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registro.aspx.cs">
-      <DependentUpon>Registro.aspx</DependentUpon>
+      <DependentUpon>registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="registro.aspx.designer.cs">
-      <DependentUpon>Registro.aspx</DependentUpon>
+      <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="subir.aspx.cs">
       <DependentUpon>subir.aspx</DependentUpon>

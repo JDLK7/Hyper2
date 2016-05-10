@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div align="center" id="cuerpo">
         <p><h1>Bienvenidos a Hyper. </h1><br /></p>
-        <img src="IMG/logo.png"/>
+        <img src="IMG/logoHyper.png"/>
         <p><br /><h3>Su servidor de archivos.</h3></p>
     </div>
 </asp:Content>
