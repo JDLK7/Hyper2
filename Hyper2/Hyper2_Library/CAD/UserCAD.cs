@@ -47,11 +47,14 @@ namespace Hyper.CAD
         {
             string query = "select email from User where email = " + email;
 
+            return false;
         }
 
         public static bool SearchUsername(string username)
         {
             string query = "select username from User where username = " + username;
+
+            return false;
         }
     }
 }
