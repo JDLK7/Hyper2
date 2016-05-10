@@ -77,6 +77,7 @@ namespace Hyper2
                 }
                 else
                 {
+                    label_email.Text = "";
                     return true;
                 }
             }
@@ -89,14 +90,25 @@ namespace Hyper2
          */ 
         private bool check_username()
         {
-            if(UserCAD.SearchUsername(textBox_username.Text))
+            string user = textBox_username.Text;
+
+            if(user.Length > 16)
             {
-                label_username.Text = "El nombre de usuario ya está en uso";
+                label_username.Text = "No puede superar los 16 caracteres";
                 return false;
             }
             else
             {
-                return true;
+                if (UserCAD.SearchUsername(textBox_username.Text))
+                {
+                    label_username.Text = "El nombre de usuario ya está en uso";
+                    return false;
+                }
+                else
+                {
+                    label_username.Text = "";
+                    return true;
+                }
             }
         }
         
@@ -107,15 +119,16 @@ namespace Hyper2
          */
         private bool check_password()
         {
-            if(textBox_password.Text.Length > 16 || textBox_passwordConf.Text.Length > 16)
+            if(textBox_password.Text.Length > 20 || textBox_passwordConf.Text.Length > 20)
             {
-                label_password.Text = "No puede superar los 16 caracteres";
+                label_password.Text = "No puede superar los 20 caracteres";
                 return false;
             }
             else
             {
                 if (textBox_password.Text == textBox_passwordConf.Text)
                 {
+                    label_password.Text = "";
                     return true;
                 }
                 else
@@ -149,7 +162,7 @@ namespace Hyper2
                 smtpClient.Credentials = new System.Net.NetworkCredential("noreply.hyperCloud@gmail.com", "molamasquemega");
                 smtpClient.Send(message);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 //Error al enviar el mensaje.
                 //¿Pop up de error?
@@ -158,12 +171,17 @@ namespace Hyper2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void button_signIn_Click(object sender, EventArgs e)
         {
-            if(check_textBoxes() && check_username() && check_email() && check_password())
+            bool t = check_textBoxes(),
+                    u = check_username(),
+                    m = check_email(),
+                    p = check_password();
+
+            if (t && u && m && p)
             {
                 string  firstName = textBox_firstName.Text,
                         lastName = textBox_lastName.Text,
