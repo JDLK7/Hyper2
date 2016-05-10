@@ -10,9 +10,12 @@ namespace Hyper.EN
     public class MessageEN
     {
         private int id;
-        private String src; //Origen
-        private String dst; //Destinatario
-        private String text; //Texto
+        private string src; //Origen
+        private string dst; //Destinatario
+        private string text; //Texto
+        private DateTime date;
+
+        //private MessageCAD cad;
 
         private static int GetNextID() //Devuelve el proximo id disponible
         {
@@ -29,7 +32,15 @@ namespace Hyper.EN
             this.dst = dst;
             this.text = text;
             this.id = MessageEN.GetNextID();
+        }
 
+        public MessageEN(int id, string user1, string user2, DateTime date, string text)
+        {
+            this.src = user1;
+            this.dst = user2;
+            this.text = text;
+            this.id = id;
+            this.date = date;
         }
 
         public string Src
@@ -50,6 +61,11 @@ namespace Hyper.EN
         public int getID
         {
             get { return id; }
+        }
+
+        public DateTime Date
+        {
+            get { return date; }
         }
     }
 }
