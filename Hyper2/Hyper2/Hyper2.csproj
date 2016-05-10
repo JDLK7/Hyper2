@@ -76,6 +76,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -129,12 +130,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\explorer.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
     <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
+    <Content Include="messages.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
     <Content Include="obj\Debug\Hyper2.pdb" />
@@ -211,6 +214,13 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="messages.aspx.cs">
+      <DependentUpon>messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="messages.aspx.designer.cs">
+      <DependentUpon>messages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registro.aspx.cs">

@@ -18,34 +18,7 @@
 
         <div id="divCentral" align="center">
 
-            <!-- Dejo el código por si alguien no esta de acuerdo con las nuevas descripciones. Si no es así ya se borrará más adelante.
-
-                    <p><br /><br /></p>
-
-                    <div class="tabla"><table width="100%" cellspacing="0">
-            <td width="30%" class ="titulo" ><b>Sin iniciar sesión</b></td>
-            <td width="30%" class ="titulo"><b>Free</b></td>
-            <td width="30%" class ="titulo"><b>Premium</b></td>
-            </table></div>
-   
-                    <div class="tabla2"><table width="100%" cellspacing="0">
-            <td width="30%" class ="ex1">Hyper te permite descargar archivos</td>
-            <td width="30%" class ="ex1">Subida de archivos limitada</td>
-            <td width="30%" class ="ex1">Subida de archivos limitada a 100GB, 500GB</td>
-            </table></div>
-
-                    <div class="tabla2"><table width="100%" cellspacing="0">
-            <td width="30%" class ="ex1">públicos de otros usuarios.</td>
-            <td width="30%" class ="ex1">a 10GB</td>
-            <td width="30%" class ="ex1">o un 1TB, segun su subscripción.</td>
-            </table></div>
-                    <p><br /></p>
-     
-            <div align="right" style="margin-right:2cm"><p style=font-size:100%>  <br /><br /></p></div>
-        
-            -->
-
-            <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=325 height=125 border=0/></div>
+            <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=315em height=125em border=0/></div>
 
             <h1 align="center"><b>Acerca De Hyper</b></h1>
             <div align="center" style="font-size:120%" ><br /> Hyper es un servidor de cloud storage que permite tanto guardar archivos privados para uso personal,<br />
@@ -53,7 +26,7 @@
 
             <li style="list-style:none;padding:5em;" id="listaDetalles">
 
-                <div style="max-width:20%;min-width:20%;display:inline-block;;vertical-align:middle;text-align:center">
+                <div style="max-width:20%;min-width:20em;display:inline-block;;vertical-align:middle;text-align:center">
                     <b>Descarga libremente</b><br /><br />
                     <ul style="list-style-type:disc">
                         <li>No hace falta iniciar sesión para descargar archivos.</li>
@@ -61,7 +34,7 @@
 
                 </div>
 
-                <div style="max-width:20%;min-width:20%;display:inline-block;vertical-align:middle;text-align:center">
+                <div style="max-width:20%;min-width:20em;display:inline-block;vertical-align:middle;text-align:center">
 
                     <b>Freemium</b><br /><br />
                     <ul style="list-style-type:disc">
@@ -70,7 +43,7 @@
 
                 </div>
 
-                <div style="max-width: 20%;min-width: 20%;display:inline-block;vertical-align:middle;text-align:center">
+                <div style="max-width: 20%;min-width: 20em;display:inline-block;vertical-align:middle;text-align:center">
                     
                     <b>Premium</b><br /><br />
                     <ul style="list-style-type:disc">
@@ -78,7 +51,7 @@
                         <li>Descargad de archivos ilimitada.</li>
 
                 </div>
-                <div style="max-width: 20%;min-width: 20%;display:inline-block;vertical-align:middle;text-align:center">
+                <div style="max-width: 20%;min-width: 20em;display:inline-block;vertical-align:middle;text-align:center">
                     
                     <b class="tituloLista">Suscripciones</b><br /><br />
                     <ul style="list-style-type:disc">
