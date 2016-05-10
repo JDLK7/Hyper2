@@ -45,18 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CAD\DataCAD.cs" />
-    <Compile Include="CAD\FileCAD.cs" />
-    <Compile Include="CAD\FolderCAD.cs" />
     <Compile Include="CAD\MessageCAD.cs" />
     <Compile Include="CAD\NFileCAD.cs" />
     <Compile Include="CAD\NFolderCAD.cs" />
     <Compile Include="CAD\SuscripcionCAD.cs" />
     <Compile Include="CAD\TarifaCAD.cs" />
     <Compile Include="CAD\UserCAD.cs" />
-    <Compile Include="EN\DataEN.cs" />
-    <Compile Include="EN\FileEN.cs" />
-    <Compile Include="EN\FolderEN.cs" />
     <Compile Include="EN\MessageBuilderEN.cs" />
     <Compile Include="EN\MessageEN.cs" />
     <Compile Include="EN\NFileEN.cs" />

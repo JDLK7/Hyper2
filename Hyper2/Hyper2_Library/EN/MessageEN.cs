@@ -13,7 +13,9 @@ namespace Hyper.EN
         private String src; //Origen
         private String dst; //Destinatario
         private String text; //Texto
-        private DateTime date;
+        private string date;
+
+        //private MessageCAD cad;
 
         private static int GetNextID() //Devuelve el proximo id disponible
         {
@@ -30,8 +32,6 @@ namespace Hyper.EN
             this.dst = dst;
             this.text = text;
             this.id = MessageEN.GetNextID();
-            this.date = DateTime.Now;
-
         }
 
         public string Src

@@ -18,6 +18,9 @@ namespace Hyper.CAD
          */ 
         public static ArrayList GetMessages(String user)
         {
+            ArrayList messages = new ArrayList();
+
+
 
             ArrayList nulo = new ArrayList();
             return nulo;
@@ -65,7 +68,7 @@ namespace Hyper.CAD
             int id = m.getID;
             string user1 = m.Src;
             string user2 = m.Dst;
-            DateTime date = m.Date;
+            DateTime date = DateTime.Now;
             string text = m.Text;
 
             ArrayList converUser1 = MessageCAD.getConversations(user1);
