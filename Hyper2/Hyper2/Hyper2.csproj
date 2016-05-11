@@ -139,6 +139,7 @@
     <Content Include="explorador.aspx" />
     <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
+    <Content Include="manda.aspx" />
     <Content Include="messages.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
@@ -166,6 +167,7 @@
     <Content Include="obj\Debug\Hyper2.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Release\build.force" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="profile.aspx" />
     <Content Include="registro.aspx" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -219,6 +221,13 @@
     <Compile Include="manageaccount.aspx.designer.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="manda.aspx.cs">
+      <DependentUpon>manda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manda.aspx.designer.cs">
+      <DependentUpon>manda.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +241,13 @@
     </Compile>
     <Compile Include="messages.aspx.designer.cs">
       <DependentUpon>messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registro.aspx.cs">

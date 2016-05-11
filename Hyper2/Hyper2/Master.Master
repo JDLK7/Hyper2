@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="Content/master.css"/>
 </head>
-<body>
+<body style="background-color:lightblue">
     <form id="form1" runat="server">
     <div id="mainMaster">
         <nav class="navbar navbar-default" role="navigation">
