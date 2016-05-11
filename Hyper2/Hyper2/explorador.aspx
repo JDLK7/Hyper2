@@ -8,13 +8,14 @@
             margin-left:15em;
         }
         #toolbar {
-            position:relative;
+            position:fixed;
             width:100%;
             height:2.5em;
             background-color:#5F5F5F;
             
         }
         #listView-container {
+            padding-top:35px;
             position:relative;
             float:right;
             width:100%;
@@ -25,7 +26,7 @@
             box-shadow: 4px 4px 3px 1px rgba(0,0,0,0.5);
         }
         #treeView-container {
-            position:absolute;
+            position:fixed;
             float:left;
             height:100%;
             width:15em;
@@ -41,6 +42,9 @@
         }
         table {
             border-collapse: collapse;
+        }
+        tr:nth-child(even) {
+            background-color: #e6e6e6
         }
         tr:hover {
             background-color: #d2e8f9
@@ -63,9 +67,6 @@
             <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" 
                 RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode">
             </asp:TreeView>
-        </div>
-        <div id="toolbar">
-            <p style="text-align:center; color:white;">TOOLBAR</p>
         </div>
         <div id="listView-container">
             <asp:ListView ID="listView1" runat="server">
@@ -92,6 +93,9 @@
                     </tr>
                   </ItemTemplate>
             </asp:ListView>
+        </div>
+        <div id="toolbar">
+            <p style="text-align:center; color:white;">TOOLBAR</p>
         </div>
     </div>
 </asp:Content>

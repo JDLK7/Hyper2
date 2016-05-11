@@ -20,7 +20,7 @@
 <body style="background-color:lightblue">
     <form id="form1" runat="server">
     <div id="mainMaster">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
           <!-- El logotipo y el icono que despliega el menú se agrupan
                para mostrarlos mejor en los dispositivos móviles -->
           <div class="navbar-header">
@@ -41,8 +41,6 @@
               <li><a href="subir.aspx">Subir</a></li>
               <li><a href="about.aspx">Sobre Hyper</a></li>
             </ul>
- 
-
 
             <ul class="nav navbar-nav navbar-right">
                 <div class="nav navbar-form navbar-left" role="search">
@@ -78,10 +76,11 @@
           </div>
         </nav>
         
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div style="padding-top:51px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
-        </asp:ContentPlaceHolder>
-        
+            </asp:ContentPlaceHolder>
+        </div>
     </div>
     </form>
 </body>
