@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using Hyper.EN;
+using System.Collections;
 
 namespace Hyper2
 {
@@ -32,6 +33,7 @@ namespace Hyper2
                     treeNode.ChildNodes.Add(directoryNode);
                 }
 
+                /*
                 //Get all files in the Directory.
                 foreach (FileInfo file in directory.GetFiles())
                 {
@@ -44,7 +46,7 @@ namespace Hyper2
                         NavigateUrl = (new Uri(Server.MapPath("~/"))).MakeRelativeUri(new Uri(file.FullName)).ToString()
                     };
                     directoryNode.ChildNodes.Add(fileNode);
-                }
+                }*/
 
                 PopulateTreeView(directory, directoryNode);
             }
@@ -56,6 +58,27 @@ namespace Hyper2
             {
                 DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath);
                 this.PopulateTreeView(rootInfo, null);
+            }
+
+            DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
+
+            FullDirList(di);
+            listView1.DataSource = files;
+            listView1.DataBind();
+        }
+
+        ArrayList files = new ArrayList();
+
+        public void FullDirList(DirectoryInfo dir1)
+        {
+            foreach (DirectoryInfo f in dir1.GetDirectories())
+            {
+                files.Add(f);
+            }
+
+            foreach (FileInfo f in dir1.GetFiles())
+            {
+                files.Add(f);
             }
         }
     }

@@ -1,11 +1,10 @@
 ﻿#exploradorTreeView{
-
+    float:left;
     position: absolute;
     height:100%;
     width:15em;
     overflow:hidden;
-    background-color:#169be6;
-    
+    background-color:#169be6; 
 }
 
 a{
