@@ -1,15 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="about.aspx.cs" Inherits="Hyper2.AboutHyper" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <style>
-
-        #listaDetalles{
-
-            font-size:115%;
-
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="Content/about.css" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,7 +10,7 @@
 
         <div id="divCentral" align="center">
 
-            <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=315em height=125em border=0/></div>
+            <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=325em height=125em border=0/></div>
 
             <h1 align="center"><b>Acerca De Hyper</b></h1>
             <div align="center" style="font-size:120%" ><br /> Hyper es un servidor de cloud storage que permite tanto guardar archivos privados para uso personal,<br />
