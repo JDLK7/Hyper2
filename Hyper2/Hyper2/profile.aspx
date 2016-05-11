@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="Content/manage.css"/>
-    <link rel="stylesheet" type="text/css" href="Content/registro.css"/>
     <link rel="stylesheet" type="text/css" href="Content/profile.css"/>
 
 </asp:Content>

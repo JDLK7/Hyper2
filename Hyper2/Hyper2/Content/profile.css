@@ -90,3 +90,12 @@
    position: absolute;
    top: 30%;
 }
+
+/* Añadido de manage.css */
+
+.blockquote { 
+  padding: 3px 10px; 
+  border: darkblue 5px double; 
+  border-top-left-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+}
