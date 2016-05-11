@@ -2,31 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="scripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src='scripts/explorerEditor.js'></script>
+    <link rel="stylesheet" type="text/css" href="Content/explorador.css" />
 
-    <style> 
-        #wrapper {
-            margin-left:15em;
-        }
-        #listView-container {
-            position:absolute;
-            float:right;
-            width:100%;
-            height:100%;
-            background-color:burlywood;
-        }
-        #treeView-container {
-            position:absolute;
-            float:left;
-            height:100%;
-            width:15em;
-            margin-left:-15em;
-            overflow:hidden;
-            background-color:#169be6; 
-        }
-        #cleared {
-            clear:both;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="wrapper">

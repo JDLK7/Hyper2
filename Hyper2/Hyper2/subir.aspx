@@ -6,8 +6,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!--<asp:Button id="Button1" Text="Click here for greeting..." OnClick="clickSubir" runat="server"/>-->
-
         <div id="divCentral" align="center">
 
             <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=325 height=125 border=0/></div>

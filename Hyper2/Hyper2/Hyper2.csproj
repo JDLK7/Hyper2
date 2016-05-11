@@ -134,12 +134,12 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\messages.css" />
+    <Content Include="Content\profile.css" />
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
     <Content Include="explorador.aspx" />
     <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
-    <Content Include="manda.aspx" />
     <Content Include="messages.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
@@ -220,13 +220,6 @@
     </Compile>
     <Compile Include="manageaccount.aspx.designer.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manda.aspx.cs">
-      <DependentUpon>manda.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manda.aspx.designer.cs">
-      <DependentUpon>manda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
