@@ -31,7 +31,8 @@
             height:100%;
             width:15em;
             margin-left:-15em;
-            overflow:hidden;
+            overflow-x: hidden;
+            overflow-y: scroll;
             background-color:#EEEEEE; 
             -webkit-box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.5);
             -moz-box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.5);
