@@ -139,7 +139,6 @@
     <Content Include="explorador.aspx" />
     <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
-    <Content Include="manda.aspx" />
     <Content Include="messages.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Hyper2.dll" />
@@ -169,14 +168,6 @@
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="profile.aspx" />
     <Content Include="registro.aspx" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <None Include="scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="scripts\explorerEditor.js" />
-    <Content Include="scripts\messagesEditor.js" />
-    <Content Include="scripts\jquery-1.9.1.js" />
-    <Content Include="scripts\jquery-1.9.1.min.js" />
-    <Content Include="scripts\optionSelector.js" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -189,6 +180,14 @@
     <Content Include="App_Data\Hyper2DB.mdf" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\explorerEditor.js" />
+    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="scripts\jquery-1.9.1.js" />
+    <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\messagesEditor.js" />
+    <Content Include="scripts\optionSelector.js" />
     <Content Include="subir.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -220,13 +219,6 @@
     </Compile>
     <Compile Include="manageaccount.aspx.designer.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manda.aspx.cs">
-      <DependentUpon>manda.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manda.aspx.designer.cs">
-      <DependentUpon>manda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
