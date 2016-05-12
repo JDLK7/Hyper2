@@ -130,18 +130,21 @@
     <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="Content\about.css" />
     <Content Include="Content\bootstrap-select.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\explorador.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\messages.css" />
+    <Content Include="Content\profile.css" />
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
+    <Content Include="Content\_explorador.css" />
     <Content Include="explorador.aspx" />
+    <Content Include="IMG\logoHyper.png" />
     <Content Include="index.aspx" />
     <Content Include="manageaccount.aspx" />
     <Content Include="messages.aspx" />
@@ -270,7 +273,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IMG\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
