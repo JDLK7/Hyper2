@@ -49,7 +49,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a id="logoMaster" href="index.aspx"><img src="IMG/logoHyper_fondoblanco.png" alt ="LogoHyper" width=120em height=45em border=0 /></a>
+            <a id="logoMaster" href="index.aspx"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=120em height=45em border=0 /></a>
           </div>
  
           <!-- Agrupar los enlaces de navegación, los formularios y cualquier
