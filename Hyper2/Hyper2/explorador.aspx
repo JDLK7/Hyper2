@@ -61,13 +61,16 @@
             width:25%;
             text-align:center;
         }
+        .node {
+            font-size:large;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="wrapper">
         <div id="treeView-container">
-            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" 
-                RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode">
+            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode">
+                <NodeStyle CssClass="node"/>
             </asp:TreeView>
         </div>
         <div id="listView-container">
