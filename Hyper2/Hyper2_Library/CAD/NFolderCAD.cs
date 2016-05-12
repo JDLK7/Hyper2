@@ -16,6 +16,7 @@ namespace Hyper.CAD
         private string path;
         private string owner;
         private string name;
+        private string date;
 
         public NFolderCAD()
         {

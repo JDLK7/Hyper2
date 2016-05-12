@@ -32,6 +32,12 @@ namespace Hyper.CAD
             set { path = value; }
         }
 
+        public string Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
+
         public string Owner
         {
             get { return owner; }

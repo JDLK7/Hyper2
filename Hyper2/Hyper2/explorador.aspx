@@ -42,6 +42,7 @@
             clear:both;
         }
         table {
+            empty-cells:show;
             border-collapse: collapse;
         }
         tr:nth-child(even) {
@@ -85,14 +86,22 @@
                   <ItemTemplate>
                     <tr runat="server">
                         <td runat="server">
-                        <!-- Data-bound content. -->
                             <asp:Label ID="NameLabel" runat="server" Text='<%#Eval("Name") %>' />
                         </td>
-                        <td style="text-align:center;">1/1/1970</td>
-                        <td style="text-align:center;">.txt</td>
-                        <td style="text-align:center;">10 MB</td>
+                        <td runat="server" style="text-align:center;">
+                            <asp:Label ID="DateLabel" runat="server" Text='<%#Eval("Date") %>' />
+                        </td>
+                        <td runat="server" style="text-align:center;">
+                            <asp:Label ID="ExtensionLabel" runat="server" Text='<%#Eval("Extension") %>' />
+                        </td>
+                        <td runat="server" style="text-align:center;">
+                            <asp:Label ID="SizeLabel" runat="server" Text='<%#Eval("Size") %>' />
+                        </td>
                     </tr>
                   </ItemTemplate>
+                <EmptyDataTemplate>
+                    <td>No existen archivos.</td>
+                </EmptyDataTemplate>
             </asp:ListView>
         </div>
         <div id="toolbar">

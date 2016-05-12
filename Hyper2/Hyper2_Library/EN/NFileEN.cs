@@ -33,6 +33,26 @@ namespace Hyper.EN
             set { owner = value; }
         }
 
+        public string Name
+        {
+            get { return name; }
+        }
+
+        public string Date
+        {
+            get { return cad.Date; }
+        }
+
+        public string Extension
+        {
+            get { return extension; }
+        }
+
+        public string Size
+        {
+            get { return "10 MB"; }
+        }
+
         /*
          * Constructor para nuevos archivos
          */
@@ -76,16 +96,20 @@ namespace Hyper.EN
 
         public string getExtension()
         {
-            int index = path.LastIndexOf('.');
+            if (path != null)
+            {
+                int index = path.LastIndexOf('.');
 
-            if(index > 0)
-            {
-                return path.Substring(index);
+                if (index > 0)
+                {
+                    return path.Substring(index);
+                }
+                else
+                {
+                    return "";
+                }
             }
-            else
-            {
-                return "";
-            }
+            return "";
         }
     }
 }

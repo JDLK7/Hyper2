@@ -19,6 +19,7 @@ namespace Hyper.EN
 
         private string path;
         private string owner;
+        //private DateTime date;
         private NFolderCAD cad;
 
         public string Path
@@ -27,16 +28,36 @@ namespace Hyper.EN
             set { path = value; }
         }
 
+        public string Name
+        {
+            get { return getName(); }
+        }
+
         public string Owner
         {
             get { return owner; }
             set { owner = value; }
         }
 
+        public string Extension
+        {
+            get { return "Carpeta"; }
+        }
+
+        public string Size
+        {
+            get { return "-"; }
+        }
+
+        public string Date
+        {
+            get { return "1/1/1970"; }
+        }
+
 
         /*
          * Constructor de carpetas vacias para pruebas
-         */ 
+         */
         public NFolderEN()
         {
             this.path = defaultFolder;
@@ -162,9 +183,24 @@ namespace Hyper.EN
             return content;
         }
 
+        public ArrayList getFiles()
+        {
+
+            DirectoryInfo di = new DirectoryInfo(defaultPath + path);
+
+            ArrayList content = new ArrayList();
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                content.Add(new NFileEN(this.path + "/" + file.Name));
+            }
+
+            return content;
+        }
+
         /*
          * Recibe el nombre de una carpeta y abre la carpeta que haya en su interior
-         */ 
+         */
         public NFolderEN open(string name)
         {
             NFolderEN aux = new NFolderEN(path + "/" + name);
