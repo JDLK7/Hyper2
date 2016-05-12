@@ -60,15 +60,35 @@ namespace Hyper2
                 this.PopulateTreeView(rootInfo, null);
             }
 
-            DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
+            //DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
 
+            /*
             FullDirList(di);
             listView1.DataSource = files;
             listView1.DataBind();
+            */
+
+            /*
+            ListFiles("AyMiJose");
+            listView1.DataSource = files;
+            listView1.DataBind();
+            */
         }
 
         ArrayList files = new ArrayList();
 
+        public void ListFiles(string path)
+        {
+            NFolderEN aux = new NFolderEN(path);
+            files = aux.getFiles();
+
+            foreach (NFolderEN f in aux.getFolders())
+            {
+                files.Add(f);
+            }
+        }
+
+        /*
         public void FullDirList(DirectoryInfo dir1)
         {
             foreach (DirectoryInfo f in dir1.GetDirectories())
@@ -81,5 +101,6 @@ namespace Hyper2
                 files.Add(f);
             }
         }
+        */
     }
 }

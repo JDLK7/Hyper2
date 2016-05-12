@@ -33,6 +33,26 @@ namespace Hyper.EN
             set { owner = value; }
         }
 
+        public string Name
+        {
+            get { return name; }
+        }
+
+        public string Date
+        {
+            get { return cad.Date; }
+        }
+
+        public string Extension
+        {
+            get { return extension; }
+        }
+
+        public string Size
+        {
+            get { return "10 MB"; }
+        }
+
         /*
          * Constructor para nuevos archivos
          */
@@ -52,7 +72,8 @@ namespace Hyper.EN
         {
             this.cad = new NFileCAD(path);
             this.owner = cad.Owner;
-            this.path = cad.Path;
+            //this.path = cad.Path;
+            this.path = path;
             this.extension = getExtension();
             this.name = getName();
 
@@ -78,9 +99,9 @@ namespace Hyper.EN
         {
             int index = path.LastIndexOf('.');
 
-            if(index > 0)
+            if (index > 0)
             {
-                return path.Substring(index);
+                return path.Substring(index+1);
             }
             else
             {

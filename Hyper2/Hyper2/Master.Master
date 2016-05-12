@@ -8,19 +8,37 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src='scripts/bootstrap.min.js'></script>
+    <script type="text/javascript" src='scripts/bootstrap-select.js'></script>
     <script type="text/javascript" src='scripts/optionSelector.js'></script>
-    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.css"/>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css"/>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="Content/master.css"/>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-select.css"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".selectpicker").selectpicker();
+
+        });
+    </script>
+
+    <style>
+        .dropdown-user {
+            margin-top:8px;
+            margin-right: 1.5em;
+            width: 9.2em;
+        }
+    </style>
+
 </head>
 <body style="background-color:lightblue">
     <form id="form1" runat="server">
     <div id="mainMaster">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
           <!-- El logotipo y el icono que despliega el menú se agrupan
                para mostrarlos mejor en los dispositivos móviles -->
           <div class="navbar-header">
@@ -38,50 +56,55 @@
                otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="subir.aspx">Subir</a></li>
-              <li><a href="about.aspx">Sobre Hyper</a></li>
+                <li><a href="subir.aspx">Subir</a></li>
+                <li><a href="about.aspx">Sobre Hyper</a></li>
             </ul>
- 
-
 
             <ul class="nav navbar-nav navbar-right">
                 <div class="nav navbar-form navbar-left" role="search">
-                    <input type="text" class="form-control" placeholder="Buscar" />
-                    <button type="submit" class="btn btn-default">Enviar</button>
+                    <asp:TextBox ID="textBox_search" runat="server" type="text" class="form-control" placeholder="Buscar" />
+                    <asp:Button ID="button_search" runat="server" type="submit" class="btn btn-default" Text="Enviar"></asp:Button>
                 </div>
-              <li class="dropdown">
-                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" id="todosMenu">
-                  Todos <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#" class="optionsEtiqueta">Todos</a></li>
-                  <li><a href="#" class="optionsEtiqueta">Usuarios</a></li>
-                  <li><a href="#" class="optionsEtiqueta">Música</a></li>
-                  <li><a href="#" class="optionsEtiqueta">Vídeos</a></li>
-                  <li><a href="#" class="optionsEtiqueta">Archivos</a></li>
-                </ul>
-              </li>
-              <li class="dropdown" id="usuarioButton">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <!--En "Menu #2" debe ir el nombre de usuario"-->
-                  Usuario <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Perfil</a></li>
-                  <li><a href="#">Mensajes</a></li>
-                  <li><a href="#">Configuracion</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Cerrar sesion</a></li>
-                </ul>
-              </li>
+                <li class="dropdown">
+                    <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" id="todosMenu">
+                        Todos <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="optionsEtiqueta">Todos</a></li>
+                        <li><a href="#" class="optionsEtiqueta">Usuarios</a></li>
+                        <li><a href="#" class="optionsEtiqueta">Música</a></li>
+                        <li><a href="#" class="optionsEtiqueta">Vídeos</a></li>
+                        <li><a href="#" class="optionsEtiqueta">Archivos</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <asp:DropDownList ID="dropDownList1" runat="server" CssClass="selectpicker dropdown-user">
+                        <asp:ListItem Text="">
+                            Mi cuenta
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Perfil
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Mensajes
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Configuración
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Cerrar sesión
+                        </asp:ListItem>
+                    </asp:DropDownList>
+                </li>
             </ul>
           </div>
         </nav>
         
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div style="padding-top:51px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
-        </asp:ContentPlaceHolder>
-        
+            </asp:ContentPlaceHolder>
+        </div>
     </div>
     </form>
 </body>
