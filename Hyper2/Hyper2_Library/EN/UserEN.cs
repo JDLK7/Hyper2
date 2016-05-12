@@ -103,7 +103,7 @@ namespace Hyper.EN
         public void Load(string username)
         {
             UserEN user = UserCAD.Load(username);
-            username = user.Username;
+            this.username = username;
             firstName = user.FirstName;
             lastName = user.LastName;
             email = user.Email;

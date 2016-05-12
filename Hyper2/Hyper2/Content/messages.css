@@ -1,6 +1,33 @@
-﻿#messagesMain{
+﻿table {
+    empty-cells:show;
+    border-collapse: collapse;
+}
+
+tr {
+    text-align:right;
+}
+tr:nth-child(even) {
+    text-align:left;
+}
+tr:hover {
+    background-color: #d2e8f9
+}
+th {
+    border-right: 1px solid #808080;
+    height:2.5em;
+    background-color: #5F5F5F;
+    color: white;
+}
+tr > th {
+    width:25%;
+    text-align:center;
+}
+
+
+#messagesMain{
 
     position: absolute;
+    float:left;
     height:100%;
     width:15em;
     overflow:hidden;
@@ -19,3 +46,43 @@ a{
     margin-bottom:0px;
 
 }
+
+#messagesText{
+
+    background-color:white;
+    position: absolute;
+    float:right;
+    height:100%;
+    margin-left:15em;
+    width:85%;
+    overflow:hidden;
+
+}
+.mensajesTD{
+
+    padding:2em;
+
+}
+
+.mensajesText{
+
+    border-style:dashed;
+    border-width:1.5px;
+    padding:1em;
+    padding-left:5em;
+    padding-right:5em;
+
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+.users{
+
+    padding:0.5em;
+    font-size:115%;
+    text-align:center;
+
+}
+

@@ -152,7 +152,7 @@ namespace Hyper.CAD
             try
             {
                 db.Open();
-                string query = "SELECT user2 FROM Chat WHERE user1 = '" + user + "';";
+                string query = "SELECT user2 FROM [Chat] WHERE user1 = '" + user + "';";
                 SqlCommand command = new SqlCommand(query, db);
                 SqlDataReader dr = command.ExecuteReader();
 
@@ -161,7 +161,10 @@ namespace Hyper.CAD
                     while (dr.Read())
                     {
                         string aux = dr.GetString(0);
-                        usuarios.Add(aux);
+                        UserEN empty = new UserEN();
+                        empty.Load(aux);
+
+                        usuarios.Add(empty);
                     }
                 }
               
