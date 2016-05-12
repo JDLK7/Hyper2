@@ -60,7 +60,7 @@ namespace Hyper2
                 this.PopulateTreeView(rootInfo, null);
             }
 
-            DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
+            //DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
 
             /*
             FullDirList(di);
@@ -68,9 +68,11 @@ namespace Hyper2
             listView1.DataBind();
             */
 
+            /*
             ListFiles("AyMiJose");
             listView1.DataSource = files;
             listView1.DataBind();
+            */
         }
 
         ArrayList files = new ArrayList();

@@ -72,7 +72,8 @@ namespace Hyper.EN
         {
             this.cad = new NFileCAD(path);
             this.owner = cad.Owner;
-            this.path = cad.Path;
+            //this.path = cad.Path;
+            this.path = path;
             this.extension = getExtension();
             this.name = getName();
 
@@ -96,20 +97,16 @@ namespace Hyper.EN
 
         public string getExtension()
         {
-            if (path != null)
-            {
-                int index = path.LastIndexOf('.');
+            int index = path.LastIndexOf('.');
 
-                if (index > 0)
-                {
-                    return path.Substring(index);
-                }
-                else
-                {
-                    return "";
-                }
+            if (index > 0)
+            {
+                return path.Substring(index+1);
             }
-            return "";
+            else
+            {
+                return "";
+            }
         }
     }
 }

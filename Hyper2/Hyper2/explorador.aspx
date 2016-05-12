@@ -86,16 +86,20 @@
                   <ItemTemplate>
                     <tr runat="server">
                         <td runat="server">
-                            <asp:Label ID="NameLabel" runat="server" Text='<%#Eval("Name") %>' />
+                            <!--<asp:Label ID="NameLabel" runat="server" Text='</%#Eval("Name") %>' />-->
+                            <td>Nombre</td>
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <asp:Label ID="DateLabel" runat="server" Text='<%#Eval("Date") %>' />
+                            <!--<asp:Label ID="DateLabel" runat="server" Text='</%#Eval("Date") %>' />-->
+                            <td>Date</td>
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <asp:Label ID="ExtensionLabel" runat="server" Text='<%#Eval("Extension") %>' />
+                            <!--<asp:Label ID="ExtensionLabel" runat="server" Text='</%#Eval("Extension") %>' />-->
+                            <td>Ext</td>
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <asp:Label ID="SizeLabel" runat="server" Text='<%#Eval("Size") %>' />
+                            <!--<asp:Label ID="SizeLabel" runat="server" Text='</%#Eval("Size") %>' />-->
+                            <td>Size</td>
                         </td>
                     </tr>
                   </ItemTemplate>
