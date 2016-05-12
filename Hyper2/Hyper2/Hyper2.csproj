@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\iniciarSesion.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\messages.css" />
     <Content Include="Content\profile.css" />
@@ -146,6 +147,7 @@
     <Content Include="explorador.aspx" />
     <Content Include="IMG\logoHyper.png" />
     <Content Include="index.aspx" />
+    <Content Include="iniciarSesion.aspx" />
     <Content Include="manageaccount.aspx" />
     <Content Include="messages.aspx" />
     <Content Include="obj\Debug\Hyper2.csproj.FileListAbsolute.txt" />
@@ -221,6 +223,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iniciarSesion.aspx.cs">
+      <DependentUpon>iniciarSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iniciarSesion.aspx.designer.cs">
+      <DependentUpon>iniciarSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="manageaccount.aspx.cs">
       <DependentUpon>manageaccount.aspx</DependentUpon>

@@ -12,12 +12,36 @@ namespace Hyper2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                   
-        }
+            Session["sesionIniciada"] = false;
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+            if ((bool)(Session["sesionIniciada"]) == false)
+            {
+
+                ButtonIniciarSesion.Visible = true;
+                ButtonRegistrarse.Visible = true;
+                dropDownSesionIniciada.Visible = false;
+
+            }
+            else
+            {
+
+                ButtonIniciarSesion.Visible = false;
+                ButtonRegistrarse.Visible = false;
+                dropDownSesionIniciada.Visible = true;
+
+            }
             
         }
+
+        protected void redirectIniciarSesion(object sender, EventArgs e)
+        {
+            Response.Redirect("~/iniciarSesion.aspx");
+        }
+
+        protected void redirectRegistrarse(object sender, EventArgs e)
+        {
+            Response.Redirect("~/registro.aspx");
+        }
+
     }
 }

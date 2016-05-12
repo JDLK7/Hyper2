@@ -49,13 +49,31 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.Button button_search;
         
         /// <summary>
-        /// dropDownList1 control.
+        /// ButtonIniciarSesion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownList1;
+        protected global::System.Web.UI.WebControls.Button ButtonIniciarSesion;
+        
+        /// <summary>
+        /// ButtonRegistrarse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonRegistrarse;
+        
+        /// <summary>
+        /// dropDownSesionIniciada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDownSesionIniciada;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

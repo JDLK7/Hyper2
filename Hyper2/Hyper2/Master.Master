@@ -24,6 +24,7 @@
             $(".selectpicker").selectpicker();
 
         });
+
     </script>
 
     <style>
@@ -78,7 +79,13 @@
                     </ul>
                 </li>
                 <li>
-                    <asp:DropDownList ID="dropDownList1" runat="server" CssClass="selectpicker dropdown-user">
+
+                    <div class="nav navbar-form navbar-left" id="BotonesNoLogeado">
+                        <asp:Button ID="ButtonIniciarSesion" runat="server" Text="Iniciar sesion" class="btn btn-default" OnClick="redirectIniciarSesion"/>
+                        <asp:Button ID="ButtonRegistrarse" runat="server" Text="Registrarse" class="btn btn-default" OnClick="redirectRegistrarse"/>
+                    </div>
+
+                    <asp:DropDownList ID="dropDownSesionIniciada" runat="server" CssClass="selectpicker dropdown-user">
                         <asp:ListItem Text="">
                             Mi cuenta
                         </asp:ListItem>
