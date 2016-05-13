@@ -22,13 +22,13 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.TreeView TreeView1;
         
         /// <summary>
-        /// listView1 control.
+        /// explorerListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listView1;
+        protected global::System.Web.UI.WebControls.ListView explorerListView;
         
         /// <summary>
         /// buttonUpload control.
@@ -74,5 +74,14 @@ namespace Hyper2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttonShare;
+        
+        /// <summary>
+        /// labelResultado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelResultado;
     }
 }

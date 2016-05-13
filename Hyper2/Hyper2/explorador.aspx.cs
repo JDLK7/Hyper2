@@ -12,6 +12,24 @@ namespace Hyper2
 {
     public partial class explorador : System.Web.UI.Page
     {
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            explorerListView.ItemCommand += new EventHandler<ListViewCommandEventArgs>(onClickedMore);
+        }
+
+        protected void onClickedMore(object sender, ListViewCommandEventArgs e)
+        {
+            if (e.CommandName == "more")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                ListViewItem item = explorerListView.Items[index];
+                Label c = (Label)item.FindControl("labelName");
+
+                labelResultado.Text = c.Text;
+            }
+        }
+        
+
         private void PopulateTreeView(DirectoryInfo dirInfo, TreeNode treeNode)
         {
             foreach (DirectoryInfo directory in dirInfo.GetDirectories())
@@ -64,8 +82,8 @@ namespace Hyper2
 
             
             FullDirList(di);
-            listView1.DataSource = files;
-            listView1.DataBind();
+            explorerListView.DataSource = files;
+            explorerListView.DataBind();
             
 
             /*
@@ -87,7 +105,6 @@ namespace Hyper2
                 files.Add(f);
             }
         }
-
         
         public void FullDirList(DirectoryInfo dir1)
         {

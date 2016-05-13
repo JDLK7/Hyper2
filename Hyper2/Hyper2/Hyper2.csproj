@@ -145,6 +145,7 @@
     <Content Include="Content\registro.css" />
     <Content Include="Content\_explorador.css" />
     <Content Include="explorador.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="IMG\logoHyper.png" />
     <Content Include="index.aspx" />
     <Content Include="iniciarSesion.aspx" />
@@ -180,6 +181,10 @@
     <Content Include="registro.aspx" />
     <Content Include="scripts\bootstrap-select.js" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

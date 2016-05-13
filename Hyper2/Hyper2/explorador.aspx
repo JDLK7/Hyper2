@@ -12,7 +12,7 @@
             width:100%;
             height:3em;
             background-color:#5F5F5F;
-            
+            z-index:2;
         }
         #listView-container {
             padding-top:35px;
@@ -58,7 +58,7 @@
             color: white;
         }
         tr > th {
-            width:25%;
+            width:20%;
             text-align:center;
         }
         .node {
@@ -67,6 +67,11 @@
         .botonsito {
             margin-left:1em;
             margin-top:0.2em;
+        }
+        .buttonMore {
+            vertical-align:middle;
+            height:0.5em;
+            width:1em;
         }
     </style>
 </asp:Content>
@@ -78,32 +83,36 @@
             </asp:TreeView>
         </div>
         <div id="listView-container">
-            <asp:ListView ID="listView1" runat="server">
+            <asp:ListView ID="explorerListView" runat="server" OnItemCommand="onClickedMore">
                   <LayoutTemplate>
-                    <table runat="server" id="table1" width="100%">
+                    <table runat="server" id="itemPlaceHolderContainer" width="100%">
                             <tr>
                                 <th>Nombre</th>
                                 <th>Fecha de subida</th>
                                 <th>Tipo</th>
                                 <th>Tamaño</th>
+                                <th></th>
                             </tr>
-                            <tr runat="server" id="itemPlaceholder"></tr>
+                            <tr runat="server" id="itemPlaceHolder"></tr>
                     </table>
                   </LayoutTemplate>
                   <ItemTemplate>
-                    <tr runat="server">
+                    <tr runat="server" onclick="onClickedRow">
                         <td runat="server">
-                            <asp:Label ID="NameLabel" runat="server" Text='<%#Eval("Name") %>' />
+                            <asp:Label ID="labelName" runat="server" Text='<%#Eval("Name") %>' />
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <asp:Label ID="DateLabel" runat="server" Text='<%#Eval("CreationTime") %>' />
+                            <asp:Label ID="labelDate" runat="server" Text='<%#Eval("CreationTime") %>' />
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <asp:Label ID="ExtensionLabel" runat="server" Text='<%#Eval("Extension") %>' />
+                            <asp:Label ID="labelExtension" runat="server" Text='<%#Eval("Extension") %>' />
+                        </td>    
+                        <td style="text-align:center;">10 MB</td>
+                        <td runat="server" style="text-align:center;">
+                            <asp:LinkButton ID="buttonMore" runat="server" CssClass="btn btn-default btn-lg" CommandName="more" CommandArgument='<%# Container.DataItemIndex %>'>
+                                <span aria-hidden="true" class="glyphicon glyphicon-option-horizontal"></span>
+                            </asp:LinkButton>
                         </td>
-                        
-                            <td style="text-align:center;">10 MB</td>
-                        
                     </tr>
                   </ItemTemplate>
                 <EmptyDataTemplate>
@@ -117,6 +126,7 @@
             <asp:Button runat="server" ID="buttonDownload" Text="Descargar" CssClass="btn btn-default botonsito"/>
             <asp:Button runat="server" ID="buttonPublic" Text="Hacer público" CssClass="btn btn-default botonsito"/>
             <asp:Button runat="server" ID="buttonShare" Text="Compartir" CssClass="btn btn-default botonsito"/>
+            <asp:Label runat="server" ID="labelResultado" Text="Nada" />
         </div>
     </div>
 </asp:Content>
