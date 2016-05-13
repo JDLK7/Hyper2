@@ -41,6 +41,7 @@ namespace Hyper.EN
 
         public UserEN(string username, string firstName, string lastName, string email, string password)
         {
+            this.folder = new NFolderEN(username, username);
             this.username = username;
             this.firstName = firstName;
             this.lastName = lastName;
@@ -51,7 +52,7 @@ namespace Hyper.EN
 
             msgBuilder = new MessageBuilderEN(username);
 
-            this.folder = new NFolderEN(username, username);
+           
         }
 
         /*

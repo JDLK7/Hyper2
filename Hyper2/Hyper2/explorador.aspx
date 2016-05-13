@@ -10,7 +10,7 @@
         #toolbar {
             position:fixed;
             width:100%;
-            height:2.5em;
+            height:3em;
             background-color:#5F5F5F;
             
         }
@@ -64,6 +64,10 @@
         .node {
             font-size:large;
         }
+        .botonsito {
+            margin-left:1em;
+            margin-top:0.2em;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -89,21 +93,17 @@
                   <ItemTemplate>
                     <tr runat="server">
                         <td runat="server">
-                            <!--<asp:Label ID="NameLabel" runat="server" Text='</%#Eval("Name") %>' />-->
-                            <td>Nombre</td>
+                            <asp:Label ID="NameLabel" runat="server" Text='<%#Eval("Name") %>' />
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <!--<asp:Label ID="DateLabel" runat="server" Text='</%#Eval("Date") %>' />-->
-                            <td>Date</td>
+                            <asp:Label ID="DateLabel" runat="server" Text='<%#Eval("CreationTime") %>' />
                         </td>
                         <td runat="server" style="text-align:center;">
-                            <!--<asp:Label ID="ExtensionLabel" runat="server" Text='</%#Eval("Extension") %>' />-->
-                            <td>Ext</td>
+                            <asp:Label ID="ExtensionLabel" runat="server" Text='<%#Eval("Extension") %>' />
                         </td>
-                        <td runat="server" style="text-align:center;">
-                            <!--<asp:Label ID="SizeLabel" runat="server" Text='</%#Eval("Size") %>' />-->
-                            <td>Size</td>
-                        </td>
+                        
+                            <td style="text-align:center;">10 MB</td>
+                        
                     </tr>
                   </ItemTemplate>
                 <EmptyDataTemplate>
@@ -112,7 +112,11 @@
             </asp:ListView>
         </div>
         <div id="toolbar">
-            <p style="text-align:center; color:white;">TOOLBAR</p>
+            <asp:Button runat="server" ID="buttonUpload" Text="Subir" CssClass="btn btn-default botonsito"/>
+            <asp:Button runat="server" ID="buttonNewFolder" Text="Nueva carpeta" CssClass="btn btn-default botonsito"/>
+            <asp:Button runat="server" ID="buttonDownload" Text="Descargar" CssClass="btn btn-default botonsito"/>
+            <asp:Button runat="server" ID="buttonPublic" Text="Hacer público" CssClass="btn btn-default botonsito"/>
+            <asp:Button runat="server" ID="buttonShare" Text="Compartir" CssClass="btn btn-default botonsito"/>
         </div>
     </div>
 </asp:Content>
