@@ -192,7 +192,7 @@ namespace Hyper2
                 UserEN user = new UserEN(username,firstName,lastName,email,password);
                 user.Save();
 
-                confirmation_email(email, firstName);
+                //confirmation_email(email, firstName);
             }
         }
     }

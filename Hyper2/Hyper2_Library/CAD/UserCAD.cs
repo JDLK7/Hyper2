@@ -6,6 +6,7 @@ using System.Web;
 using Hyper.EN;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Hyper.CAD
 {
@@ -24,9 +25,44 @@ namespace Hyper.CAD
             UserEN nulo = new UserEN();
             return nulo;
         }
+
+        /*
+         * Metodo que guarda un objeto UserEN en la base de datos,
+         * de forma que queda registrado en la página.
+         */
         public static void Save(UserEN user)
         {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
 
+            string query = "INSERT INTO [User] (username,email,password,firstName,lastName,profilePic,admin,folder) " +
+                "values (@us,@em,@pass,@first,@last,@pic,@adm,@fol)";
+
+            db.Open();
+
+            SqlCommand insert = new SqlCommand(query, db);
+            insert.Parameters.AddWithValue("@us", user.Username);
+            insert.Parameters.AddWithValue("@em", user.Email);
+            insert.Parameters.AddWithValue("@pass", user.Password);
+            insert.Parameters.AddWithValue("@first", user.FirstName);
+            insert.Parameters.AddWithValue("@last", user.LastName);
+            insert.Parameters.Add("@pic", SqlDbType.Image).Value = DBNull.Value;
+            insert.Parameters.AddWithValue("@adm", 0);
+            insert.Parameters.AddWithValue("@fol", user.Username);
+
+            insert.ToString();
+
+            try
+            {
+                int columnas = insert.ExecuteNonQuery();
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                db.Close();
+            }
         }
         public UserEN GetUser(int id)
         {
@@ -52,7 +88,7 @@ namespace Hyper.CAD
             try
             {
                 db.Open();
-                string query = "SELECT email FROM User WHERE email = " + email + ";";
+                string query = "SELECT [email] FROM [User] WHERE [email] = '" + email + "'";
                 SqlCommand command = new SqlCommand(query, db);
                 SqlDataReader dr = command.ExecuteReader();
 
@@ -76,7 +112,7 @@ namespace Hyper.CAD
             try
             {
                 db.Open();
-                string query = "SELECT username FROM User WHERE username = " + username + ";";
+                string query = "SELECT [username] FROM [User] WHERE [username] = '" + username + "'";
                 SqlCommand command = new SqlCommand(query, db);
                 SqlDataReader dr = command.ExecuteReader();
 
