@@ -47,8 +47,8 @@ namespace Hyper2
         {
             actualPath += TreeView1.SelectedNode.Text + "\\";
             labelResultado.Text = "En teoria se ha cambiado a " + actualPath;
-            populateListView(actualPath);
 
+            populateListView(actualPath);
             updatePanelListView.Update();
         }
 
@@ -144,6 +144,21 @@ namespace Hyper2
             }
 
             return files;
+        }
+
+        protected void buttonNewFolder_Click(object sender, EventArgs e)
+        {
+            newFolderName.Visible = true;
+        }
+
+        protected void buttonOk_Click(object sender, EventArgs e)
+        {
+            labelResultado.Text = "Se pulso ENTER";
+            labelResultado.BackColor = System.Drawing.Color.Red;
+
+            string name = newFolderName.Text;
+            //Se crea la carpeta con el nombre recogido.
+            newFolderName.Visible = false;
         }
     }
 }

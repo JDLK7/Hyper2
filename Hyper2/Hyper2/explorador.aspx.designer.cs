@@ -55,7 +55,7 @@ namespace Hyper2 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonUpload;
+        protected global::System.Web.UI.WebControls.LinkButton buttonUpload;
         
         /// <summary>
         /// buttonNewFolder control.
@@ -64,34 +64,25 @@ namespace Hyper2 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonNewFolder;
+        protected global::System.Web.UI.WebControls.LinkButton buttonNewFolder;
         
         /// <summary>
-        /// buttonDownload control.
+        /// newFolderName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonDownload;
+        protected global::System.Web.UI.WebControls.TextBox newFolderName;
         
         /// <summary>
-        /// buttonPublic control.
+        /// buttonOk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonPublic;
-        
-        /// <summary>
-        /// buttonShare control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonShare;
+        protected global::System.Web.UI.WebControls.Button buttonOk;
         
         /// <summary>
         /// labelResultado control.

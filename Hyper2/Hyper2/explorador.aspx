@@ -66,14 +66,18 @@
         .node {
             font-size:large;
         }
-        .botonsito {
+        .toolbarButton {
             margin-left:1em;
-            margin-top:0.2em;
+            margin-top:0.25em;
         }
         .buttonMore {
             vertical-align:middle;
             height:0.5em;
             width:1em;
+        }
+        .toolbarTextBox {
+            margin-left: 1em;
+            vertical-align: sub;
         }
     </style>
 </asp:Content>
@@ -114,7 +118,7 @@
                                 </td>    
                                 <td style="text-align:center;">10 MB</td>
                                 <td runat="server" style="text-align:center;">
-                                    <asp:LinkButton ID="buttonMore" runat="server" CssClass="btn btn-default btn-lg" CommandName="more" CommandArgument='<%# Container.DataItemIndex %>'>
+                                    <asp:LinkButton ID="buttonMore" runat="server" CssClass="btn btn-default" CommandName="more" CommandArgument='<%# Container.DataItemIndex %>'>
                                         <span aria-hidden="true" class="glyphicon glyphicon-option-horizontal"></span>
                                     </asp:LinkButton>
                                 </td>
@@ -128,11 +132,19 @@
             </asp:UpdatePanel>
         </div>
         <div id="toolbar">
-            <asp:Button runat="server" ID="buttonUpload" Text="Subir" CssClass="btn btn-default botonsito"/>
-            <asp:Button runat="server" ID="buttonNewFolder" Text="Nueva carpeta" CssClass="btn btn-default botonsito"/>
-            <asp:Button runat="server" ID="buttonDownload" Text="Descargar" CssClass="btn btn-default botonsito"/>
-            <asp:Button runat="server" ID="buttonPublic" Text="Hacer público" CssClass="btn btn-default botonsito"/>
-            <asp:Button runat="server" ID="buttonShare" Text="Compartir" CssClass="btn btn-default botonsito"/>
+            <asp:Panel runat="server" DefaultButton="buttonOk">
+                <asp:LinkButton ID="buttonUpload" runat="server" CssClass="btn btn-default toolbarButton">
+                    <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
+                    Subir
+                </asp:LinkButton>
+                <asp:LinkButton ID="buttonNewFolder" runat="server" CssClass="btn btn-default toolbarButton" OnClick="buttonNewFolder_Click">
+                    <span aria-hidden="true" class="glyphicon glyphicon-folder-open"></span>
+                    Nueva carpeta
+                </asp:LinkButton>
+                <asp:TextBox ID="newFolderName" runat="server" CssClass="form-control toolbarTextBox" Visible="false" placeholder="Introduce el nombre"></asp:TextBox>
+                <asp:Button ID="buttonOk" runat="server" OnClick="buttonOk_Click" style="display:none"/>
+            </asp:Panel>
+
             <asp:Label runat="server" ID="labelResultado" Text="Nada" />
         </div>
     </div>
