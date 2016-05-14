@@ -12,6 +12,13 @@ namespace Hyper2
 {
     public partial class explorador : System.Web.UI.Page
     {
+        protected string selectedFile;
+        
+        /*
+         * Método que se utiliza para crear un evento que se lanzará cada vez que 
+         * se presione el botón contenido en cada elemento de la ListView del explorador.
+         * Dicha señal está conectada a un método que captura el nombre del archivo seleccionado.
+         */
         protected void Page_Init(object sender, EventArgs e)
         {
             explorerListView.ItemCommand += new EventHandler<ListViewCommandEventArgs>(onClickedMore);
@@ -25,10 +32,9 @@ namespace Hyper2
                 ListViewItem item = explorerListView.Items[index];
                 Label c = (Label)item.FindControl("labelName");
 
-                labelResultado.Text = c.Text;
+                selectedFile = c.Text;
             }
         }
-        
 
         private void PopulateTreeView(DirectoryInfo dirInfo, TreeNode treeNode)
         {
