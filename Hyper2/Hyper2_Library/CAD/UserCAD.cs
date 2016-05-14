@@ -128,5 +128,44 @@ namespace Hyper.CAD
                 db.Close();
             }
         }
+
+        public static bool userLogin(string username, string password)
+        {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "SELECT [username], [password] FROM [User] WHERE [username] = '" + username + "'";
+                SqlCommand command = new SqlCommand(query, db);
+                SqlDataReader dr = command.ExecuteReader();
+
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    string pss = dr.GetSqlValue(1).ToString();
+                    if(pss == password)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
     }
 }

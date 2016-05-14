@@ -22,15 +22,6 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.TextBox textBox_username;
         
         /// <summary>
-        /// label_username control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_username;
-        
-        /// <summary>
         /// textBox_password control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,13 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.TextBox textBox_password;
         
         /// <summary>
-        /// label_password control.
+        /// label_error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_password;
+        protected global::System.Web.UI.WebControls.Label label_error;
         
         /// <summary>
         /// button_signIn control.
