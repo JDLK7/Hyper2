@@ -39,6 +39,7 @@
             -webkit-box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.5);
             -moz-box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.5);
             box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.5);
+            z-index:2;
         }
         #cleared {
             clear:both;
@@ -133,7 +134,7 @@
         </div>
         <div id="toolbar">
             <asp:Panel runat="server" DefaultButton="buttonOk">
-                <asp:LinkButton ID="buttonUpload" runat="server" CssClass="btn btn-default toolbarButton">
+                <asp:LinkButton ID="buttonUpload" runat="server" CssClass="btn btn-default toolbarButton" OnClick="buttonUpload_Click">
                     <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
                     Subir
                 </asp:LinkButton>

@@ -160,5 +160,10 @@ namespace Hyper2
             //Se crea la carpeta con el nombre recogido.
             newFolderName.Visible = false;
         }
+
+        protected void buttonUpload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
