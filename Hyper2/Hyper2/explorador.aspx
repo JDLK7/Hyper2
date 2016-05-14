@@ -78,49 +78,54 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
     <div id="wrapper">
         <div id="treeView-container">
-            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode">
-                <NodeStyle CssClass="node"/>
+            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode" OnSelectedNodeChanged="onClickedNode">
+                <NodeStyle CssClass="node" />
             </asp:TreeView>
         </div>
         <div id="listView-container">
-            <asp:ListView ID="explorerListView" runat="server" OnItemCommand="onClickedMore">
-                  <LayoutTemplate>
-                    <table runat="server" id="itemPlaceHolderContainer" width="100%">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Fecha de subida</th>
-                                <th>Tipo</th>
-                                <th>Tamaño</th>
-                                <th></th>
+            <asp:UpdatePanel runat="server" ID="updatePanelListView" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:ListView ID="explorerListView" runat="server" OnItemCommand="onClickedMore">
+                          <LayoutTemplate>
+                            <table runat="server" id="itemPlaceHolderContainer" width="100%">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Fecha de subida</th>
+                                        <th>Tipo</th>
+                                        <th>Tamaño</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr runat="server" id="itemPlaceHolder"></tr>
+                            </table>
+                          </LayoutTemplate>
+                          <ItemTemplate>
+                            <tr runat="server" onclick="onClickedRow">
+                                <td runat="server">
+                                    <asp:Label ID="labelName" runat="server" Text='<%#Eval("Name") %>' />
+                                </td>
+                                <td runat="server" style="text-align:center;">
+                                    <asp:Label ID="labelDate" runat="server" Text='<%#Eval("CreationTime") %>' />
+                                </td>
+                                <td runat="server" style="text-align:center;">
+                                    <asp:Label ID="labelExtension" runat="server" Text='<%#Eval("Extension") %>' />
+                                </td>    
+                                <td style="text-align:center;">10 MB</td>
+                                <td runat="server" style="text-align:center;">
+                                    <asp:LinkButton ID="buttonMore" runat="server" CssClass="btn btn-default btn-lg" CommandName="more" CommandArgument='<%# Container.DataItemIndex %>'>
+                                        <span aria-hidden="true" class="glyphicon glyphicon-option-horizontal"></span>
+                                    </asp:LinkButton>
+                                </td>
                             </tr>
-                            <tr runat="server" id="itemPlaceHolder"></tr>
-                    </table>
-                  </LayoutTemplate>
-                  <ItemTemplate>
-                    <tr runat="server" onclick="onClickedRow">
-                        <td runat="server">
-                            <asp:Label ID="labelName" runat="server" Text='<%#Eval("Name") %>' />
-                        </td>
-                        <td runat="server" style="text-align:center;">
-                            <asp:Label ID="labelDate" runat="server" Text='<%#Eval("CreationTime") %>' />
-                        </td>
-                        <td runat="server" style="text-align:center;">
-                            <asp:Label ID="labelExtension" runat="server" Text='<%#Eval("Extension") %>' />
-                        </td>    
-                        <td style="text-align:center;">10 MB</td>
-                        <td runat="server" style="text-align:center;">
-                            <asp:LinkButton ID="buttonMore" runat="server" CssClass="btn btn-default btn-lg" CommandName="more" CommandArgument='<%# Container.DataItemIndex %>'>
-                                <span aria-hidden="true" class="glyphicon glyphicon-option-horizontal"></span>
-                            </asp:LinkButton>
-                        </td>
-                    </tr>
-                  </ItemTemplate>
-                <EmptyDataTemplate>
-                    <td>No existen archivos.</td>
-                </EmptyDataTemplate>
-            </asp:ListView>
+                          </ItemTemplate>
+                        <EmptyDataTemplate>
+                            <td>No existen archivos.</td>
+                        </EmptyDataTemplate>
+                    </asp:ListView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
         <div id="toolbar">
             <asp:Button runat="server" ID="buttonUpload" Text="Subir" CssClass="btn btn-default botonsito"/>

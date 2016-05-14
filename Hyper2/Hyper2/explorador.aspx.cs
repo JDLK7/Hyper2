@@ -13,6 +13,7 @@ namespace Hyper2
     public partial class explorador : System.Web.UI.Page
     {
         protected string selectedFile;
+        protected string actualPath;
         
         /*
          * Método que se utiliza para crear un evento que se lanzará cada vez que 
@@ -24,6 +25,11 @@ namespace Hyper2
             explorerListView.ItemCommand += new EventHandler<ListViewCommandEventArgs>(onClickedMore);
         }
 
+        /*
+         * Método que con el ListViewCommandEventArgs que recibe revisa si el comando que lo ha enviado
+         * ha sido el del botón more de los elementos de la lista. En caso afirmativo recoge el índice de dicho elemento
+         * y guarda el nombre del archivo en una variable de clase.
+         */
         protected void onClickedMore(object sender, ListViewCommandEventArgs e)
         {
             if (e.CommandName == "more")
@@ -34,6 +40,24 @@ namespace Hyper2
 
                 selectedFile = c.Text;
             }
+        }
+
+        //Solucion provisional. Lo mejor es cargarlo de la base de datos para evitar problemas.
+        protected void onClickedNode(object sender, EventArgs e)
+        {
+            actualPath += TreeView1.SelectedNode.Text + "\\";
+            labelResultado.Text = "En teoria se ha cambiado a " + actualPath;
+            populateListView(actualPath);
+
+            updatePanelListView.Update();
+        }
+
+        private void populateListView(string path)
+        {
+            DirectoryInfo di = new DirectoryInfo(path);
+
+            explorerListView.DataSource = FullDirList(di);
+            explorerListView.DataBind();
         }
 
         private void PopulateTreeView(DirectoryInfo dirInfo, TreeNode treeNode)
@@ -78,29 +102,21 @@ namespace Hyper2
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (actualPath == null)
+            {
+                actualPath = NFolderEN.defaultPath;
+            }
+            
             if (!this.IsPostBack)
             {
                 DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath);
                 this.PopulateTreeView(rootInfo, null);
             }
 
-            DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
-
-            
-            FullDirList(di);
-            explorerListView.DataSource = files;
-            explorerListView.DataBind();
-            
-
-            /*
-            ListFiles("AyMiJose");
-            listView1.DataSource = files;
-            listView1.DataBind();
-            */
+            populateListView(actualPath);
         }
 
-        ArrayList files = new ArrayList();
-
+        /*
         public void ListFiles(string path)
         {
             NFolderEN aux = new NFolderEN(path);
@@ -111,9 +127,12 @@ namespace Hyper2
                 files.Add(f);
             }
         }
+        */
         
-        public void FullDirList(DirectoryInfo dir1)
+        public ArrayList FullDirList(DirectoryInfo dir1)
         {
+            ArrayList files = new ArrayList();
+
             foreach (DirectoryInfo f in dir1.GetDirectories())
             {
                 files.Add(f);
@@ -123,7 +142,8 @@ namespace Hyper2
             {
                 files.Add(f);
             }
+
+            return files;
         }
-        
     }
 }
