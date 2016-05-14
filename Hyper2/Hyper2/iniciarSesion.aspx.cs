@@ -46,6 +46,8 @@ namespace Hyper2
                 {
                     label_error.Text = "";
                     Session["sesionIniciada"] = true;
+                    Session["username"] = textBox_username.Text;
+
                     Response.Redirect("explorador.aspx");
                 }
 

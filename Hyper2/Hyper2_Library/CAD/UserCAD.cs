@@ -40,6 +40,7 @@ namespace Hyper.CAD
             db.Open();
 
             SqlCommand insert = new SqlCommand(query, db);
+
             insert.Parameters.AddWithValue("@us", user.Username);
             insert.Parameters.AddWithValue("@em", user.Email);
             insert.Parameters.AddWithValue("@pass", user.Password);
@@ -47,9 +48,7 @@ namespace Hyper.CAD
             insert.Parameters.AddWithValue("@last", user.LastName);
             insert.Parameters.Add("@pic", SqlDbType.Image).Value = DBNull.Value;
             insert.Parameters.AddWithValue("@adm", 0);
-            insert.Parameters.AddWithValue("@fol", user.Username);
-
-            insert.ToString();
+            insert.Parameters.AddWithValue("@fol", user.FolderPath);
 
             try
             {

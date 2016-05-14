@@ -12,11 +12,11 @@ namespace Hyper.CAD
 {
     class NFolderCAD
     {
-
         private string path;
-        private string owner;
         private string name;
-        private string date;
+        private int visibility;
+        private string extension;
+        private DateTime date;
 
         public NFolderCAD()
         {
@@ -30,13 +30,6 @@ namespace Hyper.CAD
             set { path = value; }
         }
 
-        public string Owner
-        {
-            get { return owner; }
-            set { owner = value; }
-        }
-
-
         /*
          * select where path = this.path
          */
@@ -48,21 +41,32 @@ namespace Hyper.CAD
         public NFolderCAD(NFolderEN en)
         {
             this.path = en.Path;
-            this.owner = en.Owner;
-            this.name = en.getName();
+            this.name = en.Name;
+            this.visibility = Convert.ToInt32(en.Visibility);
+            this.extension = en.Extension;
+            this.date = en.Date;
+            
+
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            
+            string query = "INSERT INTO [Files] (Path,Name,Visibility,Extension,UploadTime) " +
+            "values (@pa,@na,@vi,@ext,@up)";
+
+            db.Open();
+
+            SqlCommand insert = new SqlCommand(query, db);
+            insert.Parameters.AddWithValue("@pa", path);
+            insert.Parameters.AddWithValue("@na", name);
+            insert.Parameters.AddWithValue("@vi", 0);
+            insert.Parameters.AddWithValue("@ext", extension);
+            insert.Parameters.AddWithValue("@up", date);
 
             try
             {
-                db.Open();
-                string sql = "insert into Files values('" + path + "','" + name + "','" + owner +"','0'," + 
-                    "NULL, '" + DateTime.Now + "')";
-
-                SqlCommand command = new SqlCommand(sql, db);
-                command.ExecuteNonQuery();
-             
+                int columnas = insert.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 UserEN error = new UserEN("error", "error", "error", "error", "error");
             }
@@ -70,11 +74,6 @@ namespace Hyper.CAD
             {
                 db.Close();
             }
-           
-            /*
-             * insert into table...
-             */ 
-
         }
 
         public void Delete()

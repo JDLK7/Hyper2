@@ -15,61 +15,40 @@ namespace Hyper.EN
         public static string defaultPath = @"c:\HyperDataFiles\";
         private static string compressedPath = @"c:\HyperDataFiles\Compressed\";
         private string defaultFolder = "default";
-        private string defaultOwner = "default";
+
+        private string owner;
 
         private string path;
-        private string owner;
-        //private DateTime date;
+        private string name;
+        private bool visibility;
+        private DateTime date;
+
         private NFolderCAD cad;
-
-        public string Path
-        {
-            get { return path; }
-            set { path = value; }
-        }
-
-        public string Name
-        {
-            get { return getName(); }
-        }
-
-        public string Owner
-        {
-            get { return owner; }
-            set { owner = value; }
-        }
-
-        public string Extension
-        {
-            get { return "Carpeta"; }
-        }
-
-        public string Size
-        {
-            get { return "-"; }
-        }
-
-        public string Date
-        {
-            get { return "1/1/1970"; }
-        }
-
 
         /*
          * Constructor de carpetas vacias para pruebas
          */
         public NFolderEN()
         {
-            this.path = defaultFolder;
-            this.Owner = defaultOwner;
-
-            if (!Directory.Exists(defaultPath + path))
-            {
-                Directory.CreateDirectory(defaultPath + path);
-                cad = new NFolderCAD();
-            }
+            path = defaultPath;
+            name = defaultFolder;
+            visibility = false;
         }
 
+        /*
+         * Constructor utilizado al registrar un usuario.
+         */
+        public NFolderEN(string username)
+        {
+            path = defaultPath + username + @"\";
+            name = username;
+            visibility = false;
+            date = DateTime.Now;
+
+            Directory.CreateDirectory(path);
+
+            cad = new NFolderCAD(this);
+        }
 
         /*
          * Constructor de carpeta que crea una carpeta nueva
@@ -84,24 +63,37 @@ namespace Hyper.EN
                 Directory.CreateDirectory(defaultPath + path);
                 cad = new NFolderCAD(this);
             }
-
-            
         }
 
-        /*
-         * Constructor de una carpeta ya existente
-         */
-        public NFolderEN(string path)
+        public string Path
         {
-            this.cad = new NFolderCAD(path);
-            this.Owner = cad.Owner;
-            this.Path = path;
+            get { return path; }
+            set { path = value; }
         }
 
+        public string Name
+        {
+            get { return name; }
+        }
+
+        public bool Visibility
+        {
+            get { return visibility; }
+        }
+
+        public string Extension
+        {
+            get { return "Folder"; }
+        }
+
+        public DateTime Date
+        {
+            get { return date; }
+        }
 
         /*
          * Devuelve el nombre de la carpeta
-         */ 
+         */
         public string getName()
         {
             int index = path.LastIndexOf('/');
