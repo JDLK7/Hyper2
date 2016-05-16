@@ -39,6 +39,10 @@ namespace Hyper2
                 Label c = (Label)item.FindControl("labelName");
 
                 selectedFile = c.Text;
+
+                ModalPopupExtender1.Show();
+
+                buttonDownload_Click(sender, e);
             }
         }
 
@@ -46,7 +50,6 @@ namespace Hyper2
         protected void onClickedNode(object sender, EventArgs e)
         {
             actualPath += TreeView1.SelectedNode.Text + "\\";
-            labelResultado.Text = "En teoria se ha cambiado a " + actualPath;
 
             populateListView(actualPath);
             updatePanelListView.Update();
@@ -153,17 +156,36 @@ namespace Hyper2
 
         protected void buttonOk_Click(object sender, EventArgs e)
         {
-            labelResultado.Text = "Se pulso ENTER";
-            labelResultado.BackColor = System.Drawing.Color.Red;
-
             string name = newFolderName.Text;
             //Se crea la carpeta con el nombre recogido.
             newFolderName.Visible = false;
+
+            Directory.CreateDirectory(actualPath + name);
+
+            populateListView(actualPath);
+            updatePanelListView.Update();
         }
 
         protected void buttonUpload_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void buttonDownload_Click(object sender, EventArgs e)
+        {
+            FileInfo fileInfo = new FileInfo(actualPath + selectedFile);
+
+            if (fileInfo.Exists)
+            {
+
+                Response.Clear();
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
+                Response.AddHeader("Content-Length", fileInfo.Length.ToString());
+                Response.ContentType = "application/octet-stream";
+                Response.Flush();
+                Response.TransmitFile(fileInfo.FullName);
+                Response.End();
+            }
         }
     }
 }

@@ -85,7 +85,7 @@
                         <asp:Button ID="ButtonRegistrarse" runat="server" Text="Registrarse" class="btn btn-default" OnClick="redirectRegistrarse"/>
                     </div>
 
-                    <asp:DropDownList ID="dropDownSesionIniciada" runat="server" CssClass="selectpicker dropdown-user">
+                    <asp:DropDownList ID="dropDownSession" runat="server" CssClass="selectpicker dropdown-user" OnSelectedIndexChanged="dropDownSession_IndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="">
                             Mi cuenta
                         </asp:ListItem>

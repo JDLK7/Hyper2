@@ -16,13 +16,13 @@ namespace Hyper2
             {
                 ButtonIniciarSesion.Visible = false;
                 ButtonRegistrarse.Visible = false;
-                dropDownSesionIniciada.Visible = true;
+                dropDownSession.Visible = true;
             }
             else
             {
                 ButtonIniciarSesion.Visible = true;
                 ButtonRegistrarse.Visible = true;
-                dropDownSesionIniciada.Visible = false;
+                dropDownSession.Visible = false;
             }
         }
 
@@ -36,5 +36,28 @@ namespace Hyper2
             Response.Redirect("~/registro.aspx");
         }
 
+        protected void dropDownSession_IndexChanged(object sender, EventArgs e)
+        {
+            switch (dropDownSession.SelectedIndex)
+            {
+                case 0:
+                    Response.Redirect("explorador.aspx");
+                    break;
+                case 1:
+                    Response.Redirect("profile.aspx");
+                    break;
+                case 2:
+                    Response.Redirect("messages.aspx");
+                    break;
+                case 3:
+                    Response.Redirect("manageaccount.aspx");
+                    break;
+                case 4:
+                    Session["sesionIniciada"] = false;
+                    Session["username"] = "";
+                    Response.Redirect("index.aspx");
+                    break;
+            }
+        }
     }
 }

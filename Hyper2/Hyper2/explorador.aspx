@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="explorador.aspx.cs" Inherits="Hyper2.explorador" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -80,10 +81,66 @@
             margin-left: 1em;
             vertical-align: sub;
         }
+        .ModalPopupBG
+        {
+            background-color: #6c6c6c;
+            filter: alpha(opacity=50);
+            opacity: 0.7;
+        }
+        .HellowWorldPopup
+        {
+            min-width:200px;
+            min-height:150px;
+            background:white;
+        }
+        .commentTextBox {
+            width:inherit;
+            margin:1em;
+        }
+        .buttonPopup {
+            margin:1em;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
+     <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    
+    <cc1:modalpopupextender id="ModalPopupExtender1" runat="server" 
+	    cancelcontrolid="buttonDownload" okcontrolid="buttonDownload" 
+	    targetcontrolid="buttonDummy" popupcontrolid="Panel1" 
+	    popupdraghandlecontrolid="PopupHeader" drag="true" 
+	    backgroundcssclass="ModalPopupBG">
+    </cc1:modalpopupextender>
+
+    <asp:panel id="Panel1" style="display: none" runat="server">
+	    <div class="HellowWorldPopup">
+            <div class="PopupHeader" id="PopupHeader">Header</div>
+            <div class="PopupBody">
+                <asp:TextBox ID="textBoxComment" runat="server" CssClass="form-control commentTextBox" style="width:80%" placeholder="Escribe un comentario..."></asp:TextBox>
+                <asp:Button ID="buttonComment" runat="server" CssClass="btn btn-default" Text="Enviar" />
+            </div>
+            <div class="Controls">
+                <asp:LinkButton ID="buttonDownload" runat="server" CssClass="btn btn-default buttonPopup" onclick="buttonDownload_Click">
+                    <span aria-hidden="true" class="glyphicon glyphicon-cloud-download"></span>
+                    Descargar
+                </asp:LinkButton>
+                <asp:LinkButton ID="buttonShare" runat="server" CssClass="btn btn-default buttonPopup">
+                    <span aria-hidden="true" class=" glyphicon glyphicon-share"></span>
+                    Compartir
+                </asp:LinkButton>
+                <asp:LinkButton ID="buttonPublic" runat="server" CssClass="btn btn-default buttonPopup">
+                    <span aria-hidden="true" class="glyphicon glyphicon-eye-open"></span>
+                    Hacer público
+                </asp:LinkButton>
+                <asp:LinkButton ID="buttonRemove" runat="server" CssClass="btn btn-default buttonPopup">
+                    <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                    Eliminar
+                </asp:LinkButton>                
+		    </div>
+        </div>
+    </asp:panel>
+
     <div id="wrapper">
         <div id="treeView-container">
             <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode" OnSelectedNodeChanged="onClickedNode">
@@ -107,7 +164,7 @@
                             </table>
                           </LayoutTemplate>
                           <ItemTemplate>
-                            <tr runat="server" onclick="onClickedRow">
+                            <tr runat="server">
                                 <td runat="server">
                                     <asp:Label ID="labelName" runat="server" Text='<%#Eval("Name") %>' />
                                 </td>
@@ -146,7 +203,8 @@
                 <asp:Button ID="buttonOk" runat="server" OnClick="buttonOk_Click" style="display:none"/>
             </asp:Panel>
 
-            <asp:Label runat="server" ID="labelResultado" Text="Nada" />
+            <asp:Label runat="server" ID="penepati" Text="Hola"></asp:Label>
+            <asp:Button id="buttonDummy" runat="server" style="display:none" />
         </div>
     </div>
 </asp:Content>

@@ -67,13 +67,13 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.Button ButtonRegistrarse;
         
         /// <summary>
-        /// dropDownSesionIniciada control.
+        /// dropDownSession control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownSesionIniciada;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownSession;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
