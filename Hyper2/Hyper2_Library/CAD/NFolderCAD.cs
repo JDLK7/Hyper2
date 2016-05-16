@@ -68,7 +68,7 @@ namespace Hyper.CAD
             }
             catch (Exception ex)
             {
-                UserEN error = new UserEN("error", "error", "error", "error", "error");
+                //UserEN error = new UserEN("error", "error", "error", "error", "error");
             }
             finally
             {

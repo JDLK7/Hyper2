@@ -107,7 +107,7 @@ namespace Hyper2
         {
             if (actualPath == null)
             {
-                actualPath = NFolderEN.defaultPath;
+                actualPath = NFolderEN.defaultPath + Session["username"].ToString();
             }
             
             if (!this.IsPostBack)
@@ -160,7 +160,8 @@ namespace Hyper2
             //Se crea la carpeta con el nombre recogido.
             newFolderName.Visible = false;
 
-            Directory.CreateDirectory(actualPath + name);
+            NFolderEN aux = new NFolderEN(Session["username"].ToString());
+            aux.createFolder(name);
 
             populateListView(actualPath);
             updatePanelListView.Update();

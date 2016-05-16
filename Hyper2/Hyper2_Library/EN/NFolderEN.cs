@@ -228,7 +228,7 @@ namespace Hyper.EN
         public void createFolder(string name)
         {
 
-            NFolderEN folder = new NFolderEN(path + "/" + name, owner);
+            NFolderEN folder = new NFolderEN(path + "\\" + name, owner);
             
 
             
