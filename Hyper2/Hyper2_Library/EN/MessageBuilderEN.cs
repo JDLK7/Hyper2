@@ -30,6 +30,7 @@ namespace Hyper.EN
         public void SendMessage(String dst, String text)
         {
             MessageEN m = new MessageEN(user, dst, text);
+
             MessageCAD.Save(m);
         }
 

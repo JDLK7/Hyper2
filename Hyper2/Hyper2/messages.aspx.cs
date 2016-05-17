@@ -16,12 +16,16 @@ namespace Hyper2
         ArrayList files = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             UserEN kalia = new UserEN("kalia", "Kalia", "Reina", "kalia@gmail.com", "1234");
             UserEN jose = new UserEN("jose", "jose", "leal", "josesguay@hotmail.com", "4321");
             UserEN jose2 = new UserEN("jose2", "jose", "leal", "josesguay2@hotmail.com", "4321");
+            UserEN javi = new UserEN("Javi", "Javi", "Puto amo", "puticosamosysergio@gmail.com", "0101");
+            javi.Save();
             jose2.Save();
 
-            jose.SendMessage(jose2, "xdddd");
+
+            jose.SendMessage(jose2, "Xq siempre me cuento mi propia vida? Maldito doble cuenteo.");
 
             ArrayList converstions = MessageCAD.getConversations("jose");
 

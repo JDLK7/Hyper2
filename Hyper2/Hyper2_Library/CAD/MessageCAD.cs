@@ -100,7 +100,7 @@ namespace Hyper.CAD
             int id = m.getID;
             string user1 = m.Src;
             string user2 = m.Dst;
-            DateTime date = DateTime.Now;
+            //DateTime date = DateTime.Now; La fecha ahora es cogida directamente por la base de datos con GETDATE()
             string text = m.Text;
 
             ArrayList converUser1 = MessageCAD.getConversations(user1);
@@ -121,17 +121,15 @@ namespace Hyper.CAD
             try
             {
                 db.Open();
-                string query = "insert into Message values('" + id + "','" + user1 + "','" + user2 + "','" + date + "','" + text + "')";
+                string query = "insert into Message(user1,user2,date,text) values('" + user1 + "','" + user2 + "', GETDATE() ,'" + text + "')";
 
                 SqlCommand command = new SqlCommand(query, db);
                 command.ExecuteNonQuery();
 
-               
-
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                System.Diagnostics.Debug.WriteLine("\n\n\n\n" + "La excepcion es:" + e + "\n\n\n\n");
             }
             finally
             {
