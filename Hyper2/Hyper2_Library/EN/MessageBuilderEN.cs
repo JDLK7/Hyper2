@@ -57,9 +57,16 @@ namespace Hyper.EN
         /**
          * Actualiza el array de mensajes que contiene todos los mensajes del usuario, tanto enviados como recibidos
          */
-        public void GetMessages()
+        public ArrayList GetMessages()
         {
             messages = MessageCAD.GetMessages(user);
+
+            return messages;
+        }
+
+        public string User
+        {
+            get { return user; }
         }
     }
 }

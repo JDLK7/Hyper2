@@ -13,44 +13,107 @@ namespace Hyper2
 {
     public partial class messages : System.Web.UI.Page
     {
-        ArrayList files = new ArrayList();
-        protected void Page_Load(object sender, EventArgs e)
+        private static string userSesion = "Javi";
+        private static string userConversacion = "jose2";
+
+        protected void Mostrar_Conversacion(string userSesion, string userConversacion)
         {
 
+            ArrayList converstions = MessageCAD.getConversations(userSesion);
+
+            ArrayList mensajesPorConversaciones = new ArrayList();
+
+            foreach (UserEN user in converstions)
+            {
+
+                mensajesPorConversaciones.Add(new MessageBuilderEN(user.Username));
+
+            }
+
+
+            ArrayList arrayDeMensajes = new ArrayList();
+
+            foreach (MessageBuilderEN mensajes in mensajesPorConversaciones)
+            {
+
+                if (mensajes.User == userConversacion)
+                {
+
+                    foreach (MessageEN msg in mensajes.GetMessages())
+                    {
+
+                        if (msg.Src == userSesion || msg.Dst == userSesion)
+                        {
+
+                            arrayDeMensajes.Add(msg);
+
+                        }
+
+                    }
+
+
+                }
+
+            }
+
+            ListViewMessages.DataSource = arrayDeMensajes;
+            ListViewMessages.DataBind();
+
+
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            /*
             UserEN kalia = new UserEN("kalia", "Kalia", "Reina", "kalia@gmail.com", "1234");
             UserEN jose = new UserEN("jose", "jose", "leal", "josesguay@hotmail.com", "4321");
             UserEN jose2 = new UserEN("jose2", "jose", "leal", "josesguay2@hotmail.com", "4321");
             UserEN javi = new UserEN("Javi", "Javi", "Puto amo", "puticosamosysergio@gmail.com", "0101");
             javi.Save();
-            jose2.Save();
+            jose2.Save();*/
+            
+            ArrayList converstions = MessageCAD.getConversations(UserSesion);
 
+            ListViewUsers.DataSource = converstions;
+            ListViewUsers.DataBind();
 
-            jose.SendMessage(jose2, "Xq siempre me cuento mi propia vida? Maldito doble cuenteo.");
+            Mostrar_Conversacion(UserSesion, UserConversacion);
 
-            ArrayList converstions = MessageCAD.getConversations("jose");
-
-            ListView1.DataSource = converstions;
-            ListView1.DataBind();
-
-            //Directory.CreateDirectory("c:\\" + aux);
-            DirectoryInfo di = new DirectoryInfo(NFolderEN.defaultPath);
-
-            FullDirList(di);
-            ListView2.DataSource = files;
-            ListView2.DataBind();
         }
 
-        public void FullDirList(DirectoryInfo dir1)
+        protected void mostrarMensajes(object sender, EventArgs e)
         {
-            foreach (DirectoryInfo f in dir1.GetDirectories())
-            {
-                files.Add(f);
-            }
 
-            foreach (FileInfo f in dir1.GetFiles())
-            {
-                files.Add(f);
-            }
+            Button boton = (Button)sender;
+            UserConversacion = boton.Text;
+
+            Mostrar_Conversacion(UserSesion, UserConversacion);
+
+        }
+
+        protected void mandarMensajes(object sender, EventArgs e)
+        {
+
+            MessageBuilderEN creadorDeMensajes = new MessageBuilderEN(UserSesion);
+            creadorDeMensajes.SendMessage(UserConversacion, chatBox.Text);
+            chatBox.Text = "";
+            Mostrar_Conversacion(UserSesion, UserConversacion);
+
+        }
+
+        public string UserSesion
+        {
+
+            get { return userSesion; }
+            set { userSesion = value; }
+
+        }
+
+        public string UserConversacion
+        {
+
+            get { return userConversacion; }
+            set { userConversacion = value; }
         }
 
     }

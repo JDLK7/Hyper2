@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="divCental">
         <div id="messagesMain">
-            <asp:ListView ID="ListView1" runat="server">
+            <asp:ListView ID="ListViewUsers" runat="server">
                 <LayoutTemplate>
                     <table runat="server" class="tablaDeUsers">
                         <tr>
@@ -21,13 +21,13 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <tr runat="server" >
-                        <td class="users"><asp:Label ID="DateLabel" runat="server" Text='<%#Eval("Username") %>' /></td>
+                        <td class="users"><asp:Button ID="DateLabel" runat="server" Text='<%#Eval("Username") %>' OnClick="mostrarMensajes" /></td>
                     </tr>
                 </ItemTemplate>
             </asp:ListView>
         </div>
         <div id="messagesText">
-            <asp:ListView ID="ListView2" runat="server">
+            <asp:ListView ID="ListViewMessages" runat="server">
                 <LayoutTemplate>
                     <table runat="server" class="tablaDeMensajes">
                         <tr>
@@ -38,13 +38,13 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <tr runat="server">
-                        <td class="mensajesTD"><asp:Label ID="DateLabe2" runat="server" Text='<%#Eval("Name") %>' CssClass="mensajesText" /></td>
+                        <td class="mensajesTD"><asp:Label ID="DateLabe2" runat="server" Text='<%#Eval("text") %>' CssClass="mensajesText" /></td>
                     </tr>
                 </ItemTemplate>
             </asp:ListView>
             <div id="messageBox" align="center">
-                <asp:TextBox ID="charBox" runat="server" class="form-control-messages" ></asp:TextBox>
-                <asp:Button ID="buttonEnviar" runat="server" Text="Enviar" class="btn btn-default" />
+                <asp:TextBox ID="chatBox" runat="server" class="form-control-messages" ></asp:TextBox>
+                <asp:Button ID="buttonEnviar" runat="server" Text="Enviar" OnClick="mandarMensajes" class="btn btn-default" />
             </div>
         </div>
     </div>

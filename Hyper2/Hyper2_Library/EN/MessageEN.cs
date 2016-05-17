@@ -9,19 +9,12 @@ namespace Hyper.EN
 {
     public class MessageEN
     {
-        private int id;
         private string src; //Origen
         private string dst; //Destinatario
         private string text; //Texto
         private DateTime date;
 
         //private MessageCAD cad;
-
-        private static int GetNextID() //Devuelve el proximo id disponible
-        {
-            
-            return MessageCAD.GetNextID();
-        }
 
         /**
          * Constructor de mensaje que recibe el origen, el destinatario y el mensaje
@@ -31,7 +24,6 @@ namespace Hyper.EN
             this.src = src;
             this.dst = dst;
             this.text = text;
-            this.id = MessageEN.GetNextID();
         }
 
         public MessageEN(int id, string user1, string user2, DateTime date, string text)
@@ -39,7 +31,6 @@ namespace Hyper.EN
             this.src = user1;
             this.dst = user2;
             this.text = text;
-            this.id = id;
             this.date = date;
         }
 
@@ -58,14 +49,10 @@ namespace Hyper.EN
             get { return text; }
         }
 
-        public int getID
-        {
-            get { return id; }
-        }
-
         public DateTime Date
         {
             get { return date; }
         }
+
     }
 }

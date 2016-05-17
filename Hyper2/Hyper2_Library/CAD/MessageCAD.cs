@@ -39,6 +39,7 @@ namespace Hyper.CAD
                         DateTime date = dr.GetDateTime(3);
                         string text = dr.GetString(4);
                         MessageEN aux = new MessageEN(id, user1, user2, date, text);
+                        //System.Diagnostics.Debug.WriteLine("\n\n\n\n" + text + "\n\n\n\n");
                         messages.Add(aux);
                     }
                 }
@@ -53,43 +54,7 @@ namespace Hyper.CAD
                 db.Close();
             }
 
-
-            ArrayList nulo = new ArrayList();
-            return nulo;
-        }
-
-        /**
-         * Devuelve el proximo id disponible para los mensajes
-         * select max(id) +1
-         */
-        public static int GetNextID()
-        {
-            int id = 0;
-            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
-
-            try
-            {
-                db.Open();
-                string query = "select max(id) from Message";
-
-                SqlCommand command = new SqlCommand(query, db);
-                SqlDataReader dr = command.ExecuteReader();
-
-                if (dr.HasRows)
-                {
-                    id = dr.GetInt32(0);
-                }
-
-            }
-            catch (Exception)
-            {
-
-            }
-            finally
-            {
-                db.Close();
-            }
-            return id + 1;
+            return messages;
         }
 
         /**
@@ -97,10 +62,8 @@ namespace Hyper.CAD
          */ 
         public static void Save(MessageEN m)
         {
-            int id = m.getID;
             string user1 = m.Src;
             string user2 = m.Dst;
-            //DateTime date = DateTime.Now; La fecha ahora es cogida directamente por la base de datos con GETDATE()
             string text = m.Text;
 
             ArrayList converUser1 = MessageCAD.getConversations(user1);
