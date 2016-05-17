@@ -12,11 +12,12 @@ namespace Hyper2
 {
     public partial class Registro : System.Web.UI.Page
     {
-        /*
-         * Método que comprueba si todos los textBox se han rellenado.
-         * En caso contrario cambia el color de su borde por rojo para
-         * distinguirlos de los completados. Devuelve un booleano. 
-         */
+        /// <summary>
+        /// Comprueba que todos los campos se hayan rellenado.
+        /// En caso contrario cambia el color de su borde por rojo 
+        /// para captar la atención del usuario.
+        /// </summary>
+        /// <returns>Booleano con el resultado de la comprobación.</returns>
         private bool check_textBoxes()
         {
             bool r = true;
@@ -54,11 +55,11 @@ namespace Hyper2
 
             return r;
         }
-        
-        /*
-         * Método que comprueba si el email introducido es válido y si ya existe en la bbdd.
-         * Devuelve un booleano.
-         */
+
+        /// <summary>
+        /// Comprueba que el email introducido sea válido.
+        /// </summary>
+        /// <returns>Booleano con el resultado de la comprobación.</returns>
         private bool check_email()
         {
             //Buscar en lista de email validos.
@@ -82,12 +83,12 @@ namespace Hyper2
                 }
             }
         }
-        
-        /*
-         * Método que comprueba si el nombre de usuario introducido está disponible o ya esta en uso.
-         * En caso contrario se indica en un bajo el textBox correspondiente.
-         * Devuelve un booleano.
-         */ 
+
+        /// <summary>
+        /// Comprueba si el nombre de usuario está disponible.
+        /// En caso negativo se avisa con un mensaje de error contenido en un label.
+        /// </summary>
+        /// <returns>Booleano con el resultado de la comprobación.</returns>
         private bool check_username()
         {
             string user = textBox_username.Text;
@@ -111,12 +112,13 @@ namespace Hyper2
                 }
             }
         }
-        
-        /*
-         * Comprueba si la contraseña y la confirmación de la contraseña coinciden y si el tamaño 
-         * es el adecuado. Si no coinciden o se supera el tamaño máximo se indica en el label
-         * correspondiente. Devuelve un booleano.
-         */
+
+        /// <summary>
+        /// Comprueba si la contraseña y la confirmación de la contraseña coinciden y si el
+        /// tamaño de la contraseña es el adecuado. Cuando no se cumple se indica el error en un
+        /// label.
+        /// </summary>
+        /// <returns>Booleano con el resultado de la operación</returns>
         private bool check_password()
         {
             if(textBox_password.Text.Length > 20 || textBox_passwordConf.Text.Length > 20)
@@ -139,9 +141,11 @@ namespace Hyper2
             }
         }
 
-        /*
-         * Envía un email de bienvenida al usuario que se acaba de registrar.
-         */
+        /// <summary>
+        /// Envía un email de bienvenida al usuario que se acaba de registrar.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="firstName"></param>
         private void confirmation_email(string email, string firstName)
         {
             //Contraseña mail "molamasquemega"
@@ -174,6 +178,12 @@ namespace Hyper2
 
         }
 
+        /// <summary>
+        /// Manejador del botón de registro que llama a todas las comprobaciones
+        /// y si todo está correcto registra al usuario en la bas de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void button_signIn_Click(object sender, EventArgs e)
         {
             bool t = check_textBoxes(),

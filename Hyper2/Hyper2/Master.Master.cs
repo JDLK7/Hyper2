@@ -10,6 +10,12 @@ namespace Hyper2
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+        /// <summary>
+        /// Comprueba el estado de la sesión para mostrar unos botones diferentes en caso de que la
+        /// sesión esté iniciada.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if ((Session["sesionIniciada"] != null) && ((bool)(Session["sesionIniciada"]) == true))
@@ -26,16 +32,32 @@ namespace Hyper2
             }
         }
 
+        /// <summary>
+        /// Redirige a la página de inicio de sesión.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void redirectIniciarSesion(object sender, EventArgs e)
         {
             Response.Redirect("~/iniciarSesion.aspx");
         }
 
+        /// <summary>
+        /// Redirige a la página de registro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void redirectRegistrarse(object sender, EventArgs e)
         {
             Response.Redirect("~/registro.aspx");
         }
 
+        /// <summary>
+        /// Redirige a la página correspondiente según la opción que se haya escogido
+        /// de la dropDownList que aparece al iniciar sesión.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void dropDownSession_IndexChanged(object sender, EventArgs e)
         {
             switch (dropDownSession.SelectedIndex)

@@ -12,7 +12,11 @@ namespace Hyper2
 {
     public partial class iniciarSesion : System.Web.UI.Page
     {
-
+        /// <summary>
+        /// Comprueba que los campos estén completados. Si no lo están
+        /// colorea su borde de rojo para captar la atención del usuario.
+        /// </summary>
+        /// <returns></returns> Booleano que indica si se han rellenado los campos.
         private bool check_textBoxes()
         {
             bool r = true;
@@ -38,6 +42,12 @@ namespace Hyper2
 
         }
 
+        /// <summary>
+        /// Comprueba los datos introducidos por el usuario.
+        /// Si estan bien inicia una nueva sesión.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void button_logIn_Click(object sender, EventArgs e)
         {
             if (check_textBoxes())

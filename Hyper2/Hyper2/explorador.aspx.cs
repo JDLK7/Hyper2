@@ -15,21 +15,25 @@ namespace Hyper2
         protected string selectedFile;
         protected string actualPath;
         
-        /*
-         * Método que se utiliza para crear un evento que se lanzará cada vez que 
-         * se presione el botón contenido en cada elemento de la ListView del explorador.
-         * Dicha señal está conectada a un método que captura el nombre del archivo seleccionado.
-         */
+         /// <summary>
+         /// Método que se utiliza para crear un evento que se lanzará cada vez que 
+         /// se presione el botón contenido en cada elemento de la ListView del explorador.
+         /// Dicha señal está conectada a un método que captura el nombre del archivo seleccionado.
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
         protected void Page_Init(object sender, EventArgs e)
         {
             explorerListView.ItemCommand += new EventHandler<ListViewCommandEventArgs>(onClickedMore);
         }
 
-        /*
-         * Método que con el ListViewCommandEventArgs que recibe revisa si el comando que lo ha enviado
-         * ha sido el del botón more de los elementos de la lista. En caso afirmativo recoge el índice de dicho elemento
-         * y guarda el nombre del archivo en una variable de clase.
-         */
+         /// <summary>
+         /// Detecta el clic del elemento de la lista del cual se ha pulsado su botón. Recoge el índice
+         /// de dicho elemento y guarda el nombre en una variable de clase para que pueda ser descargado,
+         /// compartido, etc.
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param> 
         protected void onClickedMore(object sender, ListViewCommandEventArgs e)
         {
             if (e.CommandName == "more")
@@ -46,7 +50,11 @@ namespace Hyper2
             }
         }
 
-        //Solucion provisional. Lo mejor es cargarlo de la base de datos para evitar problemas.
+        /// <summary>
+        /// Detecta el clic en un nodo del arbol de carpetas y se cambia la carpeta mostrada a ésta.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void onClickedNode(object sender, EventArgs e)
         {
             actualPath += TreeView1.SelectedNode.Text + "\\";
@@ -55,6 +63,10 @@ namespace Hyper2
             updatePanelListView.Update();
         }
 
+        /// <summary>
+        /// Enlaza los datos que van a ser mostrados en la listView que sirve de explorador.
+        /// </summary>
+        /// <param name="path"></param> Ruta absoluta de la carpeta cuyos archivos se van a enlazar.
         private void populateListView(string path)
         {
             DirectoryInfo di = new DirectoryInfo(path);
@@ -63,6 +75,11 @@ namespace Hyper2
             explorerListView.DataBind();
         }
 
+        /// <summary>
+        /// Enlaza los datos que van a ser mostrados en el treeView que sirve como árbol de carpetas.
+        /// </summary>
+        /// <param name="dirInfo"></param> Directorio a enlazar.
+        /// <param name="treeNode"></param> Arbol al que enlazar los datos.
         private void PopulateTreeView(DirectoryInfo dirInfo, TreeNode treeNode)
         {
             foreach (DirectoryInfo directory in dirInfo.GetDirectories())
@@ -103,6 +120,11 @@ namespace Hyper2
             }
         }
 
+        /// <summary>
+        /// Método al que se llama cada vez que se recarga la página.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (actualPath == null)
@@ -132,6 +154,11 @@ namespace Hyper2
         }
         */
         
+        /// <summary>
+        /// Realiza un listado de todos los elementos contenidos en un directorio.
+        /// </summary>
+        /// <param name="dir1"></param> Directorio a listar.
+        /// <returns></returns> ArrayList que contiene objetos DirectoryInfo y/o FileInfo.
         public ArrayList FullDirList(DirectoryInfo dir1)
         {
             ArrayList files = new ArrayList();
@@ -149,36 +176,60 @@ namespace Hyper2
             return files;
         }
 
+        /// <summary>
+        /// Hace aparecer un recuadro en el que se introduce el nombre de la 
+        /// nueva carpeta.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void buttonNewFolder_Click(object sender, EventArgs e)
         {
             newFolderName.Visible = true;
         }
 
+        /// <summary>
+        /// Manejador de un botón oculto que sirve para poder detectar la pulsación
+        /// de la tecla Enter. Recoge el nombre de la carpeta nueva y la crea en el
+        /// directorio actual.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void buttonOk_Click(object sender, EventArgs e)
         {
             string name = newFolderName.Text;
-            //Se crea la carpeta con el nombre recogido.
             newFolderName.Visible = false;
 
-            NFolderEN aux = new NFolderEN(Session["username"].ToString());
-            aux.createFolder(name);
+            if(name != "")
+            {
+                NFolderEN aux = new NFolderEN(Session["username"].ToString());
+                aux.createFolder(name);
 
-            populateListView(actualPath);
-            updatePanelListView.Update();
+                populateListView(actualPath);
+                updatePanelListView.Update();
+            }
         }
 
+        /// <summary>
+        /// Sube un nuevo archivo a la carpeta actual.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void buttonUpload_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Descarga el archivo escogido en el explorador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void buttonDownload_Click(object sender, EventArgs e)
         {
             FileInfo fileInfo = new FileInfo(actualPath + selectedFile);
 
             if (fileInfo.Exists)
             {
-
                 Response.Clear();
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
                 Response.AddHeader("Content-Length", fileInfo.Length.ToString());

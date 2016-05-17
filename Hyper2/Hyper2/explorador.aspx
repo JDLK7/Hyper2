@@ -203,7 +203,6 @@
                 <asp:Button ID="buttonOk" runat="server" OnClick="buttonOk_Click" style="display:none"/>
             </asp:Panel>
 
-            <asp:Label runat="server" ID="penepati" Text="Hola"></asp:Label>
             <asp:Button id="buttonDummy" runat="server" style="display:none" />
         </div>
     </div>
