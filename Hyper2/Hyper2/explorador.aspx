@@ -144,7 +144,9 @@
 
     <div id="wrapper">
         <div id="treeView-container">
-            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode" OnSelectedNodeChanged="onClickedNode">
+            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" 
+                LeafNodeStyle-CssClass="leafNode" OnSelectedNodeChanged="onClickedNode"
+                ExpandImageUrl="IMG/folder-closed.png" NoExpandImageUrl="IMG/folder-closed.png" CollapseImageUrl="IMG/folder-open.png" style="margin-left:1em; margin-top:1em;">
                 <NodeStyle CssClass="node" />
             </asp:TreeView>
         </div>
