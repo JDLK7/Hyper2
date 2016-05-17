@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Hyper.CAD;
 using Hyper.EN;
 using System.Configuration;
+using System.Collections;
 using System.Data.SqlClient;
 
 namespace Hyper.CAD

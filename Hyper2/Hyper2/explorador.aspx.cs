@@ -126,12 +126,13 @@ namespace Hyper2
         {
             if (actualPath == null)
             {
-                actualPath = NFolderEN.defaultPath + Session["username"].ToString();
+                actualPath = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
             }
             
             if (!this.IsPostBack)
             {
-                DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath);
+                //Aqui tiene que ir directamente el path asignado al usuario.
+                DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath + (string)Session["username"] + "\\");
                 this.PopulateTreeView(rootInfo, null);
             }
             
@@ -193,16 +194,23 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonOk_Click(object sender, EventArgs e)
         {
-            string name = newFolderName.Text;
+            string name = newFolderName.Text + "\\";
             newFolderName.Visible = false;
 
             if(name != "")
             {
-                NFolderEN aux = new NFolderEN(Session["username"].ToString());
-                aux.createFolder(name);
+                //NFolderEN aux = new NFolderEN(Session["username"].ToString());
+                //aux.createFolder(name);
 
+                Directory.CreateDirectory(actualPath + name);
+
+                TreeView1.Nodes.Clear();
+                DirectoryInfo rootInfo = new DirectoryInfo(actualPath);
+                PopulateTreeView(rootInfo, null);
                 populateListView(actualPath);
+
                 updatePanelListView.Update();
+                updatePanelTreeView.Update();
             }
         }
 

@@ -94,6 +94,15 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.LinkButton buttonRemove;
         
         /// <summary>
+        /// updatePanelTreeView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelTreeView;
+        
+        /// <summary>
         /// TreeView1 control.
         /// </summary>
         /// <remarks>

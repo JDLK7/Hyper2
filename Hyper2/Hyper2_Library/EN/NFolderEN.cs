@@ -60,7 +60,7 @@ namespace Hyper.EN
 
             if (!Directory.Exists(defaultPath + path))
             {
-                Directory.CreateDirectory(defaultPath + path);
+                Directory.CreateDirectory(defaultPath + path + "\\");
                 cad = new NFolderCAD(this);
             }
         }
