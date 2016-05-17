@@ -12,7 +12,6 @@ namespace Hyper2
 {
     public partial class explorador : System.Web.UI.Page
     {
-        protected string selectedFile;
         protected string actualPath;
         
          /// <summary>
@@ -42,11 +41,9 @@ namespace Hyper2
                 ListViewItem item = explorerListView.Items[index];
                 Label c = (Label)item.FindControl("labelName");
 
-                selectedFile = c.Text;
+                Session["selectedFile"] = c.Text;
 
                 ModalPopupExtender1.Show();
-
-                buttonDownload_Click(sender, e);
             }
         }
 
@@ -219,6 +216,9 @@ namespace Hyper2
 
         }
 
+        /*
+         * POR ALGUNA RAZON SI EL NOMBRE TIENE ESPACIOS NO LO COGE ENTERO.
+         */
         /// <summary>
         /// Descarga el archivo escogido en el explorador.
         /// </summary>
@@ -226,7 +226,7 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonDownload_Click(object sender, EventArgs e)
         {
-            FileInfo fileInfo = new FileInfo(actualPath + selectedFile);
+            FileInfo fileInfo = new FileInfo(actualPath + @"\" + Session["selectedFile"].ToString());
 
             if (fileInfo.Exists)
             {

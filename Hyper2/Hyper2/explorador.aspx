@@ -108,7 +108,7 @@
     </asp:ScriptManager>
     
     <cc1:modalpopupextender id="ModalPopupExtender1" runat="server" 
-	    cancelcontrolid="buttonDownload" okcontrolid="buttonDownload" 
+	    cancelcontrolid="buttonRemove" okcontrolid="buttonRemove" 
 	    targetcontrolid="buttonDummy" popupcontrolid="Panel1" 
 	    popupdraghandlecontrolid="PopupHeader" drag="true" 
 	    backgroundcssclass="ModalPopupBG">
