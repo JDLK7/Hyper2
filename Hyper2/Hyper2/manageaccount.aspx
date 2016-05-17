@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="Content/manage.css"/>
     <link rel="stylesheet" type="text/css" href="Content/registro.css"/>
+    <title>Configuración</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1  style="color:darkblue;" align="center"><b>Administración de la cuenta</b></h1>

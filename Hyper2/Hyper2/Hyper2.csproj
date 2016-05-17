@@ -146,6 +146,7 @@
     <Content Include="Content\_explorador.css" />
     <Content Include="explorador.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="IMG\favicon.png" />
     <Content Include="IMG\logoHyper.png" />
     <Content Include="index.aspx" />
     <Content Include="iniciarSesion.aspx" />

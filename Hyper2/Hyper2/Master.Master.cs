@@ -23,12 +23,14 @@ namespace Hyper2
                 ButtonIniciarSesion.Visible = false;
                 ButtonRegistrarse.Visible = false;
                 dropDownSession.Visible = true;
+                linkUpload.Attributes["href"] = "explorador.aspx";
             }
             else
             {
                 ButtonIniciarSesion.Visible = true;
                 ButtonRegistrarse.Visible = true;
                 dropDownSession.Visible = false;
+                linkUpload.Attributes["href"] = "subir.aspx";
             }
         }
 

@@ -2,12 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <link rel="stylesheet" type="text/css" href="Content/about.css" />
+    <title>Acerca de Hyper</title>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <body>
-
         <div id="divCentral" align="center">
 
             <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=325em height=125em border=0/></div>

@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <link rel="stylesheet" type="text/css" href="Content/index.css" />
+    <title>Hyper</title>
 
 </asp:Content>
 

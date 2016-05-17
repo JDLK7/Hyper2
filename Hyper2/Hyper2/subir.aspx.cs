@@ -13,11 +13,6 @@ namespace Hyper2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserEN user = new UserEN("AyMiJose", "Paco", "Garcia", "paco@gmail.com", "1234");
-
-            user.Folder.createFolder("Universidad");
-
-            //user.Folder.CompressFolder();
             
         }
 
@@ -30,7 +25,6 @@ namespace Hyper2
 
         private void Download()
         {
-
             UserEN user = new UserEN("Paquito", "Paco", "Garcia", "paco@gmail.com", "1234");
             NFileEN file = new NFileEN("bien.txt", user.Username);
 
@@ -38,7 +32,6 @@ namespace Hyper2
 
             if (fileInfo.Exists)
             {
-
                 Response.Clear();
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
                 Response.AddHeader("Content-Length", fileInfo.Length.ToString());
@@ -65,7 +58,5 @@ namespace Hyper2
                 }
             }
         }
-
-
     }
 }

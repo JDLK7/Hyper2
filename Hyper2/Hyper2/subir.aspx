@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="subir.aspx.cs" Inherits="Hyper2.subir" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-        <link rel="stylesheet" type="text/css" href="Content/subir.css" />
+    <link rel="stylesheet" type="text/css" href="Content/subir.css" />
+    <title>Subir archivos</title>    
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

@@ -6,6 +6,7 @@
     <script src="scripts/jquery-1.9.1.js"></script>
     <script src="scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src='scripts/explorerEditor.js'></script>
+    <title>Explorador de archivos</title>
     <style> 
         #wrapper {
             margin-left:15em;

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Hyper</title>
+    <link rel="shortcut icon" type="image/x-icon" href="IMG/favicon.png" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="scripts/jquery-1.9.1.js"></script>
@@ -26,7 +26,6 @@
         });
 
     </script>
-
     <style>
         .dropdown-user {
             margin-top:8px;
@@ -57,7 +56,7 @@
                otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="subir.aspx">Subir</a></li>
+                <li><asp:HyperLink runat="server" ID="linkUpload">Subir</asp:HyperLink></li>
                 <li><a href="about.aspx">Sobre Hyper</a></li>
             </ul>
 
