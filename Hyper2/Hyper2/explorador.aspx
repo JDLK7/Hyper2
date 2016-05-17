@@ -6,6 +6,12 @@
     <script src="scripts/jquery-1.9.1.js"></script>
     <script src="scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src='scripts/explorerEditor.js'></script>
+    <script type="text/javascript">
+        function showBrowseDialog() {
+            document.getElementById('<%=uploadControl.ClientID%>').click();
+        }
+    </script>
+
     <title>Explorador de archivos</title>
     <style> 
         #wrapper {
@@ -194,16 +200,21 @@
         </div>
         <div id="toolbar">
             <asp:Panel runat="server" DefaultButton="buttonOk">
-                <asp:LinkButton ID="buttonUpload" runat="server" CssClass="btn btn-default toolbarButton" OnClick="buttonUpload_Click">
-                    <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
-                    Subir
-                </asp:LinkButton>
                 <asp:LinkButton ID="buttonNewFolder" runat="server" CssClass="btn btn-default toolbarButton" OnClick="buttonNewFolder_Click">
                     <span aria-hidden="true" class="glyphicon glyphicon-folder-open"></span>
                     Nueva carpeta
                 </asp:LinkButton>
                 <asp:TextBox ID="newFolderName" runat="server" CssClass="form-control toolbarTextBox" Visible="false" placeholder="Introduce el nombre"></asp:TextBox>
                 <asp:Button ID="buttonOk" runat="server" OnClick="buttonOk_Click" style="display:none"/>
+                <!--<asp:LinkButton ID="buttonBrowse" runat="server" CssClass="btn btn-default toolbarButton" OnClientClick="showBrowseDialog()">
+                    <span aria-hidden="true" class="glyphicon glyphicon-search"></span>
+                    Examinar
+                </asp:LinkButton>-->
+                <asp:LinkButton ID="buttonUploadOk" runat="server" CssClass="btn btn-default toolbarButton" OnClick="buttonUpload_Click">
+                    <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
+                    Subir
+                </asp:LinkButton>
+                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;"/>
             </asp:Panel>
 
             <asp:Button id="buttonDummy" runat="server" style="display:none" />

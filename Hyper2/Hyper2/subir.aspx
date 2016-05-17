@@ -19,11 +19,6 @@
             <b>Descripción:</b> <br /><br />
              <textarea rows="4" cols="50"></textarea>
             <br /><br />
-            
-            
-            <form action="">
-            ¿Archivo privado? <input type="checkbox" name="privado" value="Privado">
-            </form>
 
             <br /><br />
             <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />

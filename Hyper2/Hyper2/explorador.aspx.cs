@@ -134,7 +134,7 @@ namespace Hyper2
                 DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath);
                 this.PopulateTreeView(rootInfo, null);
             }
-
+            
             populateListView(actualPath);
         }
 
@@ -213,7 +213,7 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonUpload_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         /*

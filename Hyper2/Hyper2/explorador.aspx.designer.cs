@@ -121,15 +121,6 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.ListView explorerListView;
         
         /// <summary>
-        /// buttonUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton buttonUpload;
-        
-        /// <summary>
         /// buttonNewFolder control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,33 @@ namespace Hyper2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttonOk;
+        
+        /// <summary>
+        /// buttonBrowse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton buttonBrowse;
+        
+        /// <summary>
+        /// buttonUploadOk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton buttonUploadOk;
+        
+        /// <summary>
+        /// uploadControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uploadControl;
         
         /// <summary>
         /// buttonDummy control.
