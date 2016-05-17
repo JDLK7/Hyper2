@@ -13,8 +13,8 @@ namespace Hyper2
 {
     public partial class messages : System.Web.UI.Page
     {
-        private static string userSesion = "Javi";
-        private static string userConversacion = "jose2";
+        private static string userSesion;
+        private static string userConversacion;
 
         public struct mensajesChat
         {
@@ -92,11 +92,37 @@ namespace Hyper2
             UserEN javi = new UserEN("Javi", "Javi", "Puto amo", "puticosamosysergio@gmail.com", "0101");
             javi.Save();
             jose2.Save();*/
-            
-            ArrayList converstions = MessageCAD.getConversations(UserSesion);
 
-            ListViewUsers.DataSource = converstions;
+            if(Session["username"] != null)
+            {
+
+                UserSesion = Session["username"].ToString();
+
+            }
+            else
+            {
+
+                UserSesion = "";
+
+            }
+            
+            ArrayList conversaciones = MessageCAD.getConversations(UserSesion);
+
+            ListViewUsers.DataSource = conversaciones;
             ListViewUsers.DataBind();
+
+            if(conversaciones.Count != 0)
+            {
+                UserEN auxUser = (UserEN)conversaciones[0];
+                UserConversacion = auxUser.Username;
+
+            }
+            else
+            {
+
+                UserConversacion = "";
+
+            }
 
             Mostrar_Conversacion(UserSesion, UserConversacion);
 

@@ -21,7 +21,7 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <tr runat="server" >
-                        <td class="users"><asp:Button ID="DateLabel" runat="server" Text='<%#Eval("Username") %>' OnClick="mostrarMensajes" /></td>
+                        <td class="users"><asp:Button ID="DateLabel" runat="server" Text='<%#Eval("Username") %>' OnClick="mostrarMensajes" class="btn btn-default" /></td>
                     </tr>
                 </ItemTemplate>
             </asp:ListView>
