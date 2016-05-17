@@ -35,9 +35,10 @@ namespace Hyper.EN
             visibility = false;
         }
 
-        /*
-         * Constructor utilizado al registrar un usuario.
-         */
+        /// <summary>
+        /// Constructor utilizado para registrar la carpeta raiz de un nuevo usuario.
+        /// </summary>
+        /// <param name="username"></param>
         public NFolderEN(string username)
         {
             path = defaultPath + username + @"\";
@@ -74,11 +75,13 @@ namespace Hyper.EN
         public string Name
         {
             get { return name; }
+            set { name = value; }
         }
 
         public bool Visibility
         {
             get { return visibility; }
+            set { visibility = value; }
         }
 
         public string Extension
@@ -89,6 +92,7 @@ namespace Hyper.EN
         public DateTime Date
         {
             get { return date; }
+            set { date = value; }
         }
 
         /*
@@ -114,8 +118,6 @@ namespace Hyper.EN
          */ 
         public void Delete()
         {
-            
-
             DirectoryInfo di = new DirectoryInfo(defaultPath + path);
 
             foreach (FileInfo file in di.GetFiles())
@@ -222,16 +224,21 @@ namespace Hyper.EN
             return name;
         }
 
-        /*
-         * Crea una carpeta dentro de la carpeta que ha llamadado al metodo
-         */ 
-        public void createFolder(string name)
+        /// <summary>
+        /// Método que crea una carpeta físicamente.
+        /// </summary>
+        /// <param name="path">Ruta en donde se va a crear.</param>
+        /// <param name="name">Nombre de la carpeta.</param>
+        public static void createFolder(string path, string name)
         {
+            Directory.CreateDirectory(path + name + "\\");
 
-            NFolderEN folder = new NFolderEN(path + "\\" + name, owner);
-            
-
-            
+            //Objeto NFolderEN para guardar la nueva carpeta en la bbdd
+            NFolderEN aux = new NFolderEN();
+            aux.Path = path + name + "\\";
+            aux.Name = name;
+            aux.Date = DateTime.Now;
+            aux.cad = new NFolderCAD(aux);
         }
     }
 }

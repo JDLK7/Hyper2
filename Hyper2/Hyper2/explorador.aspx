@@ -150,15 +150,11 @@
 
     <div id="wrapper">
         <div id="treeView-container">
-            <asp:UpdatePanel runat="server" ID="updatePanelTreeView" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode" 
-                        LeafNodeStyle-CssClass="leafNode" OnSelectedNodeChanged="onClickedNode"
-                        ExpandImageUrl="IMG/folder-closed.png" NoExpandImageUrl="IMG/folder-closed.png" CollapseImageUrl="IMG/folder-open.png" style="margin-left:1em; margin-top:1em;">
-                        <NodeStyle CssClass="node" />
-                    </asp:TreeView>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+            <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged" 
+                RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-Font-Bold="true" 
+                ExpandImageUrl="IMG/folder-closed.png" NoExpandImageUrl="IMG/folder-closed.png" CollapseImageUrl="IMG/folder-open.png" style="margin-left:1em; margin-top:1em;">
+                <NodeStyle CssClass="node" />
+            </asp:TreeView>
         </div>
         <div id="listView-container">
             <asp:UpdatePanel runat="server" ID="updatePanelListView" UpdateMode="Conditional">

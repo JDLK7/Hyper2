@@ -11,9 +11,7 @@ using System.Collections;
 namespace Hyper2
 {
     public partial class explorador : System.Web.UI.Page
-    {
-        protected string actualPath;
-        
+    {        
          /// <summary>
          /// Método que se utiliza para crear un evento que se lanzará cada vez que 
          /// se presione el botón contenido en cada elemento de la ListView del explorador.
@@ -45,19 +43,6 @@ namespace Hyper2
 
                 ModalPopupExtender1.Show();
             }
-        }
-
-        /// <summary>
-        /// Detecta el clic en un nodo del arbol de carpetas y se cambia la carpeta mostrada a ésta.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void onClickedNode(object sender, EventArgs e)
-        {
-            actualPath += TreeView1.SelectedNode.Text + "\\";
-
-            populateListView(actualPath);
-            updatePanelListView.Update();
         }
 
         /// <summary>
@@ -98,21 +83,6 @@ namespace Hyper2
                     treeNode.ChildNodes.Add(directoryNode);
                 }
 
-                /*
-                //Get all files in the Directory.
-                foreach (FileInfo file in directory.GetFiles())
-                {
-                    //Add each file as Child Node.
-                    TreeNode fileNode = new TreeNode
-                    {
-                        Text = file.Name,
-                        Value = file.FullName,
-                        Target = "_blank",
-                        NavigateUrl = (new Uri(Server.MapPath("~/"))).MakeRelativeUri(new Uri(file.FullName)).ToString()
-                    };
-                    directoryNode.ChildNodes.Add(fileNode);
-                }*/
-
                 PopulateTreeView(directory, directoryNode);
             }
         }
@@ -124,9 +94,12 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (actualPath == null)
+
+            //HAY UN BUG, CUANDO SE CIERRA LA PAGINA DE INICIO DE SESION
+            //SALTA UNA EXCEPCION PORQUE LA VARIABLE DE SESION ES NULL
+            if (Session["actualPath"] == null)
             {
-                actualPath = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
+                Session["actualPath"] = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
             }
             
             if (!this.IsPostBack)
@@ -136,21 +109,8 @@ namespace Hyper2
                 this.PopulateTreeView(rootInfo, null);
             }
             
-            populateListView(actualPath);
+            populateListView((string)Session["actualPath"]);
         }
-
-        /*
-        public void ListFiles(string path)
-        {
-            NFolderEN aux = new NFolderEN(path);
-            files = aux.getFiles();
-
-            foreach (NFolderEN f in aux.getFolders())
-            {
-                files.Add(f);
-            }
-        }
-        */
         
         /// <summary>
         /// Realiza un listado de todos los elementos contenidos en un directorio.
@@ -185,6 +145,11 @@ namespace Hyper2
             newFolderName.Visible = true;
         }
 
+        /*
+         * Al crear una carpeta no se puede actualizar desde un update
+         * panel porque por algun motivo si esta dentro de uno no detecta
+         * los clics en los nodos.
+         */
         /// <summary>
         /// Manejador de un botón oculto que sirve para poder detectar la pulsación
         /// de la tecla Enter. Recoge el nombre de la carpeta nueva y la crea en el
@@ -194,23 +159,20 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonOk_Click(object sender, EventArgs e)
         {
-            string name = newFolderName.Text + "\\";
+            string name = newFolderName.Text;
             newFolderName.Visible = false;
 
             if(name != "")
             {
-                //NFolderEN aux = new NFolderEN(Session["username"].ToString());
-                //aux.createFolder(name);
+                string path = (string)Session["actualPath"];
+                NFolderEN.createFolder(path, name);
 
-                Directory.CreateDirectory(actualPath + name);
+                //TreeView1.Nodes.Clear();
+                //DirectoryInfo rootInfo = new DirectoryInfo((string)Session["actualPath"]);
+                //PopulateTreeView(rootInfo, null);
 
-                TreeView1.Nodes.Clear();
-                DirectoryInfo rootInfo = new DirectoryInfo(actualPath);
-                PopulateTreeView(rootInfo, null);
-                populateListView(actualPath);
-
+                populateListView((string)Session["actualPath"]);
                 updatePanelListView.Update();
-                updatePanelTreeView.Update();
             }
         }
 
@@ -234,7 +196,7 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonDownload_Click(object sender, EventArgs e)
         {
-            FileInfo fileInfo = new FileInfo(actualPath + @"\" + Session["selectedFile"].ToString());
+            FileInfo fileInfo = new FileInfo((string)Session["actualPath"] + @"\" + Session["selectedFile"].ToString());
 
             if (fileInfo.Exists)
             {
@@ -246,6 +208,20 @@ namespace Hyper2
                 Response.TransmitFile(fileInfo.FullName);
                 Response.End();
             }
+            else
+            {
+                //Posiblemente sea porque es una carpeta (descargar como zip?)
+            }
+        }
+
+        protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            TreeView1.SelectedNode.Expand();
+
+            Session["actualPath"] = TreeView1.SelectedNode.ValuePath + "\\";
+
+            populateListView((string)Session["actualPath"]);
+            updatePanelListView.Update();
         }
     }
 }

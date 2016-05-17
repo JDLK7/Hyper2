@@ -39,6 +39,10 @@ namespace Hyper.CAD
 
         }
 
+        /// <summary>
+        /// Constructor que mete un objeto de tipo NFolderEN en la base de datos.
+        /// </summary>
+        /// <param name="en"></param>
         public NFolderCAD(NFolderEN en)
         {
             this.path = en.Path;
@@ -47,9 +51,7 @@ namespace Hyper.CAD
             this.extension = en.Extension;
             this.date = en.Date;
             
-
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
-
             
             string query = "INSERT INTO [Files] (Path,Name,Visibility,Extension,UploadTime) " +
             "values (@pa,@na,@vi,@ext,@up)";
