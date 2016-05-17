@@ -13,6 +13,7 @@ namespace Hyper.EN
         private string dst; //Destinatario
         private string text; //Texto
         private DateTime date;
+        private string propietario;
 
         //private MessageCAD cad;
 
@@ -24,6 +25,7 @@ namespace Hyper.EN
             this.src = src;
             this.dst = dst;
             this.text = text;
+            this.propietario = "";
         }
 
         public MessageEN(int id, string user1, string user2, DateTime date, string text)
@@ -32,6 +34,7 @@ namespace Hyper.EN
             this.dst = user2;
             this.text = text;
             this.date = date;
+            this.propietario = "";
         }
 
         public string Src
@@ -52,6 +55,12 @@ namespace Hyper.EN
         public DateTime Date
         {
             get { return date; }
+        }
+
+        public string Propietario
+        {
+            get { return propietario; }
+            set { propietario = value; }
         }
 
     }

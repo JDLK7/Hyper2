@@ -37,7 +37,7 @@
                     </table>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <tr runat="server">
+                    <tr runat="server" class='<%#Eval("propietario") %>'>
                         <td class="mensajesTD"><asp:Label ID="DateLabe2" runat="server" Text='<%#Eval("text") %>' CssClass="mensajesText" /></td>
                     </tr>
                 </ItemTemplate>

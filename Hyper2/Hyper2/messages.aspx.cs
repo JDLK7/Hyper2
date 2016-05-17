@@ -16,6 +16,14 @@ namespace Hyper2
         private static string userSesion = "Javi";
         private static string userConversacion = "jose2";
 
+        public struct mensajesChat
+        {
+            public string text;
+            public string src;
+            public string dst;
+            public string clase;
+        }
+
         protected void Mostrar_Conversacion(string userSesion, string userConversacion)
         {
 
@@ -44,6 +52,19 @@ namespace Hyper2
 
                         if (msg.Src == userSesion || msg.Dst == userSesion)
                         {
+
+                            if(msg.Src == userSesion)
+                            {
+
+                                msg.Propietario = "mensajeEmisor";
+
+                            }
+                            else
+                            {
+
+                                msg.Propietario = "mensajeReceptor";
+
+                            }
 
                             arrayDeMensajes.Add(msg);
 

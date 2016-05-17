@@ -2,12 +2,22 @@
     empty-cells:show;
     border-collapse: collapse;
 }
+.mensajeEmisor{
 
-tr {
     text-align:right;
+
+}
+
+.mensajeReceptor{
+
+    text-align:left;
+
+}
+tr {
+    
 }
 tr:nth-child(even) {
-    text-align:left;
+
 }
 tr:hover {
     background-color: #d2e8f9
