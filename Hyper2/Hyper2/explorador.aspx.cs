@@ -7,11 +7,39 @@ using System.Web.UI.WebControls;
 using System.IO;
 using Hyper.EN;
 using System.Collections;
+using Hyper.CAD;
 
 namespace Hyper2
 {
     public partial class explorador : System.Web.UI.Page
-    {        
+    {     
+        /// <summary>
+        /// Actualiza el arbol de carpetas. Cuando se crea una nueva
+        /// se limpian todos los nodos antes para evitar que se añadan
+        /// nodos repetidos al final del arbol.
+        /// </summary>
+        /// <param name="clear">Indica si el arbol se debe limpiar.</param>
+        private void updateTreeView(bool clear)
+        {
+            if(clear)
+            {
+                TreeView1.Nodes.Clear();
+            }
+
+            DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath + (string)Session["username"] + "\\");
+            this.PopulateTreeView(rootInfo, null);
+        }
+
+        /// <summary>
+        /// Actualiza la lista de archivos para que aparezcan los de la 
+        /// carpeta actual.
+        /// </summary>
+        private void updateListView()
+        {
+            populateListView((string)Session["actualPath"]);
+            updatePanelListView.Update();
+        }
+
          /// <summary>
          /// Método que se utiliza para crear un evento que se lanzará cada vez que 
          /// se presione el botón contenido en cada elemento de la ListView del explorador.
@@ -74,12 +102,10 @@ namespace Hyper2
 
                 if (treeNode == null)
                 {
-                    //If Root Node, add to TreeView.
                     TreeView1.Nodes.Add(directoryNode);
                 }
                 else
                 {
-                    //If Child Node, add to Parent Node.
                     treeNode.ChildNodes.Add(directoryNode);
                 }
 
@@ -99,11 +125,10 @@ namespace Hyper2
                 if (!this.IsPostBack)
                 {
                     Session["actualPath"] = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
-                    DirectoryInfo rootInfo = new DirectoryInfo((string)Session["actualPath"]);
-                    this.PopulateTreeView(rootInfo, null);
+                    updateTreeView(false);
                 }
 
-                populateListView((string)Session["actualPath"]);
+                updateListView();
             }
             else
             {
@@ -149,11 +174,6 @@ namespace Hyper2
             newFolderName.Visible = true;
         }
 
-        /*
-         * Al crear una carpeta no se puede actualizar desde un update
-         * panel porque por algun motivo si esta dentro de uno no detecta
-         * los clics en los nodos.
-         */
         /// <summary>
         /// Manejador de un botón oculto que sirve para poder detectar la pulsación
         /// de la tecla Enter. Recoge el nombre de la carpeta nueva y la crea en el
@@ -171,12 +191,9 @@ namespace Hyper2
                 string path = (string)Session["actualPath"];
                 NFolderEN.createFolder(path, name);
 
-                TreeView1.Nodes.Clear();
-                DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath + (string)Session["username"] + "\\");
-                this.PopulateTreeView(rootInfo, null);
+                updateTreeView(true);
 
-                populateListView((string)Session["actualPath"]);
-                updatePanelListView.Update();
+                updateListView();
             }
         }
 
@@ -196,9 +213,8 @@ namespace Hyper2
 
                     FileInfo fi = new FileInfo((string)Session["actualPath"] + filename);
                     new NFileEN(fi).Save();
-                    
-                    populateListView((string)Session["actualPath"]);
-                    updatePanelListView.Update();
+
+                    updateListView();
                 }
                 catch (Exception)
                 {
@@ -207,9 +223,6 @@ namespace Hyper2
             }
         }
 
-        /*
-         * POR ALGUNA RAZON SI EL NOMBRE TIENE ESPACIOS NO LO COGE ENTERO.
-         */
         /// <summary>
         /// Descarga el archivo escogido en el explorador.
         /// </summary>
@@ -235,15 +248,40 @@ namespace Hyper2
             }
         }
 
-        //solo queda que cuando se actualiza se cierran todos los nodos.
+        /// <summary>
+        /// Manejador del evento que se lanza al seleccionar una carpeta en el arbol.
+        /// Se cambia la ruta actual a la de la carpeta seleccionada y se actualiza la lista
+        /// de archivos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
         {
             TreeView1.SelectedNode.Expand();
-
             Session["actualPath"] = TreeView1.SelectedNode.Value + "\\";
-            
-            populateListView((string)Session["actualPath"]);
-            updatePanelListView.Update();
+            updateListView();
+        }
+
+        /// <summary>
+        /// Manejador del botón de eliminar. Borra el archivo del directorio físico
+        /// y de la base de datos. Si es una carpeta se borra el directorio y todos
+        /// los archivos que contiene.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void buttonRemove_Click(object sender, EventArgs e)
+        {
+            string file = (string)Session["actualPath"] + @"\" + Session["selectedFile"].ToString();
+
+            if (File.GetAttributes(file) == FileAttributes.Directory)
+            {
+                //BORRA EL DIRECTORIO Y SUS ARCHIVOS.
+            }
+            else
+            {
+                File.Delete(file);
+                updateListView();
+            }
         }
     }
 }

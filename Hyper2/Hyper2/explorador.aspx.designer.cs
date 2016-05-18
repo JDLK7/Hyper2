@@ -40,6 +40,15 @@ namespace Hyper2 {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
+        /// buttonClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton buttonClose;
+        
+        /// <summary>
         /// textBoxComment control.
         /// </summary>
         /// <remarks>
