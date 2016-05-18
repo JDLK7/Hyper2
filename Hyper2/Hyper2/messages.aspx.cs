@@ -93,7 +93,7 @@ namespace Hyper2
             javi.Save();
             jose2.Save();*/
 
-            if(Session["username"] != null)
+            if(Session["username"] != null && Session["username"].ToString() != "")
             {
 
                 UserSesion = Session["username"].ToString();
@@ -102,7 +102,7 @@ namespace Hyper2
             else
             {
 
-                UserSesion = "";
+                Response.Redirect("registro.aspx");
 
             }
             
