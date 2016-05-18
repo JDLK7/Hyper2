@@ -9,11 +9,11 @@
     <div class="col_group">
         <div>
          <h3  style="color:black;"><b>Foto de perfil:</b></h3>
-            <img style="margin-bottom:1em;" src="http://www.razas-caballos.com/Imagenes/caballo-mustang-salvaje.jpg" width="230" height="230" class="blockquote"/>
+            <asp:Image ID="profilePic" runat="server" style="margin-bottom:1em;" src="IMG/defaultPic.png" width="230" height="230" class="blockquote"/>
             
              <div class="box__input">
-                 <input style="margin-bottom:1em;" class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple="multiple" />
-                 <button class="box__button" type="submit">Subir archivo</button>
+                 <asp:FileUpload ID="uploadPic" runat="server" />
+                 <asp:Button ID="buttonUpload" CssClass="btn btn-default" runat="server" Text="Cambiar" OnClick="buttonUpload_Click" />
              </div>
         </div>
         <div>

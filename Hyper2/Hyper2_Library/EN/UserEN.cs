@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using Hyper.EN;
 using Hyper.CAD;
+using System.IO;
 
 //QUE puede hacer el usuario sobre SI MISMO
 //como mostrar usuario
@@ -115,6 +116,7 @@ namespace Hyper.EN
         public void Save()
         {
             UserCAD.Save(this);
+            File.Copy(@"C:\HyperDataFiles\ProfilePics\default.jpg", @"C:\HyperDataFiles\ProfilePics\" + username + ".jpg");
         }
 
         /*
