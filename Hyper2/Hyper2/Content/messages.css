@@ -18,6 +18,8 @@ tr {
 }
 tr:nth-child(even) {
 
+    background-color:rgba(0, 0, 0, 0.02);
+
 }
 tr:hover {
     background-color: #d2e8f9
@@ -56,9 +58,22 @@ a{
     
 }
 
+.mensajeReceptor .mensajesText{
+
+    background-color:rgba(255, 255, 255, 0.52);
+
+}
+
+.mensajeEmisor .mensajesText{
+
+    background-color:rgba(68, 187, 254, 0.53);
+
+}
+
+
 #messagesText{
 
-    background-color:white;
+    background-color:rgba(255, 255, 255, 0.85);
     position: absolute;
     float:right;
     height:100%;
@@ -99,7 +114,7 @@ a{
 
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
 
 }
 
@@ -131,5 +146,12 @@ a{
 #ContentPlaceHolder1_buttonEnviar{
 
     width:7em;
+
+}
+
+.botonesUsers{
+
+    padding:0.5em 5em;
+
 
 }
