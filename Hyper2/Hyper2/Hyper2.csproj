@@ -144,6 +144,7 @@
     <Content Include="Content\subir.css" />
     <Content Include="Content\registro.css" />
     <Content Include="Content\_explorador.css" />
+    <Content Include="download.aspx" />
     <Content Include="explorador.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="IMG\favicon.png" />
@@ -223,6 +224,13 @@
     </Compile>
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="download.aspx.cs">
+      <DependentUpon>download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="download.aspx.designer.cs">
+      <DependentUpon>download.aspx</DependentUpon>
     </Compile>
     <Compile Include="explorador.aspx.cs">
       <DependentUpon>explorador.aspx</DependentUpon>
