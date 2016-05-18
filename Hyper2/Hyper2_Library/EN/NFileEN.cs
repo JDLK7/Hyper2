@@ -19,6 +19,9 @@ namespace Hyper.EN
         private string owner;
         private string name;
         private string extension;
+        private long size;
+        private bool visibility;
+        private DateTime date;
         private NFileCAD cad;
 
         public string Path
@@ -38,9 +41,9 @@ namespace Hyper.EN
             get { return name; }
         }
 
-        public string Date
+        public DateTime Date
         {
-            get { return cad.Date; }
+            get { return date; }
         }
 
         public string Extension
@@ -50,19 +53,52 @@ namespace Hyper.EN
 
         public string Size
         {
-            get { return "10 MB"; }
+            get
+            {
+                if (size >= 1073741824)
+                {
+                    return (size / (1024 * 1024 * 1024)).ToString() + "GB";
+                }
+                else if (size >= 1048576)
+                {
+                    return (size / (1024 * 1024)).ToString() + "MB";
+                }
+                else if(size >= 1024)
+                {
+                    return (size / 1024).ToString() + "KB";
+                }
+                else
+                {
+                    return size.ToString() + "B";
+                }
+            }
+        }
+
+        public bool Visibility
+        {
+            get { return visibility; }
+            set { visibility = value; }
         }
 
         /*
          * Constructor para nuevos archivos
          */
-        public NFileEN(string path, string owner)
+        public NFileEN(string path, string name)
         {
-            this.owner = owner;
-            this.path = defaultPath + path;
+            this.path = defaultPath;
             this.name = getName();
             this.extension = getExtension();
             this.cad = new NFileCAD(this);
+        }
+
+        public NFileEN(FileInfo fi)
+        {
+            path = fi.ToString();
+            name = fi.Name;
+            extension = fi.Extension;
+            size = fi.Length;
+            date = DateTime.Now;
+            visibility = false;
         }
 
         /*
@@ -77,6 +113,11 @@ namespace Hyper.EN
             this.extension = getExtension();
             this.name = getName();
 
+        }
+
+        public void Save()
+        {
+            NFileCAD.Save(this);
         }
 
         public string getName()

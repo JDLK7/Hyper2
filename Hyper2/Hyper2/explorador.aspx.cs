@@ -189,16 +189,14 @@ namespace Hyper2
         {
             if (uploadControl.HasFile)
             {
-                //FALTA METER EN BBDD.
                 try
                 {
                     string filename = Path.GetFileName(uploadControl.FileName);
                     uploadControl.SaveAs((string)Session["actualPath"] + filename);
 
-                    //FileInfo fi = new FileInfo((string)Session["actualPath"] + filename);
-                    //long size = fi.Length;
-
-                    //RECODIFICAR EN METODO?
+                    FileInfo fi = new FileInfo((string)Session["actualPath"] + filename);
+                    new NFileEN(fi).Save();
+                    
                     populateListView((string)Session["actualPath"]);
                     updatePanelListView.Update();
                 }
@@ -224,7 +222,7 @@ namespace Hyper2
             if (fileInfo.Exists)
             {
                 Response.Clear();
-                Response.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
+                Response.AddHeader("Content-Disposition", "attachment; filename=\"" + fileInfo.Name + "\"");
                 Response.AddHeader("Content-Length", fileInfo.Length.ToString());
                 Response.ContentType = "application/octet-stream";
                 Response.Flush();

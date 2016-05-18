@@ -120,6 +120,36 @@ namespace Hyper.CAD
 
         }
 
+        public static void Save(NFileEN fi)
+        {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            string query = "INSERT INTO [Files] (Path,Name,Visibility,Extension,UploadTime) " +
+            "values (@pa,@na,@vi,@ext,@up)";
+
+            db.Open();
+
+            SqlCommand insert = new SqlCommand(query, db);
+            insert.Parameters.AddWithValue("@pa", fi.Path);
+            insert.Parameters.AddWithValue("@na", fi.Name);
+            insert.Parameters.AddWithValue("@vi", 0);
+            insert.Parameters.AddWithValue("@ext", fi.Extension);
+            insert.Parameters.AddWithValue("@up", fi.Date);
+
+            try
+            {
+                int columnas = insert.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //UserEN error = new UserEN("error", "error", "error", "error", "error");
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
         public void Delete()
         {
             /*
