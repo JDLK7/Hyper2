@@ -114,7 +114,7 @@
     </asp:ScriptManager>
     
     <cc1:modalpopupextender id="ModalPopupExtender1" runat="server" 
-	    cancelcontrolid="buttonRemove" okcontrolid="buttonRemove" 
+	    cancelcontrolid="buttonClose" okcontrolid="buttonClose" 
 	    targetcontrolid="buttonDummy" popupcontrolid="Panel1" 
 	    popupdraghandlecontrolid="PopupHeader" drag="true" 
 	    backgroundcssclass="ModalPopupBG">
@@ -122,7 +122,12 @@
 
     <asp:panel id="Panel1" style="display: none" runat="server">
 	    <div class="HellowWorldPopup">
-            <div class="PopupHeader" id="PopupHeader">Header</div>
+            <div class="PopupHeader" id="PopupHeader">
+                <asp:LinkButton ID="buttonClose" runat="server" CssClass="btn btn-default" style="margin-left:1em; border:none;">
+                    <span aria-hidden="true" class=" glyphicon glyphicon-remove-circle"></span>
+                </asp:LinkButton>
+            </div>
+
             <div class="PopupBody">
                 <asp:TextBox ID="textBoxComment" runat="server" CssClass="form-control commentTextBox" style="width:80%" placeholder="Escribe un comentario..."></asp:TextBox>
                 <asp:Button ID="buttonComment" runat="server" CssClass="btn btn-default" Text="Enviar" />
@@ -140,7 +145,7 @@
                     <span aria-hidden="true" class="glyphicon glyphicon-eye-open"></span>
                     Hacer público
                 </asp:LinkButton>
-                <asp:LinkButton ID="buttonRemove" runat="server" CssClass="btn btn-default buttonPopup">
+                <asp:LinkButton ID="buttonRemove" runat="server" CssClass="btn btn-default buttonPopup" OnClick="buttonRemove_Click">
                     <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
                     Eliminar
                 </asp:LinkButton>                
@@ -215,6 +220,14 @@
                     Subir
                 </asp:LinkButton>
                 <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;"/>
+
+                <!--
+                <div class="progress" style="width:80%; margin-left:2.5em; margin-top:0.5em">
+                  <div id="progressBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                    <span id="progressBarLabel" class="sr-only">Subiendo...</span>
+                  </div>
+                </div>
+                -->
             </asp:Panel>
 
             <asp:Button id="buttonDummy" runat="server" style="display:none" />

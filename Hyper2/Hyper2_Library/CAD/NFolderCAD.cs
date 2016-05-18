@@ -79,11 +79,13 @@ namespace Hyper.CAD
             }
         }
 
-        public void Delete()
+        public static void Delete(NFolderEN folder)
         {
-            /*
-             * delete from table where path = this.path
-             */ 
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            string query;
+
+            db.Open();
         }
     }
 }

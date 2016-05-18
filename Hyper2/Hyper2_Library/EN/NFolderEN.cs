@@ -118,6 +118,7 @@ namespace Hyper.EN
          */ 
         public void Delete()
         {
+            /*
             DirectoryInfo di = new DirectoryInfo(defaultPath + path);
 
             foreach (FileInfo file in di.GetFiles())
@@ -135,6 +136,8 @@ namespace Hyper.EN
      
             Directory.Delete(defaultPath + path);
             cad.Delete();
+            */
+            NFolderCAD.Delete(this);
         }
 
         /*

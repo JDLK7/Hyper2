@@ -184,6 +184,7 @@
     <Content Include="obj\Release\build.force" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="profile.aspx" />
+    <Content Include="Prueba_progressBar.aspx" />
     <Content Include="registro.aspx" />
     <Content Include="scripts\bootstrap-select.js" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
@@ -195,6 +196,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="UploadHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -289,6 +291,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Prueba_progressBar.aspx.cs">
+      <DependentUpon>Prueba_progressBar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prueba_progressBar.aspx.designer.cs">
+      <DependentUpon>Prueba_progressBar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="registro.aspx.cs">
       <DependentUpon>registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,6 +311,9 @@
     </Compile>
     <Compile Include="subir.aspx.designer.cs">
       <DependentUpon>subir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadHandler.ashx.cs">
+      <DependentUpon>UploadHandler.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
