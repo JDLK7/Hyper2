@@ -12,18 +12,22 @@
             <div align="center"><img src="IMG/logoHyper.png" alt ="LogoHyper" width=325em height=125em border=0/></div>
 
             <h1 align="center"><b>Sube tus archivos a hyper</b></h1><br />
+            <p>Seguro que alguna vez has intentado enviar un archivo por email
+                pero era demasiado grande. Con la subida gratuita de Hyper podrás subir un archivo
+                de hasta 1GB y automáticamente se generará un enlace que podrás compartir con el destinatario
+                que eligas para que pueda descargarse el archivo. Una vez descargado el archivo expirará.<br /></p>
 
-            <asp:FileUpload id="FileUploadControl" runat="server" />
+            <asp:FileUpload ID="FileUpload1" runat="server" />
             <br /> 
 
             <b>Descripción:</b> <br /><br />
-             <textarea rows="4" cols="50"></textarea>
+             <asp:TextBox runat="server" ID="description" CssClass="form-control"></asp:TextBox>
             <br /><br />
 
             <br /><br />
-            <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />
+            <asp:Button runat="server" id="UploadButton" text="Upload" CssClass="btn btn-default" onclick="UploadButton_Click" />
             <br /><br />
-            <asp:Label runat="server" id="StatusLabel" text="Upload status: " />
+            <asp:Label runat="server" id="StatusLabel" text="Upload status: " BorderColor="Blue" />
 
         </div>
 

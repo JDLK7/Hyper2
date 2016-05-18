@@ -37,8 +37,9 @@ namespace Hyper2
                 Response.ContentType = "application/octet-stream";
                 Response.Flush();
                 Response.TransmitFile(fileInfo.FullName);
-                File.Delete(path);
                 Response.End();
+
+                //File.Delete(path);
             }
         }
     }
