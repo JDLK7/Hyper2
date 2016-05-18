@@ -140,6 +140,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\iniciarSesion.css" />
+    <Content Include="Content\manageaccount.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\messages.css" />
     <Content Include="Content\profile.css" />
