@@ -214,7 +214,7 @@
                     <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
                     Subir
                 </asp:LinkButton>
-                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;"/>
+                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;" />
             </asp:Panel>
 
             <asp:Button id="buttonDummy" runat="server" style="display:none" />

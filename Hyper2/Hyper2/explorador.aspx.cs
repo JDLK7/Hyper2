@@ -93,23 +93,27 @@ namespace Hyper2
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {   
+            if (Session["username"] != null)
+            {
+                if (!this.IsPostBack)
+                {
+                    Session["actualPath"] = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
+                    DirectoryInfo rootInfo = new DirectoryInfo((string)Session["actualPath"]);
+                    this.PopulateTreeView(rootInfo, null);
+                }
 
-            //HAY UN BUG, CUANDO SE CIERRA LA PAGINA DE INICIO DE SESION
-            //SALTA UNA EXCEPCION PORQUE LA VARIABLE DE SESION ES NULL
-            if (Session["actualPath"] == null)
-            {
-                Session["actualPath"] = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
+                populateListView((string)Session["actualPath"]);
             }
-            
-            if (!this.IsPostBack)
+            else
             {
-                //Aqui tiene que ir directamente el path asignado al usuario.
-                DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath + (string)Session["username"] + "\\");
-                this.PopulateTreeView(rootInfo, null);
+                if(!this.IsPostBack)
+                {
+                    buttonNewFolder.Visible = false;
+                    buttonUploadOk.Visible = false;
+                    uploadControl.Visible = false;
+                }
             }
-            
-            populateListView((string)Session["actualPath"]);
         }
         
         /// <summary>
@@ -167,9 +171,9 @@ namespace Hyper2
                 string path = (string)Session["actualPath"];
                 NFolderEN.createFolder(path, name);
 
-                //TreeView1.Nodes.Clear();
-                //DirectoryInfo rootInfo = new DirectoryInfo((string)Session["actualPath"]);
-                //PopulateTreeView(rootInfo, null);
+                TreeView1.Nodes.Clear();
+                DirectoryInfo rootInfo = new DirectoryInfo(NFolderEN.defaultPath + (string)Session["username"] + "\\");
+                this.PopulateTreeView(rootInfo, null);
 
                 populateListView((string)Session["actualPath"]);
                 updatePanelListView.Update();
@@ -183,7 +187,26 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonUpload_Click(object sender, EventArgs e)
         {
-            
+            if (uploadControl.HasFile)
+            {
+                //FALTA METER EN BBDD.
+                try
+                {
+                    string filename = Path.GetFileName(uploadControl.FileName);
+                    uploadControl.SaveAs((string)Session["actualPath"] + filename);
+
+                    //FileInfo fi = new FileInfo((string)Session["actualPath"] + filename);
+                    //long size = fi.Length;
+
+                    //RECODIFICAR EN METODO?
+                    populateListView((string)Session["actualPath"]);
+                    updatePanelListView.Update();
+                }
+                catch (Exception)
+                {
+                    
+                }
+            }
         }
 
         /*
@@ -214,12 +237,13 @@ namespace Hyper2
             }
         }
 
+        //solo queda que cuando se actualiza se cierran todos los nodos.
         protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
         {
             TreeView1.SelectedNode.Expand();
 
-            Session["actualPath"] = TreeView1.SelectedNode.ValuePath + "\\";
-
+            Session["actualPath"] = TreeView1.SelectedNode.Value + "\\";
+            
             populateListView((string)Session["actualPath"]);
             updatePanelListView.Update();
         }
