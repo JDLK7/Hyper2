@@ -28,7 +28,11 @@
             <asp:Image ID="profilePic" runat="server" style="margin-bottom:10em; float:left;" width="260" height="250" class="blockquote"  />
         </div>
         <div align="center">
-            <h3>Gestión de memoria del usuario</h3>
+            <div>
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <ajaxToolkit:PieChart ID="PieChart1" runat="server"></ajaxToolkit:PieChart>
+            </div>
+            <!--<h3>Gestión de memoria del usuario</h3>
             <div>
                 <p>Espacio disponible:</p>
                 <p style ="color:blue">Espacio usado (música)</p>
@@ -42,7 +46,7 @@
                      <div id="porcion3" class="recorte"><div class="quesito" data-rel=" 25MB"></div></div>
                      <div id="porcionFin" class="recorte"><div class="quesito" data-rel="145MB"></div></div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
