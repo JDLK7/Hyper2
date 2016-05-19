@@ -27,11 +27,8 @@
             <!--<img style="margin-bottom:10em; float:left;" src="http://www.razas-caballos.com/Imagenes/caballo-mustang-salvaje.jpg" width="260" height="250" class="blockquote"/>-->
             <asp:Image ID="profilePic" runat="server" style="margin-bottom:10em; float:left;" width="260" height="250" class="blockquote"  />
         </div>
-        <div align="center">
-            <div>
-                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <ajaxToolkit:PieChart ID="PieChart1" runat="server"></ajaxToolkit:PieChart>
-            </div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <ajaxToolkit:PieChart ID="PieChart1" runat="server" BorderStyle="None" BorderWidth="0"></ajaxToolkit:PieChart>
             <!--<h3>Gestión de memoria del usuario</h3>
             <div>
                 <p>Espacio disponible:</p>

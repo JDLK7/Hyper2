@@ -85,7 +85,7 @@
                     </div>
 
                     <asp:DropDownList ID="dropDownSession" runat="server" CssClass="selectpicker dropdown-user" OnSelectedIndexChanged="dropDownSession_IndexChanged" AutoPostBack="true">
-                        <asp:ListItem Text="">
+                        <asp:ListItem>
                             Mi cuenta
                         </asp:ListItem>
                         <asp:ListItem>

@@ -23,7 +23,7 @@ namespace Hyper2
                 ButtonIniciarSesion.Visible = false;
                 ButtonRegistrarse.Visible = false;
                 dropDownSession.Visible = true;
-                linkUpload.Attributes["href"] = "explorador.aspx";
+                linkUpload.Attributes["href"] = "subir.aspx";
             }
             else
             {
@@ -65,7 +65,7 @@ namespace Hyper2
             switch (dropDownSession.SelectedIndex)
             {
                 case 0:
-                    Response.Redirect("explorador.aspx");
+                    Response.Redirect("explorador.aspx"); //Cambiar para que entre.
                     break;
                 case 1:
                     Response.Redirect("profile.aspx");

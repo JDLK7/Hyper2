@@ -22,8 +22,9 @@ namespace Hyper2
             LabelEmail.Text = "<b>Email: </b>" + UserCAD.getField(Session["username"].ToString(), "email");
             LabelPlan.Text = "<b>Plan: </b>" + UserCAD.getField(Session["username"].ToString(), "plan");
 
-            PieChart1.ChartHeight = "1000px";
-            PieChart1.ChartWidth = "1000px";
+            PieChart1.ChartHeight = "500em";
+            PieChart1.ChartWidth = "500em";
+            PieChart1.CssClass = "graficoSVG";
 
             ArrayList music = new ArrayList();
             music.Add(".mp3");
@@ -90,7 +91,7 @@ namespace Hyper2
                 }
             }
 
-            return tam;
+            return tam/1024;
         }
 
         static long total(string path)
@@ -111,7 +112,7 @@ namespace Hyper2
                 
             }
 
-            return tam;
+            return tam/1024;
         }
     }
 }
