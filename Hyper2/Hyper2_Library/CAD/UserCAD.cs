@@ -166,5 +166,30 @@ namespace Hyper.CAD
                 db.Close();
             }
         }
+        
+
+        public static bool changeField(string username, string field, string newName)
+        {
+
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "update [User] set [" + field + "] ='" + newName + "' WHERE [username] = '" + username + "'";
+                SqlCommand command = new SqlCommand(query, db);
+                command.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
     }
 }
