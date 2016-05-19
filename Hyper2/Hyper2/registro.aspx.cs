@@ -27,30 +27,58 @@ namespace Hyper2
                 textBox_firstName.BorderColor = System.Drawing.Color.Red;
                 r = false;
             }
+            else {
+                textBox_firstName.BorderColor = System.Drawing.Color.LightGray;
+            }
+
             if (textBox_lastName.Text == "")
             {
                 textBox_lastName.BorderColor = System.Drawing.Color.Red;
                 r = false;
             }
+            else
+            {
+                textBox_lastName.BorderColor = System.Drawing.Color.LightGray;
+            }
+
             if (textBox_username.Text == "")
             {
                 textBox_username.BorderColor = System.Drawing.Color.Red;
                 r = false;
             }
+            else
+            {
+                textBox_username.BorderColor = System.Drawing.Color.LightGray;
+            }
+
             if (textBox_email.Text == "")
             {
                 textBox_email.BorderColor = System.Drawing.Color.Red;
                 r = false;
             }
+            else
+            {
+                textBox_email.BorderColor = System.Drawing.Color.LightGray;
+            }
+
             if (textBox_password.Text == "")
             {
                 textBox_password.BorderColor = System.Drawing.Color.Red;
                 r = false;
             }
+            else
+            {
+                textBox_password.BorderColor = System.Drawing.Color.LightGray;
+            }
+
             if (textBox_passwordConf.Text == "")
             {
                 textBox_passwordConf.BorderColor = System.Drawing.Color.Red;
                 r = false;
+            }
+            else
+            {
+                textBox_passwordConf.BorderColor = System.Drawing.Color.LightGray;
             }
 
             return r;
@@ -189,9 +217,10 @@ namespace Hyper2
             bool t = check_textBoxes(),
                     u = check_username(),
                     m = check_email(),
-                    p = check_password();
+                    p = check_password(),
+                    c = CheckBox1_check();
 
-            if (t && u && m && p)
+            if (t && u && m && p && c)
             {
                 string  firstName = textBox_firstName.Text,
                         lastName = textBox_lastName.Text,
@@ -204,6 +233,20 @@ namespace Hyper2
                 confirmation_email(email, firstName);
 
                 Response.Redirect("iniciarSesion.aspx");
+            }
+        }
+
+        private bool CheckBox1_check()
+        {
+            if (CheckBox1.Checked)
+            {
+                label_aceptar.Text = "";
+                return true;
+            }
+            else
+            {
+                label_aceptar.Text = "Por favor, acepte los términos";
+                return false;
             }
         }
     }
