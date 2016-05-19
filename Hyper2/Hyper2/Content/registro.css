@@ -65,3 +65,16 @@
 
 
 }
+
+#ContentPlaceHolder1_CheckBox1{
+
+    padding-left: 1em; 
+    padding-top: 0.8em;
+
+}
+
+label[for*="ContentPlaceHolder1_CheckBox1"]{
+
+    padding:1em;
+
+}
