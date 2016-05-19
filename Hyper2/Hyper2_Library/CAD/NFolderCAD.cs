@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Hyper.CAD
 {
-    class NFolderCAD
+    public class NFolderCAD
     {
         private string path;
         private string name;
@@ -87,5 +87,29 @@ namespace Hyper.CAD
 
             db.Open();
         }
+
+        public static void Rename(string source, string dst, string name)
+        {
+
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "update [Files] set [Path] ='" + dst + "' [name] ='" + name + "' WHERE [Path] = '" + source + "'";
+                SqlCommand command = new SqlCommand(query, db);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
     }
 }
+

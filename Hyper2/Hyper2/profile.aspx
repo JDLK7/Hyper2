@@ -9,12 +9,23 @@
         <h1 id="barraTitulo" style="color:darkblue; margin-bottom:2em;" align="center"><b>Mi perfil</b></h1>
         <div style="float:left; margin-left:1em;" id="datosUser">
             <div style="float:right; margin-left:10em; margin-top:1em;">
-                <p><strong>Nombre del usuario</strong></p>
+                <!--<p><strong>Nombre del usuario</strong></p>-->
+                <asp:Label ID="LabelNombre" runat="server" Text="Nombre del usuario"></asp:Label>
+                <p></p>
+                <asp:Label ID="LabelEmail" runat="server" Text="Label"></asp:Label>
+                <p></p>
+                <asp:Label ID="LabelPlan" runat="server" Text="Label"></asp:Label>
+                <p></p>
+
+
+
+                <!--
                 <p><strong>Dirección de correo</strong></p>
                 <p><strong>Plan contratado: (gratis, 100GB...)</strong></p>
-                <p><strong>Idioma preferido</strong></p>
+                <p><strong>Idioma preferido</strong></p> -->
             </div>
-            <img style="margin-bottom:10em; float:left;" src="http://www.razas-caballos.com/Imagenes/caballo-mustang-salvaje.jpg" width="260" height="250" class="blockquote"/>
+            <!--<img style="margin-bottom:10em; float:left;" src="http://www.razas-caballos.com/Imagenes/caballo-mustang-salvaje.jpg" width="260" height="250" class="blockquote"/>-->
+            <asp:Image ID="profilePic" runat="server" style="margin-bottom:10em; float:left;" width="260" height="250" class="blockquote"  />
         </div>
         <div align="center">
             <h3>Gestión de memoria del usuario</h3>

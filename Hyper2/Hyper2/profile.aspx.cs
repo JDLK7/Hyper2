@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Hyper.CAD;
 
 namespace Hyper2
 {
@@ -11,7 +12,10 @@ namespace Hyper2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            profilePic.ImageUrl = "IMG/" + Session["username"].ToString() + ".jpg";
+            LabelNombre.Text = "<b>Nombre de usuario:</b> xd";
+            LabelEmail.Text = "<b>Email: </b>" + UserCAD.getField(Session["username"].ToString(), "email");
+            LabelPlan.Text = "<b>Plan: </b>" + UserCAD.getField(Session["username"].ToString(), "plan");
         }
     }
 }
