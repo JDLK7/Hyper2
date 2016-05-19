@@ -191,5 +191,38 @@ namespace Hyper.CAD
                 db.Close();
             }
         }
+
+        public static string getField(string username, string field)
+        {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "SELECT [" + field + "] FROM [User] WHERE [username] = '" + username + "'";
+                SqlCommand command = new SqlCommand(query, db);
+                SqlDataReader dr = command.ExecuteReader();
+
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    return dr.GetSqlValue(0).ToString();
+                }
+                else
+                {
+                    return "";
+                }
+            
+            }
+            catch (SqlException)
+            {
+                return "";
+            }
+            finally
+            {
+                db.Close();
+            }
+
+        }
     }
 }
