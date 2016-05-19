@@ -4,3 +4,7 @@
     $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'Content/explorador.css'));
     
 });
+
+function showBrowseDialog() {
+    document.getElementById('<%=uploadControl.ClientID%>').click();
+}
