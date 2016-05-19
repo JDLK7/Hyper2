@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using Hyper.CAD;
+using System.Collections;
+using Hyper.EN;
 
 namespace Hyper2
 {
@@ -82,6 +85,56 @@ namespace Hyper2
                     Response.Redirect("index.aspx");
                     break;
             }
+        }
+
+        protected void Buscar(object sender, EventArgs e)
+        {
+
+            string termino = textBox_search.Text;
+            int campoSeleccionado = DropDownList2.SelectedIndex;
+            ArrayList prueba = new ArrayList();
+
+            switch (campoSeleccionado){
+
+                case 1:
+
+                    prueba = BuscarCAD.buscar(termino, "Música");
+                    break;
+
+                case 2:
+
+                    prueba = BuscarCAD.buscar(termino, "Vídeos");
+                    break;
+
+                case 3:
+
+                    prueba = BuscarCAD.buscar(termino, "Fotos");
+                    break;
+
+                case 4:
+
+                    prueba = BuscarCAD.buscar(termino, "Archivos");
+                    break;
+
+                case 5:
+
+                    prueba = BuscarCAD.buscar(termino, "Usuarios");
+                    break;
+
+                default:
+
+                    prueba = BuscarCAD.buscar(termino, "Todos");
+                    break;
+
+            }
+
+            // BuscarCAD.buscar(termino, campo);
+            foreach (BuscarEN b in prueba)
+            {
+                System.Diagnostics.Debug.WriteLine("\n\n\n\n" + "La excepcion es:" + b.Name + "\n\n\n\n");
+            }
+            
+
         }
     }
 }

@@ -63,19 +63,30 @@
             <ul class="nav navbar-nav navbar-right">
                 <div class="nav navbar-form navbar-left" role="search">
                     <asp:TextBox ID="textBox_search" runat="server" type="text" class="form-control" placeholder="Buscar" />
-                    <asp:Button ID="button_search" runat="server" type="submit" class="btn btn-default" Text="Enviar"></asp:Button>
+                    <asp:Button ID="button_search" runat="server" type="submit" class="btn btn-default" OnClick="Buscar" Text="Enviar"></asp:Button>
                 </div>
                 <li class="dropdown">
-                    <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" id="todosMenu">
-                        Todos <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" class="optionsEtiqueta">Todos</a></li>
-                        <li><a href="#" class="optionsEtiqueta">Usuarios</a></li>
-                        <li><a href="#" class="optionsEtiqueta">Música</a></li>
-                        <li><a href="#" class="optionsEtiqueta">Vídeos</a></li>
-                        <li><a href="#" class="optionsEtiqueta">Archivos</a></li>
-                    </ul>
+
+                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="selectpicker dropdown-user" AutoPostBack="true">
+                        <asp:ListItem>
+                            Todos
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Música
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Vídeos
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Fotos
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Archivos
+                        </asp:ListItem>
+                        <asp:ListItem>
+                            Usuarios
+                        </asp:ListItem>
+                    </asp:DropDownList>
                 </li>
                 <li>
 

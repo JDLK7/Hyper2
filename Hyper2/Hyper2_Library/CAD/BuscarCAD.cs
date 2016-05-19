@@ -14,7 +14,7 @@ namespace Hyper.CAD
     {
         /*
          * el campo admite valores "todo", "usuario", "musica", videos, archivos
-         */ 
+         */
         public static ArrayList buscar(string termino, string campo)
         {
             ArrayList res = new ArrayList();
@@ -38,12 +38,12 @@ namespace Hyper.CAD
             files.Add(".doc");
             files.Add(".exe");
 
-            if (campo == "todo")
+            if (campo == "Todos")
             {
                 try
                 {
                     db.Open();
-                    string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name = '%" + termino + "%';";
+                    string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%';";
                     SqlCommand command = new SqlCommand(query, db);
                     SqlDataReader dr = command.ExecuteReader();
 
@@ -63,23 +63,25 @@ namespace Hyper.CAD
                 }
                 catch (Exception)
                 {
-
+                    return res;
                 }
                 finally
                 {
                     db.Close();
+                   
                 }
+                return res;
             }
             else
             {
-                if (campo == "musica")
+                if (campo == "Música")
                 {
                     foreach (string ext in music)
                     {
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name = '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -99,7 +101,7 @@ namespace Hyper.CAD
                         }
                         catch (Exception)
                         {
-
+                            return res;
                         }
                         finally
                         {
@@ -108,14 +110,14 @@ namespace Hyper.CAD
                     }
                 }
 
-                if (campo == "videos")
+                if (campo == "Vídeos")
                 {
                     foreach (string ext in video)
                     {
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name = '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -135,7 +137,7 @@ namespace Hyper.CAD
                         }
                         catch (Exception)
                         {
-
+                            return res;
                         }
                         finally
                         {
@@ -143,76 +145,118 @@ namespace Hyper.CAD
                         }
                     }
 
-                    if (campo == "archivos")
+                }
+
+                if (campo == "Archivos")
+                {
+                    foreach (string ext in files)
                     {
-                        foreach (string ext in files)
+                        try
                         {
-                            try
-                            {
-                                db.Open();
-                                string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name = '%" + termino + "%' and extension='" + ext + "';";
-                                SqlCommand command = new SqlCommand(query, db);
-                                SqlDataReader dr = command.ExecuteReader();
+                            db.Open();
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            SqlCommand command = new SqlCommand(query, db);
+                            SqlDataReader dr = command.ExecuteReader();
 
-                                if (dr.HasRows)
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
                                 {
-                                    while (dr.Read())
-                                    {
-                                        string path = dr.GetString(0);
-                                        string name = dr.GetString(1);
-                                        string extension = dr.GetString(2);
-                                        BuscarEN busqueda = new BuscarEN(name, extension, path);
+                                    string path = dr.GetString(0);
+                                    string name = dr.GetString(1);
+                                    string extension = dr.GetString(2);
+                                    BuscarEN busqueda = new BuscarEN(name, extension, path);
 
-                                        res.Add(busqueda);
-                                    }
+                                    res.Add(busqueda);
                                 }
+                            }
 
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            finally
-                            {
-                                db.Close();
-                            }
                         }
-
-                        if (campo == "usuario")
+                        catch (Exception)
                         {
-
-                            try
-                            {
-                                db.Open();
-                                string query = "SELECT [username] FROM [User] WHERE username = '%" + termino + "%';";
-                                SqlCommand command = new SqlCommand(query, db);
-                                SqlDataReader dr = command.ExecuteReader();
-
-                                if (dr.HasRows)
-                                {
-                                    while (dr.Read())
-                                    {
-                                        string aux = dr.GetString(0);
-                                        BuscarEN busqueda = new BuscarEN(aux, "Usuario");
-
-                                        res.Add(busqueda);
-                                    }
-                                }
-
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            finally
-                            {
-                                db.Close();
-                            }
+                            return res;
+                        }
+                        finally
+                        {
+                            db.Close();
                         }
                     }
 
-
-                    return res;
                 }
+
+                if (campo == "Fotos")
+                {
+                    foreach (string ext in photos)
+                    {
+                        try
+                        {
+                            db.Open();
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            SqlCommand command = new SqlCommand(query, db);
+                            SqlDataReader dr = command.ExecuteReader();
+
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
+                                {
+                                    string path = dr.GetString(0);
+                                    string name = dr.GetString(1);
+                                    string extension = dr.GetString(2);
+                                    BuscarEN busqueda = new BuscarEN(name, extension, path);
+
+                                    res.Add(busqueda);
+                                }
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            return res;
+                        }
+                        finally
+                        {
+                            db.Close();
+                        }
+                    }
+
+                }
+
+                if (campo == "Usuarios")
+                {
+
+                    try
+                    {
+                        db.Open();
+                        string query = "SELECT [username] FROM [User] WHERE username LIKE '%" + termino + "%';";
+                        SqlCommand command = new SqlCommand(query, db);
+                        SqlDataReader dr = command.ExecuteReader();
+
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                string aux = dr.GetString(0);
+                                BuscarEN busqueda = new BuscarEN(aux, "Usuario");
+
+                                res.Add(busqueda);
+                            }
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        return res;
+                    }
+                    finally
+                    {
+                        db.Close();
+                    }
+                }
+                    
+                
             }
+        return res;
+        }
+    }
 }
+
