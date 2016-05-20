@@ -126,6 +126,7 @@ namespace Hyper2
                 {
                     Session["actualPath"] = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
                     updateTreeView(false);
+                    labelUsername.Text = Session["username"].ToString();
                 }
 
                 updateListView();
@@ -271,17 +272,25 @@ namespace Hyper2
         /// <param name="e"></param>
         protected void buttonRemove_Click(object sender, EventArgs e)
         {
-            string file = (string)Session["actualPath"] + @"\" + Session["selectedFile"].ToString();
+            string file = (string)Session["actualPath"] + Session["selectedFile"].ToString();
 
             if (File.GetAttributes(file) == FileAttributes.Directory)
             {
-                //BORRA EL DIRECTORIO Y SUS ARCHIVOS.
+                
             }
             else
             {
-                File.Delete(file);
+                NFileEN.DeleteFile(file);   //Borra de la BBDD
+                File.Delete(file);      //Borra del directorio
                 updateListView();
             }
+        }
+
+        protected void buttonHome_Click(object sender, EventArgs e)
+        {
+            Session["actualPath"] = NFolderEN.defaultPath + Session["username"].ToString() + "\\";
+            updateTreeView(true);
+            updateListView();
         }
     }
 }

@@ -150,13 +150,50 @@ namespace Hyper.CAD
             }
         }
 
-        public void Delete()
+        public static void DeleteFile(string path)
         {
-            /*
-             * delete from table where path = this.path
-             */
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+            SqlCommand delete = new SqlCommand();
+            delete.CommandType = System.Data.CommandType.Text;
+            delete.CommandText = "DELETE FROM Files WHERE Path = '" + path + "'";
+            delete.Connection = db;
+
+            db.Open();
+            try
+            {
+                delete.ExecuteNonQuery();
+            }
+            catch(Exception)
+            {
+
+            }
+            finally
+            {
+                db.Close();
+            }
         }
 
+        public static void DeleteDirectory(string path)
+        {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+            SqlCommand delete = new SqlCommand();
+            delete.CommandType = System.Data.CommandType.Text;
+            delete.CommandText = "DELETE FROM Files WHERE Path LIKE '" + path + "'";
+            delete.Connection = db;
 
+            db.Open();
+            try
+            {
+                delete.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
     }
 }

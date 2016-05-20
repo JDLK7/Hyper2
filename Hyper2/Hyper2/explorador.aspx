@@ -57,6 +57,10 @@
 
     <div id="wrapper">
         <div id="treeView-container">
+            <asp:LinkButton runat="server" ID="buttonHome" CssClass="btn btn-lg" OnClick="buttonHome_Click">
+                <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                <asp:Label runat="server" ID="labelUsername"></asp:Label>
+            </asp:LinkButton>
             <asp:TreeView ID="TreeView1" runat="server" NodeStyle-CssClass="treeNode" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged" 
                 RootNodeStyle-CssClass="rootNode" LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-Font-Bold="true" 
                 ExpandImageUrl="IMG/folder-closed.png" NoExpandImageUrl="IMG/folder-closed.png" CollapseImageUrl="IMG/folder-open.png" style="margin-left:1em; margin-top:1em;">
@@ -122,7 +126,7 @@
                     <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
                     Subir
                 </asp:LinkButton>
-                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;"/>
+                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;" AllowMultiple="true"/>
 
                 <!--
                 <div class="progress" style="width:80%; margin-left:2.5em; margin-top:0.5em">
