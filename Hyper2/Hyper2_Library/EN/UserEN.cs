@@ -116,7 +116,7 @@ namespace Hyper.EN
         public void Save()
         {
             UserCAD.Save(this);
-            File.Copy(@"C:\HyperDataFiles\ProfilePics\default.jpg", @"C:\HyperDataFiles\ProfilePics\" + username + ".jpg");
+            //File.Copy(@"C:\HyperDataFiles\ProfilePics\default.jpg", @"C:\HyperDataFiles\ProfilePics\" + username + ".jpg");
         }
 
         /*

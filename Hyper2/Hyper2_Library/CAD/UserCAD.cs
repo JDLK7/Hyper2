@@ -34,8 +34,8 @@ namespace Hyper.CAD
         {
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
 
-            string query = "INSERT INTO [User] (username,email,password,firstName,lastName,profilePic,admin,folder) " +
-                "values (@us,@em,@pass,@first,@last,@pic,@adm,@fol)";
+            string query = "INSERT INTO [User] (username,email,password,firstName,lastName,admin,folder) " +
+                "values (@us,@em,@pass,@first,@last,@adm,@fol)";
 
             db.Open();
 
@@ -46,7 +46,7 @@ namespace Hyper.CAD
             insert.Parameters.AddWithValue("@pass", user.Password);
             insert.Parameters.AddWithValue("@first", user.FirstName);
             insert.Parameters.AddWithValue("@last", user.LastName);
-            insert.Parameters.Add("@pic", SqlDbType.Image).Value = DBNull.Value;
+            //insert.Parameters.Add("@pic", SqlDbType.Image).Value = DBNull.Value;
             insert.Parameters.AddWithValue("@adm", 0);
             insert.Parameters.AddWithValue("@fol", user.FolderPath);
 
