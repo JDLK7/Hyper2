@@ -132,12 +132,14 @@
     <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="buscador.aspx" />
     <Content Include="Content\about.css" />
     <Content Include="Content\bootstrap-select.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\buscador.css" />
     <Content Include="Content\explorador.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\iniciarSesion.css" />
@@ -230,6 +232,13 @@
     </Compile>
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="buscador.aspx.cs">
+      <DependentUpon>buscador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="buscador.aspx.designer.cs">
+      <DependentUpon>buscador.aspx</DependentUpon>
     </Compile>
     <Compile Include="download.aspx.cs">
       <DependentUpon>download.aspx</DependentUpon>

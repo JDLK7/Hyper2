@@ -7,9 +7,6 @@
     <script src="scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src='scripts/explorerEditor.js'></script>
     <link rel="stylesheet" type="text/css" href="Content/explorador.css" />
-    <script type="text/javascript">
-
-    </script>
 
     <title>Explorador de archivos</title>
 
@@ -96,7 +93,8 @@
                                 <td style="text-align:center;">10 MB</td>
                                 <td runat="server" style="text-align:center;">
                                     <asp:LinkButton ID="buttonMore" runat="server" CssClass="btn btn-default" CommandName="more" CommandArgument='<%# Container.DataItemIndex %>'>
-                                        <span aria-hidden="true" class="glyphicon glyphicon-option-horizontal"></span>
+                                        <!--<span aria-hidden="true" class="glyphicon glyphicon-option-horizontal"></span>-->
+                                        <span>Opciones</span>
                                     </asp:LinkButton>
                                 </td>
                             </tr>

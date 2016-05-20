@@ -94,41 +94,52 @@ namespace Hyper2
             int campoSeleccionado = DropDownList2.SelectedIndex;
             ArrayList prueba = new ArrayList();
 
+            string url = HttpContext.Current.Request.Url.Authority;
+            string campo;
+
             switch (campoSeleccionado){
 
                 case 1:
 
                     prueba = BuscarCAD.buscar(termino, "Música");
+                    campo = "Música";
                     break;
 
                 case 2:
 
                     prueba = BuscarCAD.buscar(termino, "Vídeos");
+                    campo = "Vídeos";
                     break;
 
                 case 3:
 
                     prueba = BuscarCAD.buscar(termino, "Fotos");
+                    campo = "Fotos";
                     break;
 
                 case 4:
 
                     prueba = BuscarCAD.buscar(termino, "Archivos");
+                    campo = "Archivos";
                     break;
 
                 case 5:
 
                     prueba = BuscarCAD.buscar(termino, "Usuarios");
+                    campo = "Usuarios";
                     break;
 
                 default:
 
                     prueba = BuscarCAD.buscar(termino, "Todos");
+                    campo = "Todos";
                     break;
 
             }
 
-            // BuscarCAD.buscar(termino, campo);
+            string redir = "~/buscador.aspx?termino=" + termino + "&campo=" + campo;
+            Response.Redirect(redir);
+
             foreach (BuscarEN b in prueba)
             {
                 System.Diagnostics.Debug.WriteLine("\n\n\n\n" + "La excepcion es:" + b.Name + "\n\n\n\n");
