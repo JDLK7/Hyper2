@@ -12,8 +12,6 @@ namespace Hyper.EN
     public class NFileEN
     {
         public static string defaultPath = @"c:\HyperDataFiles\";
-        private string defaultFolder = "default";
-        private string defaultOwner = "default";
 
         public string path;
         private string owner;
@@ -148,6 +146,11 @@ namespace Hyper.EN
             {
                 return "";
             }
+        }
+
+        public static void DeleteFile(string path)
+        {
+            NFileCAD.DeleteFile(path);
         }
     }
 }
