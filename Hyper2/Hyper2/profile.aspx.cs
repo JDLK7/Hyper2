@@ -18,7 +18,7 @@ namespace Hyper2
         protected void Page_Load(object sender, EventArgs e)
         {
             profilePic.ImageUrl = "IMG/" + Session["username"].ToString() + ".jpg";
-            LabelNombre.Text = "<b>Nombre de usuario:</b> xd";
+            LabelNombre.Text = "<b>Nombre de usuario:</b> " + Session["username"];
             LabelEmail.Text = "<b>Email: </b>" + UserCAD.getField(Session["username"].ToString(), "email");
             LabelPlan.Text = "<b>Plan: </b>" + UserCAD.getField(Session["username"].ToString(), "plan");
 
