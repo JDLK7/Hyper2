@@ -161,6 +161,7 @@ namespace Hyper2
             string yo = Session["username"].ToString();
 
             MessageCAD.chat(yo, usuarioAChatear);
+            MessageCAD.chat(usuarioAChatear, yo);
 
             Response.Redirect("~/messages.aspx");
 
