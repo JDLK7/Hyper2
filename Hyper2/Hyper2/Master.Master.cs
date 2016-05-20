@@ -67,19 +67,19 @@ namespace Hyper2
         {
             switch (dropDownSession.SelectedIndex)
             {
-                case 0:
-                    Response.Redirect("explorador.aspx"); //Cambiar para que entre.
-                    break;
                 case 1:
-                    Response.Redirect("profile.aspx");
+                    Response.Redirect("explorador.aspx");
                     break;
                 case 2:
-                    Response.Redirect("messages.aspx");
+                    Response.Redirect("profile.aspx");
                     break;
                 case 3:
-                    Response.Redirect("manageaccount.aspx");
+                    Response.Redirect("messages.aspx");
                     break;
                 case 4:
+                    Response.Redirect("manageaccount.aspx");
+                    break;
+                case 5:
                     Session["sesionIniciada"] = false;
                     Session["username"] = "";
                     Response.Redirect("index.aspx");

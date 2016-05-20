@@ -100,6 +100,9 @@
                             Mi cuenta
                         </asp:ListItem>
                         <asp:ListItem>
+                            Explorador
+                        </asp:ListItem>
+                        <asp:ListItem>
                             Perfil
                         </asp:ListItem>
                         <asp:ListItem>
