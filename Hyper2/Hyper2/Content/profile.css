@@ -12,7 +12,6 @@
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-    height:65em;
 
 
 }
@@ -139,14 +138,6 @@
 	box-shadow:2px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.graficoSVG{
-
-    float:right;
-    height:50em;
-    width:50em;
-
-}
-
 svg{
 
     height:40em;
@@ -157,5 +148,11 @@ svg{
 #ContentPlaceHolder1_PieChart1__ParentDiv{
 
     border-style:none !important;
+
+}
+
+#contenedorColumnas{
+
+    display:flex;
 
 }
