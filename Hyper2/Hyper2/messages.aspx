@@ -3,12 +3,12 @@
     
     <script src="scripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src='scripts/messagesEditor.js'></script>
-    <link rel="stylesheet" type="text/css" href="Content/messages.css" />
+    <!--<link rel="stylesheet" type="text/css" href="Content/messages.css" />-->
     <title>Mensajes</title>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="divCental">
+    <div id="divCentral">
         <div id="messagesMain">
             <asp:ListView ID="ListViewUsers" runat="server">
                 <LayoutTemplate>
