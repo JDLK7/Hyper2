@@ -67,9 +67,14 @@ namespace Hyper2
             //DirectoryInfo di = new DirectoryInfo(path);
 
             //explorerListView.DataSource = FullDirList(di);
+            bool iniciada = false;
 
+            if ((Session["sesionIniciada"] != null) && ((bool)(Session["sesionIniciada"]) == true))
+            {
+                iniciada = true;
+            }
 
-            explorerListView.DataSource = BuscarCAD.buscar(Request.QueryString["termino"], Request.QueryString["campo"]);
+            explorerListView.DataSource = BuscarCAD.buscar(Request.QueryString["termino"], Request.QueryString["campo"], iniciada);
             explorerListView.DataBind();
         }
 

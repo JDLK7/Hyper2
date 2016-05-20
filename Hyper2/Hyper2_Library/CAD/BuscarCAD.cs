@@ -15,7 +15,7 @@ namespace Hyper.CAD
         /*
          * el campo admite valores "todo", "usuario", "musica", videos, archivos
          */
-        public static ArrayList buscar(string termino, string campo)
+        public static ArrayList buscar(string termino, string campo, bool iniciada)
         {
             ArrayList res = new ArrayList();
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
@@ -38,7 +38,9 @@ namespace Hyper.CAD
             files.Add(".doc");
             files.Add(".exe");
 
-            string visi = "Visibility = 'True' and";
+            string visi = "";
+            if(!iniciada)
+                visi = "Visibility = 'True' and";
 
            
 
@@ -47,7 +49,7 @@ namespace Hyper.CAD
                 try
                 {
                     db.Open();
-                    string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE Visibility = 'True' and name LIKE '%" + termino + "%';";
+                    string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE " + visi + " name LIKE '%" + termino + "%';";
                     SqlCommand command = new SqlCommand(query, db);
                     SqlDataReader dr = command.ExecuteReader();
 
@@ -85,7 +87,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE " + visi + " name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -121,7 +123,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE " + visi + " name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -158,7 +160,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE " + visi + " name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -195,7 +197,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE " + visi + " name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -231,7 +233,7 @@ namespace Hyper.CAD
                     try
                     {
                         db.Open();
-                        string query = "SELECT [username] FROM [User]  WHERE Visibility = 'True' and username LIKE '%" + termino + "%';";
+                        string query = "SELECT [username] FROM [User]  WHERE username LIKE '%" + termino + "%';";
                         SqlCommand command = new SqlCommand(query, db);
                         SqlDataReader dr = command.ExecuteReader();
 

@@ -69,7 +69,7 @@ namespace Hyper2
             //explorerListView.DataSource = FullDirList(di);
 
 
-            explorerListView.DataSource = BuscarCAD.buscar(Request.QueryString["termino"], Request.QueryString["campo"]);
+            explorerListView.DataSource = BuscarCAD.buscar(Request.QueryString["termino"], Request.QueryString["campo"], false);
             explorerListView.DataBind();
         }
 
