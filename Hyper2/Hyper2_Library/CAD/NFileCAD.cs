@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Hyper.CAD
 {
-    class NFileCAD
+    public class NFileCAD
     {
 
         private string path;
@@ -189,6 +189,64 @@ namespace Hyper.CAD
             catch (Exception)
             {
 
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        public static string getVisibility(string path)
+        {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+            try
+            {
+                db.Open();
+                string query = "SELECT [visibility] FROM [Files] WHERE [Path] = '" + path + "'";
+                SqlCommand command = new SqlCommand(query, db);
+                SqlDataReader dr = command.ExecuteReader();
+
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    return dr.GetSqlValue(0).ToString();
+                }
+                else
+                {
+                    return "";
+                }
+
+            }
+            catch (SqlException)
+            {
+                return "";
+            }
+            finally
+            {
+                db.Close();
+            }
+
+        }
+
+        public static void setVisibility(string path, string visibility)
+        {
+            SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);
+
+           
+
+            try
+            {
+                db.Open();
+                string query = "update [Files] set [Visibility] ='" + visibility + "' WHERE [path] = '" + path + "'";
+                SqlCommand command = new SqlCommand(query, db);
+                command.ExecuteNonQuery();
+                
+
+            }
+            catch (Exception e)
+            {
+                
             }
             finally
             {

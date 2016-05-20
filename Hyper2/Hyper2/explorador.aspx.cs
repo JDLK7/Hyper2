@@ -292,5 +292,20 @@ namespace Hyper2
             updateTreeView(true);
             updateListView();
         }
+
+        protected void toggleVisibility(object sender, EventArgs e)
+        {
+            string path = (string)Session["actualPath"] + Session["selectedFile"].ToString() + "\\";
+            string actual = NFileCAD.getVisibility(path);
+
+            if(actual == "True")
+            {
+                NFileCAD.setVisibility(path, "False");
+            }
+            else
+            {
+                NFileCAD.setVisibility(path, "True");
+            }
+        }
     }
 }

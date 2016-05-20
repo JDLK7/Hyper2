@@ -38,12 +38,16 @@ namespace Hyper.CAD
             files.Add(".doc");
             files.Add(".exe");
 
+            string visi = "Visibility = 'True' and";
+
+           
+
             if (campo == "Todos")
             {
                 try
                 {
                     db.Open();
-                    string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%';";
+                    string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE Visibility = 'True' and name LIKE '%" + termino + "%';";
                     SqlCommand command = new SqlCommand(query, db);
                     SqlDataReader dr = command.ExecuteReader();
 
@@ -81,7 +85,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -117,7 +121,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -154,7 +158,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -191,7 +195,7 @@ namespace Hyper.CAD
                         try
                         {
                             db.Open();
-                            string query = "SELECT [Path], [Name], [Extension] FROM [Files] WHERE name LIKE '%" + termino + "%' and extension='" + ext + "';";
+                            string query = "SELECT [Path], [Name], [Extension] FROM [Files]  WHERE Visibility = 'True' and name LIKE '%" + termino + "%' and extension='" + ext + "';";
                             SqlCommand command = new SqlCommand(query, db);
                             SqlDataReader dr = command.ExecuteReader();
 
@@ -227,7 +231,7 @@ namespace Hyper.CAD
                     try
                     {
                         db.Open();
-                        string query = "SELECT [username] FROM [User] WHERE username LIKE '%" + termino + "%';";
+                        string query = "SELECT [username] FROM [User]  WHERE Visibility = 'True' and username LIKE '%" + termino + "%';";
                         SqlCommand command = new SqlCommand(query, db);
                         SqlDataReader dr = command.ExecuteReader();
 

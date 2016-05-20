@@ -43,7 +43,7 @@
                     <span aria-hidden="true" class=" glyphicon glyphicon-share"></span>
                     Compartir
                 </asp:LinkButton>
-                <asp:LinkButton ID="buttonPublic" runat="server" CssClass="btn btn-default buttonPopup">
+                <asp:LinkButton ID="buttonPublic" runat="server" CssClass="btn btn-default buttonPopup" OnClick="toggleVisibility">
                     <span aria-hidden="true" class="glyphicon glyphicon-eye-open"></span>
                     Hacer público
                 </asp:LinkButton>
@@ -126,7 +126,7 @@
                     <span aria-hidden="true" class="glyphicon glyphicon-cloud-upload"></span>
                     Subir
                 </asp:LinkButton>
-                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;" AllowMultiple="true"/>
+                <asp:FileUpload id="uploadControl" runat="server" style="display:inline; margin-left:1em; vertical-align:sub;"/>
 
                 <!--
                 <div class="progress" style="width:80%; margin-left:2.5em; margin-top:0.5em">
