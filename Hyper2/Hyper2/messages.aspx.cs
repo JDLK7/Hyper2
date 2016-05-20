@@ -113,8 +113,19 @@ namespace Hyper2
 
             if(conversaciones.Count != 0)
             {
-                UserEN auxUser = (UserEN)conversaciones[0];
-                UserConversacion = auxUser.Username;
+                if(Session["UserHablando"] == null) { 
+
+                    UserEN auxUser = (UserEN)conversaciones[0];
+                    Session["UserHablando"] = (UserEN)conversaciones[0];
+                    UserConversacion = auxUser.Username;
+
+                }
+                else
+                {
+
+                    UserConversacion = Session["UserHablando"].ToString();
+
+                }
 
             }
             else
@@ -133,6 +144,7 @@ namespace Hyper2
 
             Button boton = (Button)sender;
             UserConversacion = boton.Text;
+            Session["UserHablando"] = boton.Text;
 
             Mostrar_Conversacion(UserSesion, UserConversacion);
 

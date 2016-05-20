@@ -100,44 +100,41 @@ namespace Hyper2
             switch (campoSeleccionado){
 
                 case 1:
-
-                    prueba = BuscarCAD.buscar(termino, "Música");
                     campo = "Música";
                     break;
 
                 case 2:
-
-                    prueba = BuscarCAD.buscar(termino, "Vídeos");
                     campo = "Vídeos";
                     break;
 
                 case 3:
-
-                    prueba = BuscarCAD.buscar(termino, "Fotos");
                     campo = "Fotos";
                     break;
 
                 case 4:
-
-                    prueba = BuscarCAD.buscar(termino, "Archivos");
                     campo = "Archivos";
                     break;
 
                 case 5:
-
-                    prueba = BuscarCAD.buscar(termino, "Usuarios");
                     campo = "Usuarios";
                     break;
 
                 default:
-
-                    prueba = BuscarCAD.buscar(termino, "Todos");
                     campo = "Todos";
                     break;
 
             }
 
-            string redir = "~/buscador.aspx?termino=" + termino + "&campo=" + campo;
+            string redir;
+
+            if (campo != "Usuarios")
+            {
+                redir = "~/buscador.aspx?termino=" + termino + "&campo=" + campo;
+            }
+            else
+            {
+                redir = "~/buscadorUsuarios.aspx?termino=" + termino + "&campo=" + campo;
+            }
             Response.Redirect(redir);
 
             foreach (BuscarEN b in prueba)

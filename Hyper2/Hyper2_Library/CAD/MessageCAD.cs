@@ -146,7 +146,7 @@ namespace Hyper.CAD
         /*
          * Inicializa una conversacion entre ambos usuarios
          */ 
-        private static void chat(string user1, string user2)
+        public static void chat(string user1, string user2)
         {
 
             SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Hyper2DB"].ConnectionString);

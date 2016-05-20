@@ -133,6 +133,7 @@
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="buscador.aspx" />
+    <Content Include="buscadorUsuarios.aspx" />
     <Content Include="Content\about.css" />
     <Content Include="Content\bootstrap-select.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -239,6 +240,13 @@
     </Compile>
     <Compile Include="buscador.aspx.designer.cs">
       <DependentUpon>buscador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="buscadorUsuarios.aspx.cs">
+      <DependentUpon>buscadorUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="buscadorUsuarios.aspx.designer.cs">
+      <DependentUpon>buscadorUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="download.aspx.cs">
       <DependentUpon>download.aspx</DependentUpon>
